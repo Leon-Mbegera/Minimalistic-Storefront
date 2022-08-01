@@ -1,7 +1,6 @@
 import { gql } from "@apollo/client";
 
 export const allData = gql`
-  {
     categories {
       name
       products {
@@ -31,5 +30,4 @@ export const allData = gql`
         brand
       }
     }
-  }
 `;
