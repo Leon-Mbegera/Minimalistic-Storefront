@@ -14,7 +14,7 @@ const cartReducer = (state = initialCartItems, action) => {
       };
     case REMOVE_FROM_CART:
       cart = [...state.cart];
-      cart.splice(cart.indexOf(action.payload));
+      cart.splice(cart.indexOf(action.payload.name));
       return {
         cart,
         total: state.total - action.payload.price,
