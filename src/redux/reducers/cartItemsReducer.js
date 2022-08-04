@@ -13,13 +13,21 @@ const cartReducer = (state = initialCartItems, action) => {
         total: state.total + action.payload.total,
       };
     case REMOVE_FROM_CART:
-      cart = [...state.cart];
-      cart.splice(cart.indexOf(action.payload.name));
+      const cart = [...state.cart];
+      const targetProduct = action.payload;
+      const productIndex = cart.findIndex(
+        (prod) => prod.name === targetProduct.name
+      );
+      if (productIndex < 0) {
+        return;
+      }
       return {
         cart,
-        total: state.total - action.payload.price,
+        total: state.total - targetProduct.price,
       };
     default:
       return state;
   }
 };
+
+export default cartReducer;
