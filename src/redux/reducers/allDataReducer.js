@@ -1,7 +1,7 @@
 import { ALL_DATA_REQUEST, ALL_DATA_SUCCESS, ALL_DATA_ERROR } from "../index";
 
 const initialAllData = {
-  allData: [],
+  data: [],
   error: "",
 };
 
