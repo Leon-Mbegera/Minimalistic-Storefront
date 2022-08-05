@@ -1,10 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import App from "./App";
+import App from "./pages/components/App";
 // import { ApolloProvider, ApolloClient, InMemoryCache } from "@apollo/client";
 import ApolloClient from "apollo-boost";
 import { ApolloProvider } from "react-apollo";
+import { Provider } from "react-redux";
+import store from "./redux/store";
 
 const client = new ApolloClient({
   uri: "http://localhost:4000",
@@ -13,9 +15,11 @@ const client = new ApolloClient({
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <ApolloProvider client={client}>
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>
+    <Provider store={store}>
+      <React.StrictMode>
+        <App />
+      </React.StrictMode>
+    </Provider>
   </ApolloProvider>
 );
 
