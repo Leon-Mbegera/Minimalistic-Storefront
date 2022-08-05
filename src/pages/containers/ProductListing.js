@@ -1,5 +1,8 @@
 import React from "react";
+import { connect } from "react-redux";
 
 class ProductListing extends React.Component {}
 
-export default ProductListing;
+const mapStateToProps = (state) => ({ products: state.allData });
+
+export default connect(mapStateToProps)(ProductListing);
