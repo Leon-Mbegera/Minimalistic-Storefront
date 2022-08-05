@@ -1,13 +1,13 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import ProductListing from "./pages/ProductListing";
+import AllProductsListing from "./pages/AllProductsListing";
 
 class App extends React.Component {
   render() {
     return (
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<ProductListing />} />
+          <Route path="/" element={<AllProductsListing />} />
         </Routes>
       </BrowserRouter>
     );
