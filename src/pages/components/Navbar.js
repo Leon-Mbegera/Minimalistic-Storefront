@@ -4,16 +4,24 @@ import { Link } from "react-router-dom";
 
 const currencyOptions = [
   {
-    label: "$",
-    value: "USD",
+    symbol: "$",
+    label: "USD",
   },
   {
-    label: "€",
-    value: "EUR",
+    symbol: "£",
+    label: "EUR",
+  },
+  {
+    symbol: "A$",
+    label: "AUD",
   },
   {
     label: "¥",
-    value: "YEN",
+    value: "JPY",
+  },
+  {
+    symbol: "₽",
+    label: "RUB",
   },
 ];
 
