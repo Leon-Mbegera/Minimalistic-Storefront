@@ -1,30 +1,50 @@
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500&display=swap');
 
 body {
   margin: 0;
 }
 
+.navbar {
+  font-family: "Raleway", sans-serif;
+}
+
 .navbar-div {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 .dropdown {
   float: left;
   overflow: hidden;
+  font-size: 18px;
+  font-weight: 400;
 }
 
 .dropdown-menu {
   display: none;
-  position: relative;
+  position: absolute;
+  border: 2px solid blue;
   list-style: none;
-  background-color: #EEEEEE;
+  width: 114px;
+  margin-left: -10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-inline-start: 0;
+  background-color: #FFFFFF;
   z-index: 10;
 }
 
 .dropdown-menu li {
-  float: none;
-  text-align: left;
+  text-align: center;
+  cursor: pointer;
+  padding-top: 12px;
+  padding-bottom: 8px;
+  background-color: inherit;
+}
+
+.dropdown-menu li:hover {
+  background-color: #EEEEEE;
+  border: blue;
 }
 
 .show {
