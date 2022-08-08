@@ -73,10 +73,12 @@ export {
   ALL_DATA_ERROR,
   ADD_TO_CART,
   REMOVE_FROM_CART,
+  CURRENCY_CHANGE,
   allDataRequest,
   allDataSuccess,
   allDataError,
   addToCart,
   removeFromCart,
+  currencyChange,
   queryAllData,
 };
