@@ -1,6 +1,7 @@
 import React from "react";
 // import { Nav, NavMenu, NavLink } from "../../styled/NavbarElements";
 import { Link } from "react-router-dom";
+import { svg } from "../../assets/cartIcon";
 
 const currencyOptions = [
   {
@@ -55,6 +56,7 @@ class Navbar extends React.Component {
                 })}
               </ul>
             </div>
+            <div>{svg}</div>
           </div>
           {/* <div>Shopping cart icon goes here ... </div> */}
         </nav>
