@@ -11,15 +11,15 @@ export const Nav = styled.nav`
   z-index: 10;
 `;
 
+export const NavMenu = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
 export const NavLink = styled(Link)`
-  font-family: "Raleway";
+  font-family: "Raleway", sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 16px;
   line-height: 120%;
-`;
-
-export const NavMenu = styled.div`
-  display: flex;
-  align-items: center;
 `;
