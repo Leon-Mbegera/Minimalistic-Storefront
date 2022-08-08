@@ -4,6 +4,7 @@ import cartIcon from "../../assets/icons8-shopping-cart-32.png";
 import { logoSvg } from "../../assets/LogoSvg";
 import { logoMark } from "../../assets/LogoMark";
 import { logoMarkArrow } from "../../assets/LogoMarkArrow";
+import { connect } from "react-redux";
 
 const currencyOptions = [
   {
@@ -34,6 +35,8 @@ class Navbar extends React.Component {
     ele.classList.toggle("show");
   };
 
+  dispatchSelectCurrency = () => {};
+
   render() {
     return (
       <>
@@ -55,6 +58,7 @@ class Navbar extends React.Component {
               <div className="buttons">
                 <button type="button" className="dropdownBtn">
                   Btn
+                  {/* {this.props.selectedCurrency.symbol} */}
                 </button>
                 <img src={cartIcon} />
               </div>
@@ -69,7 +73,6 @@ class Navbar extends React.Component {
               </ul>
             </div>
           </div>
-          {/* <div>Shopping cart icon goes here ... </div> */}
         </nav>
       </>
     );
@@ -83,4 +86,8 @@ window.onclick = function (event) {
   }
 };
 
-export default Navbar;
+const mapStateToProps = (state) => ({
+  currency: state.selectedCurrency,
+});
+
+export default connect(mapStateToProps)(Navbar);
