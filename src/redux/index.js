@@ -6,6 +6,7 @@ const ALL_DATA_SUCCESS = "ALL_DATA_SUCCESS";
 const ALL_DATA_ERROR = "ALL_DATA_ERROR";
 const ADD_TO_CART = "ADD_TO_CART";
 const REMOVE_FROM_CART = "REMOVE_FROM_CART";
+const CURRENCY_CHANGE = "CURRENCY_CHANGE";
 
 // action creators
 
@@ -40,6 +41,13 @@ const removeFromCart = (product) => {
   return {
     type: REMOVE_FROM_CART,
     payload: product,
+  };
+};
+
+const currencyChange = (currencyOpt) => {
+  return {
+    type: CURRENCY_CHANGE,
+    payload: currencyOpt,
   };
 };
 

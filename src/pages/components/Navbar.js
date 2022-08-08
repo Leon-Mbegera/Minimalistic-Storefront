@@ -16,8 +16,8 @@ const currencyOptions = [
     label: "AUD",
   },
   {
-    label: "¥",
-    value: "JPY",
+    symbol: "¥",
+    label: "JPY",
   },
   {
     symbol: "₽",
@@ -48,8 +48,8 @@ class Navbar extends React.Component {
               <ul className="dropdown-menu" id="dropdown-content">
                 {currencyOptions.map((opt) => {
                   return (
-                    <li key={opt.value}>
-                      {opt.label} {opt.value}
+                    <li key={opt.label}>
+                      {opt.symbol} {opt.label}
                     </li>
                   );
                 })}
