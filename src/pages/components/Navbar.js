@@ -1,7 +1,9 @@
 import React from "react";
-// import { Nav, NavMenu, NavLink } from "../../styled/NavbarElements";
 import { Link } from "react-router-dom";
-import { svg } from "../../assets/cartIcon";
+import cartIcon from "../../assets/icons8-shopping-cart-32.png";
+import { logoSvg } from "../../assets/LogoSvg";
+import { logoMark } from "../../assets/LogoMark";
+import { logoMarkArrow } from "../../assets/LogoMarkArrow";
 
 const currencyOptions = [
   {
@@ -42,10 +44,20 @@ class Navbar extends React.Component {
               <Link to="/Clothes">Clothes</Link>
               <Link to="/Tech">Tech</Link>
             </div>
+            <div>
+              <span className="main-logo">
+                {logoSvg}
+                <span className="logo-mark">{logoMark}</span>
+                <span className="logo-mark-arrow">{logoMarkArrow}</span>
+              </span>
+            </div>
             <div className="dropdown" onClick={this.handleDropdownClick}>
-              <button type="button" className="dropdownBtn">
-                Btn
-              </button>
+              <div className="buttons">
+                <button type="button" className="dropdownBtn">
+                  Btn
+                </button>
+                <img src={cartIcon} />
+              </div>
               <ul className="dropdown-menu" id="dropdown-content">
                 {currencyOptions.map((opt) => {
                   return (
@@ -56,7 +68,6 @@ class Navbar extends React.Component {
                 })}
               </ul>
             </div>
-            <div>{svg}</div>
           </div>
           {/* <div>Shopping cart icon goes here ... </div> */}
         </nav>
