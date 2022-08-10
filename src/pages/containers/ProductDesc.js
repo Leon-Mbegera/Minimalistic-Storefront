@@ -14,6 +14,10 @@ class DetailsPage extends React.Component {
     );
     this.setProduct(selected);
   }
+
+  render() {
+    return <>{this.product}</>;
+  }
 }
 
 const WrappedDetailsPage = () => {
