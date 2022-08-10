@@ -43,9 +43,10 @@ class Navbar extends React.Component {
         <nav className="navbar">
           <div className="navbar-div">
             <div>
+              {/* <Link to="/Categories/All">All</Link> */}
               <Link to="/">All</Link>
-              <Link to="/Clothes">Clothes</Link>
-              <Link to="/Tech">Tech</Link>
+              <Link to="/Categories/Clothes">Clothes</Link>
+              <Link to="/Categories/Tech">Tech</Link>
             </div>
             <div>
               <span className="main-logo">
@@ -60,7 +61,7 @@ class Navbar extends React.Component {
                   Btn
                   {/* {this.props.selectedCurrency.symbol} */}
                 </button>
-                <img src={cartIcon} />
+                <img src={cartIcon} alt="shopping cart" />
               </div>
               <ul className="dropdown-menu" id="dropdown-content">
                 {currencyOptions.map((opt) => {

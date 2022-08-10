@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import AllProductsListing from "../containers/AllProductsListing";
 import ClothesListing from "../containers/ClothesListing";
 import TechListing from "../containers/TechListing";
+import WrappedDetailsPage from "../containers/ProductDesc";
 import Navbar from "./Navbar";
 
 class App extends React.Component {
@@ -11,9 +12,23 @@ class App extends React.Component {
       <BrowserRouter>
         <Navbar />
         <Routes>
-          <Route exact path="/" element={<AllProductsListing />} />
-          <Route exact path="/Clothes" element={<ClothesListing />} />
-          <Route exact path="/Tech" element={<TechListing />} />
+          <Route
+            exact
+            path="/"
+            // path="/Categories/All"
+            element={<AllProductsListing />}
+          />
+          <Route
+            exact
+            path="/Categories/All/:id"
+            element={<WrappedDetailsPage />}
+          />
+          <Route
+            exact
+            path="/Categories/Clothes"
+            element={<ClothesListing />}
+          />
+          <Route exact path="/Categories/Tech" element={<TechListing />} />
         </Routes>
       </BrowserRouter>
     );
