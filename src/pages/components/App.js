@@ -5,8 +5,15 @@ import ClothesListing from "../containers/ClothesListing";
 import TechListing from "../containers/TechListing";
 import WrappedDetailsPage from "../containers/ProductDesc";
 import Navbar from "./Navbar";
+import { connect } from "react-redux";
+import { queryAllData } from "../../redux/index";
 
 class App extends React.Component {
+  componentDidMount() {
+    console.log("App.js has mounted");
+    queryAllData();
+  }
+
   render() {
     return (
       <BrowserRouter>
@@ -35,4 +42,4 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export default connect(mapStateToProps)(App);

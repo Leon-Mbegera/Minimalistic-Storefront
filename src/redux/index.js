@@ -51,7 +51,8 @@ const currencyChange = (currencyOpt) => {
   };
 };
 
-const queryAllData = () => (dispatch) => {
+const queryAllData = async () => (dispatch) => {
+  console.log("queryAllData has run");
   return (
     <Query query={allData} pollInterval={500}>
       {({ loading, error, data }) => {
@@ -60,12 +61,17 @@ const queryAllData = () => (dispatch) => {
         console.log("fetched data", data);
         if (loading) return <p>Loading...</p>;
         if (error) return <p>Error :( </p>;
-
-        dispatch(allDataSuccess(data.categories));
+        if (data) {
+          dispatch(allDataSuccess(data.categories));
+        }
       }}
     </Query>
   );
 };
+
+// const queryAllData = () => {
+//   console.log("run queryAllData function");
+// };
 
 export {
   ALL_DATA_REQUEST,
