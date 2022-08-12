@@ -23,3 +23,8 @@ export const NavLink = styled(Link)`
   font-size: 16px;
   line-height: 120%;
 `;
+
+export const navlinkStyles = {
+  textDecoration: "none",
+  textTransform: "uppercase",
+};

@@ -5,6 +5,7 @@ import { logoSvg } from "../../assets/LogoSvg";
 import { logoMark } from "../../assets/LogoMark";
 import { logoMarkArrow } from "../../assets/LogoMarkArrow";
 import { connect } from "react-redux";
+import { navlinkStyles } from "../../styled/NavbarElements";
 
 const currencyOptions = [
   {
@@ -42,10 +43,28 @@ class Navbar extends React.Component {
       <>
         <nav className="navbar">
           <div className="navbar-div">
-            <div>
-              <Link to="/Categories/All">All</Link>
-              <Link to="/Categories/Clothes">Clothes</Link>
-              <Link to="/Categories/Tech">Tech</Link>
+            <div className="navbar-links">
+              <Link
+                to="/Categories/All"
+                style={navlinkStyles}
+                className="navbar-link"
+              >
+                All
+              </Link>
+              <Link
+                to="/Categories/Clothes"
+                style={navlinkStyles}
+                className="navbar-link"
+              >
+                Clothes
+              </Link>
+              <Link
+                to="/Categories/Tech"
+                style={navlinkStyles}
+                className="navbar-link"
+              >
+                Tech
+              </Link>
             </div>
             <div>
               <span className="main-logo">

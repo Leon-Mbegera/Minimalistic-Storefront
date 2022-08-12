@@ -2,16 +2,37 @@
 
 body {
   margin: 0;
+  padding: 0;
 }
 
 .navbar {
   font-family: "Raleway", sans-serif;
+  width: 85%;
+  padding: 22px 100px;
+  margin: 0 auto;
+  border: 1px solid green;
 }
 
 .navbar-div {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 }
+
+.navbar-links {
+  width: 15%;
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid palevioletred;
+
+}
+
+.navbar-link {
+  font-family: "Raleway", sans-serif;
+  font-weight: 400;
+  color: black;
+}
+
+
 
 .dropdown {
   float: left;
