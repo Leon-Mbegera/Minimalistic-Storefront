@@ -16,6 +16,7 @@ body {
 .navlink-font-family-and-weight {
   font-family: "Raleway", sans-serif;
   font-weight: 500;
+  padding: 8px 0 45px 0;
 }
 
 .navbar {
@@ -30,6 +31,7 @@ body {
 
 .navbar-links {
   @extend .horizontal;
+  height: 50%;
   width: 15%;
 }
 
@@ -41,10 +43,8 @@ body {
 .active-navlink {
   @extend .navlink-font-family-and-weight;
   color: $active-link-color;
-  border-bottom: 2px solid $active-link-color;
+  border-bottom: 3px solid $active-link-color;
 }
-
-
 
 .dropdown {
   float: left;
