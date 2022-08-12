@@ -5,15 +5,13 @@ import ClothesListing from "../containers/ClothesListing";
 import TechListing from "../containers/TechListing";
 import WrappedDetailsPage from "../containers/ProductDesc";
 import Navbar from "./Navbar";
+import { Query } from "react-apollo";
 import { connect } from "react-redux";
-import { queryAllData } from "../../redux/index";
+// import { queryAllData } from "../../redux/index";
+import { queryCommand } from "../../gql/Query";
+import TestComponent from "./Test";
 
 class App extends React.Component {
-  componentDidMount() {
-    console.log("App.js has mounted");
-    queryAllData();
-  }
-
   render() {
     return (
       <BrowserRouter>
@@ -23,6 +21,12 @@ class App extends React.Component {
             exact
             path="/"
             // path="/Categories/All"
+            // element={<AllProductsListing />}
+            element={<TestComponent />}
+          />
+          <Route
+            exact
+            path="/Categories/All"
             element={<AllProductsListing />}
           />
           <Route
@@ -42,4 +46,4 @@ class App extends React.Component {
   }
 }
 
-export default connect(mapStateToProps)(App);
+export default connect()(App);

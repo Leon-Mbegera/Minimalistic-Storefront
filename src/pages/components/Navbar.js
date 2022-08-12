@@ -43,8 +43,7 @@ class Navbar extends React.Component {
         <nav className="navbar">
           <div className="navbar-div">
             <div>
-              {/* <Link to="/Categories/All">All</Link> */}
-              <Link to="/">All</Link>
+              <Link to="/Categories/All">All</Link>
               <Link to="/Categories/Clothes">Clothes</Link>
               <Link to="/Categories/Tech">Tech</Link>
             </div>

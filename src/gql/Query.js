@@ -1,7 +1,7 @@
 import { gql } from "apollo-boost";
 // import { gql } from "graphql-tag";
 
-export const allData = gql`
+export const queryCommand = gql`
   {
     categories {
       name

@@ -1,5 +1,5 @@
 import { Query } from "react-apollo";
-import { allData } from "../gql/Query";
+import { queryCommand } from "../gql/Query";
 
 const ALL_DATA_REQUEST = "ALL_DATA_REQUEST";
 const ALL_DATA_SUCCESS = "ALL_DATA_SUCCESS";
@@ -51,26 +51,57 @@ const currencyChange = (currencyOpt) => {
   };
 };
 
-const queryAllData = async () => (dispatch) => {
-  console.log("queryAllData has run");
-  return (
-    <Query query={allData} pollInterval={500}>
-      {({ loading, error, data }) => {
-        console.log("loading", loading);
-        console.log("error", error);
-        console.log("fetched data", data);
-        if (loading) return <p>Loading...</p>;
-        if (error) return <p>Error :( </p>;
-        if (data) {
-          dispatch(allDataSuccess(data.categories));
-        }
-      }}
-    </Query>
-  );
-};
+// const queryAllData = () => (dispatch) => {
+//   console.log("queryAllData has run");
+//   return (
+//     <Query query={queryCommand}>
+//       {console.log("Query has been rendered")}
+//       {({ loading, error, data }) => {
+//         console.log("loading", loading);
+//         console.log("error", error);
+//         console.log("fetched data", data);
+//         if (loading) return <p>Loading...</p>;
+//         if (error) return <p>Error :( </p>;
+//         if (data) {
+//           dispatch(allDataSuccess(data.categories));
+//         }
+//       }}
+//     </Query>
+//   );
+// };
 
 // const queryAllData = () => {
-//   console.log("run queryAllData function");
+//   let response = "sosos";
+//   <Query query={queryCommand} pollInterval={500}>
+//     {({ loading, error, data }) => {
+//       console.log("loading", loading);
+//       console.log("error", error);
+//       console.log("fetched data", data);
+//       if (loading) return <p>loading...</p>;
+//       if (data) response = data;
+//     }}
+//   </Query>;
+//   return response;
+// };
+
+// let response = "one";
+// const outside = () => {
+//   return (
+//     <Query query={queryCommand} pollInterval={500}>
+//       {({ loading, error, data }) => {
+//         console.log("loading", loading);
+//         console.log("error", error);
+//         console.log("fetched data", data);
+//         if (loading) return <p>loading...</p>;
+//         if (data) response = data;
+//       }}
+//     </Query>
+//   );
+// };
+
+// const queryAllData = () => {
+//   outside();
+//   return response;
 // };
 
 export {
@@ -86,5 +117,5 @@ export {
   addToCart,
   removeFromCart,
   currencyChange,
-  queryAllData,
+  // queryAllData,
 };
