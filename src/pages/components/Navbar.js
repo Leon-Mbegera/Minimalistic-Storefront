@@ -34,7 +34,17 @@ const currencyOptions = [
 class Navbar extends React.Component {
   handleDropdownClick = () => {
     const ele = document.getElementById("dropdown-content");
+    const caron = document.getElementById("dropdown-caron");
+    const caret = document.getElementById("dropdown-caret");
     ele.classList.toggle("show");
+    caron.classList.toggle("hidden-arrow");
+    if (caret.classList.contains("caret")) {
+      caret.classList.remove("caret");
+      caret.classList.add("visible-arrow");
+    } else {
+      caret.classList.remove("visible-arrow");
+      caret.classList.add("caret");
+    }
   };
 
   dispatchSelectCurrency = () => {};
@@ -84,8 +94,12 @@ class Navbar extends React.Component {
               <button type="button" className="dropdownBtn">
                 Btn
                 <div className="arrows">
-                  <i className="caret">^</i>
-                  <i className="caron">˅</i>
+                  <i className="caret" id="dropdown-caret">
+                    ^
+                  </i>
+                  <i className="caron" id="dropdown-caron">
+                    ˅
+                  </i>
                 </div>
               </button>
               <img src={cartIcon} alt="shopping cart" />
@@ -109,7 +123,19 @@ class Navbar extends React.Component {
 window.onclick = function (event) {
   if (!event.target.matches(".dropdownBtn")) {
     let ele = document.getElementById("dropdown-content");
-    if (ele.classList.contains("show")) ele.classList.remove("show");
+    let caron = document.getElementById("dropdown-caron");
+    const caret = document.getElementById("dropdown-caret");
+    if (
+      ele.classList.contains("show") &&
+      caron.classList.contains("hidden-arrow")
+    ) {
+      ele.classList.remove("show");
+      caron.classList.remove("hidden-arrow");
+    }
+    if (caret.classList.contains("visible-arrow")) {
+      caret.classList.remove("visible");
+      caret.classList.add("caret");
+    }
   }
 };
 
