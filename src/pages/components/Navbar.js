@@ -83,7 +83,10 @@ class Navbar extends React.Component {
             <div className="buttons">
               <button type="button" className="dropdownBtn">
                 Btn
-                {/* {this.props.selectedCurrency.symbol} */}
+                <div className="arrows">
+                  <i className="caret">^</i>
+                  <i className="caron">˅</i>
+                </div>
               </button>
               <img src={cartIcon} alt="shopping cart" />
             </div>
