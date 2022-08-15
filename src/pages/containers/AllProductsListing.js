@@ -5,7 +5,11 @@ class AllProductsListing extends React.Component {
   renderAllProducts = (allProducts) => {
     console.log("why you not responding", allProducts);
     return allProducts.map((product) => (
-      <div key={product.name}>{product.name}</div>
+      <div key={product.name} className="grid-item">
+        <div className="image-box">
+          <img src={product.gallery[0]} alt={product.gallery[0]} />
+        </div>
+      </div>
     ));
   };
 
@@ -18,7 +22,11 @@ class AllProductsListing extends React.Component {
               <div>
                 <h1>{this.props.allProducts.data[0].name}</h1>
               </div>
-              {this.renderAllProducts(this.props.allProducts.data[0].products)}
+              <section className="grid-container">
+                {this.renderAllProducts(
+                  this.props.allProducts.data[0].products
+                )}
+              </section>
             </>
           ) : (
             <h5>There are no products</h5>

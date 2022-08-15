@@ -133,7 +133,7 @@ window.onclick = function (event) {
       caron.classList.remove("hidden-arrow");
     }
     if (caret.classList.contains("visible-arrow")) {
-      caret.classList.remove("visible");
+      caret.classList.remove("visible-arrow");
       caret.classList.add("caret");
     }
   }
