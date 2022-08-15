@@ -2,12 +2,28 @@ import React from "react";
 import { connect } from "react-redux";
 
 class AllProductsListing extends React.Component {
+  renderPreferedPriceCurrency = (product) => {
+    const priceObject = product?.prices.find(
+      (price) => price.currency.label === this.props.selectedCurrency.label
+    );
+    return priceObject;
+  };
+
   renderAllProducts = (allProducts) => {
     console.log("why you not responding", allProducts);
     return allProducts.map((product) => (
       <div key={product.name} className="grid-item">
         <div className="image-box">
           <img src={product.gallery[0]} alt={product.gallery[0]} />
+        </div>
+        <div className="text-box">
+          <p>{product.name}</p>
+          <div className="displayed-currency">
+            <span>
+              {this.renderPreferedPriceCurrency(product).currency.label}
+            </span>
+            <span>{this.renderPreferedPriceCurrency(product).amount}</span>
+          </div>
         </div>
       </div>
     ));
@@ -37,6 +53,9 @@ class AllProductsListing extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => ({ allProducts: state.allData });
+const mapStateToProps = (state) => ({
+  allProducts: state.allData,
+  selectedCurrency: state.selectedCurrency,
+});
 
 export default connect(mapStateToProps)(AllProductsListing);
