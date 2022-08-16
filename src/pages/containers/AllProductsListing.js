@@ -17,12 +17,14 @@ class AllProductsListing extends React.Component {
           <img src={product.gallery[0]} alt={product.gallery[0]} />
         </div>
         <div className="text-box">
-          <p>{product.name}</p>
+          <p className="product-title">{product.name}</p>
           <div className="displayed-currency">
-            <span>
-              {this.renderPreferedPriceCurrency(product).currency.label}
+            <span className="price-symbol">
+              {this.renderPreferedPriceCurrency(product).currency.symbol}
             </span>
-            <span>{this.renderPreferedPriceCurrency(product).amount}</span>
+            <span className="product-price">
+              {this.renderPreferedPriceCurrency(product).amount}
+            </span>
           </div>
         </div>
       </div>
