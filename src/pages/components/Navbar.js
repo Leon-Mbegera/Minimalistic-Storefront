@@ -17,7 +17,7 @@ const currencyOptions = [
     label: "USD",
   },
   {
-    symbol: "£",
+    symbol: "€",
     label: "EUR",
   },
   {
