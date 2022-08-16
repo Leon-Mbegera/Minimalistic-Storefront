@@ -150,21 +150,27 @@ $navlink-font-family: "Raleway", sans-serif;
 
 .main-logo {
   position: relative;
+  .logo-mark {
+    position: absolute;
+    margin-top: 5px;
+    margin-left: -25px;
+    z-index: 15;
+  }
+  .logo-mark-arrow {
+    position: absolute;
+    margin-top: -4px;
+    margin-left: -14px;
+    z-index: 15;
+  }
+  .background-svg {
+    position: absolute;
+    bottom: 32%;
+    left: 5%;
+    z-index: -1;
+  }
 }
 
-.logo-mark {
-  position: absolute;
-  margin-top: 5px;
-  margin-left: -25px;
-  z-index: 15;
-}
 
-.logo-mark-arrow {
-  position: absolute;
-  margin-top: -4px;
-  margin-left: -14px;
-  z-index: 15;
-}
 
 .grid-container {
   display: grid;

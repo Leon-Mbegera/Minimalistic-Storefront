@@ -1,7 +1,12 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { blackCart, blackWheel } from "../../assets/blackShoppingCart";
-import { logoSvg, logoMark, logoMarkArrow } from "../../assets/logoIcon";
+import {
+  logoSvg,
+  belowLogo,
+  logoMark,
+  logoMarkArrow,
+} from "../../assets/logoIcon";
 import { connect } from "react-redux";
 import { navlinkStyles } from "../../styled/NavbarElements";
 
@@ -84,6 +89,7 @@ class Navbar extends React.Component {
               {logoSvg}
               <span className="logo-mark">{logoMark}</span>
               <span className="logo-mark-arrow">{logoMarkArrow}</span>
+              <span className="background-svg">{belowLogo}</span>
             </span>
           </div>
           <div className="dropdown" onClick={this.handleDropdownClick}>
@@ -104,7 +110,6 @@ class Navbar extends React.Component {
                 <span className="left-black-wheel">{blackWheel}</span>
                 <span className="right-black-wheel">{blackWheel}</span>
               </div>
-              {/* <img src={cartIcon} alt="shopping cart" /> */}
             </div>
             <ul className="dropdown-menu" id="dropdown-content">
               {currencyOptions.map((opt) => {
