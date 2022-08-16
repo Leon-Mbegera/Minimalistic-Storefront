@@ -151,6 +151,7 @@ $navlink-font-family: "Raleway", sans-serif;
 .grid-container {
   display: grid;
   grid-template-columns: auto auto auto;
+  justify-content: space-between;
 }
 
 .grid-item {

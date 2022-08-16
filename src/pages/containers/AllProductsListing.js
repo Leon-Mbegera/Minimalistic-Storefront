@@ -23,7 +23,8 @@ class AllProductsListing extends React.Component {
               {this.renderPreferedPriceCurrency(product).currency.symbol}
             </span>
             <span className="product-price">
-              {this.renderPreferedPriceCurrency(product).amount}
+              50.00
+              {/* {this.renderPreferedPriceCurrency(product).amount} */}
             </span>
           </div>
         </div>
