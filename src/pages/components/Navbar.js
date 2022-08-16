@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import cartIcon from "../../assets/icons8-shopping-cart-32.png";
+import { blackCart } from "../../assets/blackShoppingCart";
+import { blackWheel } from "../../assets/blackCartWheel";
 import { logoSvg } from "../../assets/LogoSvg";
 import { logoMark } from "../../assets/LogoMark";
 import { logoMarkArrow } from "../../assets/LogoMarkArrow";
@@ -101,7 +102,12 @@ class Navbar extends React.Component {
                   </i>
                 </div>
               </button>
-              <img src={cartIcon} alt="shopping cart" />
+              <div className="cartOverlay-cart">
+                <span className="black-cart">{blackCart}</span>
+                <span className="left-black-wheel">{blackWheel}</span>
+                <span className="right-black-wheel">{blackWheel}</span>
+              </div>
+              {/* <img src={cartIcon} alt="shopping cart" /> */}
             </div>
             <ul className="dropdown-menu" id="dropdown-content">
               {currencyOptions.map((opt) => {

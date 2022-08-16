@@ -126,8 +126,26 @@ $navlink-font-family: "Raleway", sans-serif;
   font-weight: 100;
 }
 
-.buttons span {
-  margin-left: 15px;
+.cartOverlay-cart {
+  display: inline-block;
+  position: relative;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  .black-cart {
+    position: absolute;
+    top: 19%;
+  }
+  .left-black-wheel {
+    position: absolute;
+    top: 37%;
+    left: 22%
+  }
+  .right-black-wheel {
+    position: absolute;
+    top: 37%;
+    right: 35%;
+  }
 }
 
 .main-logo {
