@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { blackCart, blackWheel } from "../../assets/blackShoppingCart";
+import { up, down } from "../../assets/updownArrows";
 import {
   logoSvg,
   belowLogo,
@@ -49,7 +50,7 @@ class Navbar extends React.Component {
     }
   };
 
-  dispatchSelectCurrency = () => {};
+  dispatchSelectedCurrency = () => {};
 
   render() {
     return (
@@ -97,12 +98,12 @@ class Navbar extends React.Component {
               <button type="button" className="dropdownBtn">
                 Btn
                 <div className="arrows">
-                  <i className="caret" id="dropdown-caret">
-                    ^
-                  </i>
-                  <i className="caron" id="dropdown-caron">
-                    ˅
-                  </i>
+                  <span className="caret" id="dropdown-caret">
+                    {up}
+                  </span>
+                  <span className="caron" id="dropdown-caron">
+                    {down}
+                  </span>
                 </div>
               </button>
               <div className="cartOverlay-cart">
