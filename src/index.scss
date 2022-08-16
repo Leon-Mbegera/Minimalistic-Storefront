@@ -155,6 +155,7 @@ $navlink-font-family: "Raleway", sans-serif;
 }
 
 .grid-item {
+  position: relative;
   width: 354px;
   height: 418px;
   margin-bottom: 100px;
@@ -170,6 +171,32 @@ $navlink-font-family: "Raleway", sans-serif;
       height: 100%;
       object-fit: fill;
     }
+  }
+}
+
+.add-to-cart {
+  position: absolute;
+  width: 52px;
+  height: 52px;
+  bottom: 14%;
+  right: 7%;
+  background-color: $active-link-color;
+  border-radius: 50%;
+  z-index: 10;
+  .white-cart {
+    position: absolute;
+    top: 28%;
+    left: 28%;
+  }
+  .left-white-wheel {
+    position: absolute;
+    top: 46%;
+    left: 42%;
+  }
+  .right-white-wheel {
+    position: absolute;
+    top: 46%;
+    right: 32%;
   }
 }
 

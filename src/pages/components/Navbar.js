@@ -1,5 +1,4 @@
 import React from "react";
-// import { Link } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import cartIcon from "../../assets/icons8-shopping-cart-32.png";
 import { logoSvg } from "../../assets/LogoSvg";

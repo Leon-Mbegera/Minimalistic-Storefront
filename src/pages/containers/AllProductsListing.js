@@ -1,5 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
+import { whiteCart } from "../../assets/whiteShoppingCart";
+import { whiteWheel } from "../../assets/whiteCartWheel";
 
 class AllProductsListing extends React.Component {
   renderPreferedPriceCurrency = (product) => {
@@ -10,11 +12,15 @@ class AllProductsListing extends React.Component {
   };
 
   renderAllProducts = (allProducts) => {
-    console.log("why you not responding", allProducts);
     return allProducts.map((product) => (
       <div key={product.name} className="grid-item">
         <div className="image-box">
           <img src={product.gallery[0]} alt={product.gallery[0]} />
+        </div>
+        <div className="add-to-cart">
+          <span className="white-cart">{whiteCart}</span>
+          <span className="left-white-wheel">{whiteWheel}</span>
+          <span className="right-white-wheel">{whiteWheel}</span>
         </div>
         <div className="text-box">
           <p className="product-title">{product.name}</p>
@@ -23,8 +29,7 @@ class AllProductsListing extends React.Component {
               {this.renderPreferedPriceCurrency(product).currency.symbol}
             </span>
             <span className="product-price">
-              50.00
-              {/* {this.renderPreferedPriceCurrency(product).amount} */}
+              {this.renderPreferedPriceCurrency(product).amount}
             </span>
           </div>
         </div>
