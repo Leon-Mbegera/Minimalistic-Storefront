@@ -1,7 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { whiteCart } from "../../assets/whiteShoppingCart";
-import { whiteWheel } from "../../assets/whiteCartWheel";
+import { whiteCart, whiteWheel } from "../../assets/whiteShoppingCart";
 
 class AllProductsListing extends React.Component {
   renderPreferedPriceCurrency = (product) => {

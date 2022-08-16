@@ -1,10 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { blackCart } from "../../assets/blackShoppingCart";
-import { blackWheel } from "../../assets/blackCartWheel";
-import { logoSvg } from "../../assets/LogoSvg";
-import { logoMark } from "../../assets/LogoMark";
-import { logoMarkArrow } from "../../assets/LogoMarkArrow";
+import { blackCart, blackWheel } from "../../assets/blackShoppingCart";
+import { logoSvg, logoMark, logoMarkArrow } from "../../assets/logoIcon";
 import { connect } from "react-redux";
 import { navlinkStyles } from "../../styled/NavbarElements";
 
