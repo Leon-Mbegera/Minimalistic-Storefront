@@ -57,8 +57,9 @@ $navlink-font-family: "Raleway", sans-serif;
 .dropdownBtn {
   @extend .horizontal;
   border: none;
-  outline: none;
   background-color: #FFFFFF;
+  min-width: 54px;
+  justify-content: end;
 }
 
 .dropdown-menu {
@@ -81,10 +82,9 @@ $navlink-font-family: "Raleway", sans-serif;
   padding-top: 12px;
   padding-bottom: 8px;
   background-color: inherit;
-}
-
-.dropdown-menu li:hover {
-  background-color: #EEEEEE;
+  &:hover {
+    background-color: #EEEEEE;
+  }
 }
 
 .show {
@@ -96,6 +96,7 @@ $navlink-font-family: "Raleway", sans-serif;
   align-items: center;
   button {
     margin-top: 7px;
+    margin-right: 10px;
     font-size: 22px;
     font-weight: 100;
     -webkit-text-stroke-color: rgb(255,255,255);
@@ -126,8 +127,6 @@ $navlink-font-family: "Raleway", sans-serif;
     }
   }
 }
-
-
 
 .cartOverlay-cart {
   display: inline-block;

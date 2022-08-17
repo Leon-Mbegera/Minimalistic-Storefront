@@ -89,7 +89,7 @@ class Navbar extends React.Component {
               Tech
             </NavLink>
           </div>
-          <div>
+          <div className="logo">
             <span className="main-logo">
               {logoSvg}
               <span className="logo-mark">{logoMark}</span>
