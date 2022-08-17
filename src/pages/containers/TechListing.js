@@ -15,6 +15,7 @@ class TechListing extends React.Component {
               <section className="grid-container">
                 {this.props.allProducts.data[2].products.map((product) => (
                   <ReusableComponent
+                    key={product.name}
                     product={product}
                     selectedCurrency={this.props.selectedCurrency}
                   />
