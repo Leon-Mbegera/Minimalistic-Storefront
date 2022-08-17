@@ -11,7 +11,7 @@ import {
 class TestComponent extends React.Component {
   render() {
     return (
-      <Query query={queryCommand} pollInterval={1000}>
+      <Query query={queryCommand}>
         {({ loading, error, data }) => {
           console.log("loading", loading);
           console.log("error", error);

@@ -1,41 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
-import { whiteCart, whiteWheel } from "../../assets/whiteShoppingCart";
+import ReusableComponent from "../../reusable/reusable";
 
 class AllProductsListing extends React.Component {
-  renderPreferedPriceCurrency = (product) => {
-    const priceObject = product?.prices.find(
-      (price) => price.currency.label === this.props.selectedCurrency.label
-    );
-    return priceObject;
-  };
-
-  renderAllProducts = (allProducts) => {
-    return allProducts.map((product) => (
-      <div key={product.name} className="grid-item">
-        <div className="image-box">
-          <img src={product.gallery[0]} alt={product.gallery[0]} />
-        </div>
-        <div className="add-to-cart">
-          <span className="white-cart">{whiteCart}</span>
-          <span className="left-white-wheel">{whiteWheel}</span>
-          <span className="right-white-wheel">{whiteWheel}</span>
-        </div>
-        <div className="text-box">
-          <p className="product-title">{product.name}</p>
-          <div className="displayed-currency">
-            <span className="price-symbol">
-              {this.renderPreferedPriceCurrency(product).currency.symbol}
-            </span>
-            <span className="product-price">
-              {this.renderPreferedPriceCurrency(product).amount}
-            </span>
-          </div>
-        </div>
-      </div>
-    ));
-  };
-
   render() {
     return (
       <>
@@ -46,9 +13,12 @@ class AllProductsListing extends React.Component {
                 <h1>{this.props.allProducts.data[0].name}</h1>
               </div>
               <section className="grid-container">
-                {this.renderAllProducts(
-                  this.props.allProducts.data[0].products
-                )}
+                {this.props.allProducts.data[0].products.map((product) => (
+                  <ReusableComponent
+                    product={product}
+                    selectedCurrency={this.props.selectedCurrency}
+                  />
+                ))}
               </section>
             </>
           ) : (
