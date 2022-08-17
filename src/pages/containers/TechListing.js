@@ -1,21 +1,25 @@
 import React from "react";
 import { connect } from "react-redux";
+import ReusableComponent from "../../reusable/reusable";
 
 class TechListing extends React.Component {
-  renderAllProducts = (allProducts) => {
-    return allProducts.map((product) => <div key={product.name}></div>);
-  };
-
   render() {
     return (
       <>
         <section>
-          {this.props.allProducts && this.props.allProducts.length > 0 ? (
+          {this.props.allProducts && this.props.allProducts.data.length > 0 ? (
             <>
               <div>
-                <h1>{this.props.allProducts[2].name}</h1>
+                <h1>{this.props.allProducts.data[2].name}</h1>
               </div>
-              {this.renderAllProducts(this.props.allProducts[2].products)}
+              <section className="grid-container">
+                {this.props.allProducts.data[2].products.map((product) => (
+                  <ReusableComponent
+                    product={product}
+                    selectedCurrency={this.props.selectedCurrency}
+                  />
+                ))}
+              </section>
             </>
           ) : (
             <h5>There are no products</h5>
@@ -26,6 +30,8 @@ class TechListing extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => ({ allProducts: state.allData });
-
+const mapStateToProps = (state) => ({
+  allProducts: state.allData,
+  selectedCurrency: state.selectedCurrency,
+});
 export default connect(mapStateToProps)(TechListing);
