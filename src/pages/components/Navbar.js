@@ -18,8 +18,8 @@ const currencyOptions = [
     label: "USD",
   },
   {
-    symbol: "€",
-    label: "EUR",
+    symbol: "£",
+    label: "GBP",
   },
   {
     symbol: "A$",
@@ -54,7 +54,6 @@ class Navbar extends React.Component {
   handleCurrencyChange = (option) => {
     console.log("option", option, currencyChange(option));
     this.props.dispatch(currencyChange(option));
-    // console.log("the store", store.getState());
   };
 
   render() {

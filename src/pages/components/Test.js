@@ -2,11 +2,7 @@ import React from "react";
 import { Query } from "react-apollo";
 import { queryCommand } from "../../gql/Query";
 import { connect } from "react-redux";
-import {
-  allDataRequest,
-  allDataSuccess,
-  allDataError,
-} from "../../redux/index";
+import { allDataSuccess } from "../../redux/index";
 
 class TestComponent extends React.Component {
   render() {
