@@ -9,6 +9,7 @@ import {
   logoMarkArrow,
 } from "../../assets/logoIcon";
 import { connect } from "react-redux";
+import { currencyChange } from "../../redux";
 import { navlinkStyles } from "../../styled/NavbarElements";
 
 const currencyOptions = [
@@ -50,7 +51,11 @@ class Navbar extends React.Component {
     }
   };
 
-  dispatchSelectedCurrency = () => {};
+  handleCurrencyChange = (option) => {
+    console.log("option", option, currencyChange(option));
+    this.props.dispatch(currencyChange(option));
+    // console.log("the store", store.getState());
+  };
 
   render() {
     return (
@@ -96,7 +101,7 @@ class Navbar extends React.Component {
           <div className="dropdown" onClick={this.handleDropdownClick}>
             <div className="buttons">
               <button type="button" className="dropdownBtn">
-                Btn
+                {this.props.currency.symbol}
                 <div className="arrows">
                   <span className="caret" id="dropdown-caret">
                     {up}
@@ -115,7 +120,10 @@ class Navbar extends React.Component {
             <ul className="dropdown-menu" id="dropdown-content">
               {currencyOptions.map((opt) => {
                 return (
-                  <li key={opt.label}>
+                  <li
+                    key={opt.label}
+                    onClick={() => this.handleCurrencyChange(opt)}
+                  >
                     {opt.symbol} {opt.label}
                   </li>
                 );
