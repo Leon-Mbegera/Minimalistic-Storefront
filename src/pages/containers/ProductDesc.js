@@ -5,14 +5,19 @@ import { connect } from "react-redux";
 class DetailsPage extends React.Component {
   constructor(props) {
     super(props);
-    this.product = {};
+    this.product = { product: null };
   }
 
   componentDidMount() {
-    const selected = this.props.allProducts[0].products.find(
-      (prod) => prod.id === this.props.id
+    const selectedCategory = this.props.allProducts.find(
+      (cat) => cat.name === this.props.category
     );
-    this.setProduct(selected);
+    const selectedProduct = selectedCategory.products.find(
+      (prod) => prod.name === this.props.product.name
+    );
+    this.setProduct((prevProduct) => {
+      return { ...prevProduct, product: selectedProduct };
+    });
   }
 
   render() {
@@ -21,8 +26,14 @@ class DetailsPage extends React.Component {
 }
 
 const WrappedDetailsPage = () => {
-  const { id } = useParams();
-  return <DetailsPage props={id} />;
+  const { Category, Product } = useParams();
+  return (
+    <DetailsPage
+      allProducts={this.props.allProducts}
+      category={Category}
+      product={Product}
+    />
+  );
 };
 
 const mapStateToProps = (state) => ({ allProducts: state.allData });

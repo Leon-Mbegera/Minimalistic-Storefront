@@ -52,7 +52,6 @@ class Navbar extends React.Component {
   };
 
   handleCurrencyChange = (option) => {
-    console.log("option", option, currencyChange(option));
     this.props.dispatch(currencyChange(option));
   };
 
