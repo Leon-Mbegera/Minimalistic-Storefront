@@ -17,13 +17,7 @@ class App extends React.Component {
       <BrowserRouter>
         <Navbar />
         <Routes>
-          <Route
-            exact
-            path="/"
-            // path="/Categories/All"
-            // element={<AllProductsListing />}
-            element={<TestComponent />}
-          />
+          <Route exact path="/" element={<TestComponent />} />
           <Route
             exact
             path="/Categories/All"
@@ -37,7 +31,7 @@ class App extends React.Component {
           <Route exact path="/Categories/Tech" element={<TechListing />} />
           <Route
             exact
-            path="/Categories/:Category/:Product"
+            path="/Categories/:Category/:Id"
             element={<WrappedDetailsPage />}
           />
         </Routes>

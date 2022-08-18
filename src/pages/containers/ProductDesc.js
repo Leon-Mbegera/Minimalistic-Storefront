@@ -21,7 +21,7 @@ class DetailsPage extends React.Component {
   }
 
   render() {
-    return <>{this.product}</>;
+    return <>{this.product.name}</>;
   }
 }
 
