@@ -31,15 +31,15 @@ class App extends React.Component {
           />
           <Route
             exact
-            path="/Categories/All/:id"
-            element={<WrappedDetailsPage />}
-          />
-          <Route
-            exact
             path="/Categories/Clothes"
             element={<ClothesListing />}
           />
           <Route exact path="/Categories/Tech" element={<TechListing />} />
+          <Route
+            exact
+            path="/Categories/:Category/:Product"
+            element={<WrappedDetailsPage />}
+          />
         </Routes>
       </BrowserRouter>
     );

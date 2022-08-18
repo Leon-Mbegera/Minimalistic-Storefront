@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { whiteCart, whiteWheel } from "../assets/whiteShoppingCart";
 
 class ReusableComponent extends React.Component {
@@ -9,9 +10,19 @@ class ReusableComponent extends React.Component {
     return priceObject;
   };
 
+  handleItemClick = (product, category) => {
+    return <Link to={`/Categories/${category}/${product.name}`}></Link>;
+  };
+
   render() {
     return (
-      <div key={this.props.product.name} className="grid-item">
+      <div
+        key={this.props.product.name}
+        className="grid-item"
+        onClick={() =>
+          this.handleItemClick(this.props.product, this.props.category)
+        }
+      >
         <div className="image-box">
           <img
             src={this.props.product.gallery[0]}

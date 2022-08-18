@@ -16,6 +16,7 @@ class AllProductsListing extends React.Component {
                 {this.props.allProducts.data[0].products.map((product) => (
                   <ReusableComponent
                     key={product.name}
+                    category={this.props.allProducts.data[0].name}
                     product={product}
                     selectedCurrency={this.props.selectedCurrency}
                   />
