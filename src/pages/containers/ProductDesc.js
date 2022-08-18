@@ -1,41 +1,36 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { connect } from "react-redux";
 
 class DetailsPage extends React.Component {
   constructor(props) {
     super(props);
-    this.product = { product: null };
+    this.state = { product: null };
   }
 
   componentDidMount() {
-    const selectedCategory = this.props.allProducts.find(
+    const selectedCategory = this.props.data.find(
       (cat) => cat.name === this.props.category
     );
     const selectedProduct = selectedCategory.products.find(
-      (prod) => prod.name === this.props.product.name
+      (prod) => prod.id === this.props.productId
     );
-    this.setProduct((prevProduct) => {
+    console.log("found my product", selectedProduct);
+    this.setState((prevProduct) => {
       return { ...prevProduct, product: selectedProduct };
     });
   }
 
   render() {
-    return <>{this.product.name}</>;
+    return <>{this.state?.product?.name}</>;
   }
 }
 
 const WrappedDetailsPage = () => {
-  const { Category, Product } = useParams();
-  return (
-    <DetailsPage
-      allProducts={this.props.allProducts}
-      category={Category}
-      product={Product}
-    />
-  );
+  const { Category, Id } = useParams();
+  const { data } = useSelector((state) => state.allData);
+  console.log("Loud", Category, Id, data);
+  return <DetailsPage data={data} category={Category} productId={Id} />;
 };
 
-const mapStateToProps = (state) => ({ allProducts: state.allData });
-
-export default connect(mapStateToProps)(WrappedDetailsPage);
+export default WrappedDetailsPage;
