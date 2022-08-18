@@ -7,7 +7,7 @@ import { allDataSuccess } from "../../redux/index";
 class TestComponent extends React.Component {
   render() {
     return (
-      <Query query={queryCommand}>
+      <Query query={queryCommand} pollInterval={500}>
         {({ loading, error, data }) => {
           console.log("loading", loading);
           console.log("error", error);

@@ -61,33 +61,39 @@ class Navbar extends React.Component {
       <>
         <nav className="navbar">
           <div className="navbar-links">
-            <NavLink
-              to="/Categories/All"
-              style={navlinkStyles}
-              className={({ isActive }) =>
-                isActive ? "active-navlink" : "navbar-link"
-              }
-            >
-              All
-            </NavLink>
-            <NavLink
-              to="/Categories/Clothes"
-              style={navlinkStyles}
-              className={({ isActive }) =>
-                isActive ? "active-navlink" : "navbar-link"
-              }
-            >
-              Clothes
-            </NavLink>
-            <NavLink
-              to="/Categories/Tech"
-              style={navlinkStyles}
-              className={({ isActive }) =>
-                isActive ? "active-navlink" : "navbar-link"
-              }
-            >
-              Tech
-            </NavLink>
+            <div>
+              <NavLink
+                to="/Categories/All"
+                style={navlinkStyles}
+                className={({ isActive }) =>
+                  isActive ? "active-navlink" : "navbar-link"
+                }
+              >
+                All
+              </NavLink>
+            </div>
+            <div>
+              <NavLink
+                to="/Categories/Clothes"
+                style={navlinkStyles}
+                className={({ isActive }) =>
+                  isActive ? "active-navlink" : "navbar-link"
+                }
+              >
+                Clothes
+              </NavLink>
+            </div>
+            <div>
+              <NavLink
+                to="/Categories/Tech"
+                style={navlinkStyles}
+                className={({ isActive }) =>
+                  isActive ? "active-navlink" : "navbar-link"
+                }
+              >
+                Tech
+              </NavLink>
+            </div>
           </div>
           <div className="logo">
             <span className="main-logo">
