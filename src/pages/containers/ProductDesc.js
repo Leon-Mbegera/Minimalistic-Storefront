@@ -22,7 +22,17 @@ class DetailsPage extends React.Component {
   }
 
   render() {
-    return <>{this.state?.product?.name}</>;
+    return (
+      <>
+        <div className="product-wrapper">
+          <div className="product-images">
+            <div className="smaller-images"></div>
+            <div className="bigger-image"></div>
+          </div>
+          <aside className="product-details"></aside>
+        </div>
+      </>
+    );
   }
 }
 

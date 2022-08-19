@@ -237,7 +237,7 @@ $navlink-font-family: "Raleway", sans-serif;
     padding-top: 8px;
     text-decoration: none;
   }
-  
+
   .displayed-currency {
     font-family: $navlink-font-family;
     font-style: normal;
@@ -246,6 +246,39 @@ $navlink-font-family: "Raleway", sans-serif;
     margin-top: -10px;
   }
 }
+
+.product-wrapper {
+  @extend .horizontal;
+  width: 100%;
+  height: 100vh;
+  margin-top: 20px;
+  border: 1px solid purple;
+  .product-images {
+    @extend .horizontal;
+    flex-direction: row;
+    width: 60%;
+    height: inherit;
+    border: 1px solid paleturquoise;
+  }
+  .product-details {
+    width: 30%;
+    height: inherit;
+    border: 1px solid lime;
+  }
+}
+
+.smaller-images {
+  width: 10.5%;
+  height: inherit;
+  border: 1px solid yellow;
+}
+
+.bigger-image {
+  width: 82%;
+  height: inherit;
+  border: 1px solid red;
+}
+
 
 
 
