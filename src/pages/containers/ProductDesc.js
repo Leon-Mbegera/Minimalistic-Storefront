@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 class DetailsPage extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { product: null };
+    this.state = { product: null, currentView: 0 };
   }
 
   componentDidMount() {
@@ -21,6 +21,12 @@ class DetailsPage extends React.Component {
     });
   }
 
+  changeView = (idx) => {
+    this.setState((prevView) => {
+      return { ...prevView, currentView: idx };
+    });
+  };
+
   render() {
     return (
       <>
@@ -28,13 +34,16 @@ class DetailsPage extends React.Component {
           <div className="product-images">
             <div className="smaller-images">
               {this.state.product?.gallery.map((gal, idx) => (
-                <div key={`image-${idx}`}>
+                <div key={`image-${idx}`} onClick={() => this.changeView(idx)}>
                   <img src={gal} alt={`image-${idx}`} />
                 </div>
               ))}
             </div>
             <div className="bigger-image">
-              <img src={this.state.product?.gallery[0]} alt="image" />
+              <img
+                src={this.state.product?.gallery[this.state.currentView]}
+                alt="image"
+              />
             </div>
           </div>
           <aside className="product-details"></aside>
