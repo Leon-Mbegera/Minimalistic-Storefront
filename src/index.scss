@@ -271,12 +271,27 @@ $navlink-font-family: "Raleway", sans-serif;
   width: 10.5%;
   height: inherit;
   border: 1px solid yellow;
+  div {
+    margin-bottom: 38px;
+    border: 1px solid yellow;
+    img {
+      width: inherit;
+      height: 76px;
+      object-fit: fill;
+    }
+  }
 }
 
 .bigger-image {
   width: 82%;
-  height: inherit;
+  height: 510px;
+  background-color: #FFFFFF;
   border: 1px solid red;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+  }
 }
 
 

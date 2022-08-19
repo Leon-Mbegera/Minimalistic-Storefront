@@ -26,8 +26,16 @@ class DetailsPage extends React.Component {
       <>
         <div className="product-wrapper">
           <div className="product-images">
-            <div className="smaller-images"></div>
-            <div className="bigger-image"></div>
+            <div className="smaller-images">
+              {this.state.product?.gallery.map((gal, idx) => (
+                <div key={`image-${idx}`}>
+                  <img src={gal} alt={`image-${idx}`} />
+                </div>
+              ))}
+            </div>
+            <div className="bigger-image">
+              <img src={this.state.product?.gallery[0]} alt="image" />
+            </div>
           </div>
           <aside className="product-details"></aside>
         </div>
