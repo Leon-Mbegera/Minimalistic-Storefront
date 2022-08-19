@@ -12,7 +12,10 @@ class ReusableComponent extends React.Component {
 
   render() {
     return (
-      <Link to={`/Categories/${this.props.category}/${this.props.product.id}`}>
+      <Link
+        to={`/Categories/${this.props.category}/${this.props.product.id}`}
+        style={{ textDecoration: "none", color: "#000000" }}
+      >
         <div key={this.props.product.name} className="grid-item">
           <div className="image-box">
             <img
