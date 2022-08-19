@@ -27,6 +27,20 @@ class DetailsPage extends React.Component {
     });
   };
 
+  showSize = (displayValue) => {
+    if (displayValue === "40") {
+      return "XS";
+    } else if (displayValue === "41") {
+      return "S";
+    } else if (displayValue === "42") {
+      return "M";
+    } else if (displayValue === "43") {
+      return "L";
+    } else {
+      return;
+    }
+  };
+
   render() {
     return (
       <>
@@ -46,7 +60,28 @@ class DetailsPage extends React.Component {
               />
             </div>
           </div>
-          <aside className="product-details"></aside>
+          <aside className="product-details">
+            <div className="product-heading">
+              <p>{this.state.product?.brand}</p>
+              <p>{this.state.product?.name}</p>
+            </div>
+            <div className="attribute-sizes">
+              <p></p>
+              <div>
+                {this.state.product?.attributes[0].items.map(
+                  ({ displayValue, id }) => (
+                    <div key={id} className="size-box">
+                      <span>{this.showSize(displayValue)}</span>
+                    </div>
+                  )
+                )}
+              </div>
+            </div>
+            <div className="available-colors"></div>
+            <div className="price"></div>
+            <div class="action-button"></div>
+            <div className="description"></div>
+          </aside>
         </div>
       </>
     );
