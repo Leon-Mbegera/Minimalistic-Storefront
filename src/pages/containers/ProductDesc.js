@@ -66,7 +66,7 @@ class DetailsPage extends React.Component {
               <p>{this.state.product?.name}</p>
             </div>
             <div className="attribute-sizes">
-              <p></p>
+              <p>Size:</p>
               <div>
                 {this.state.product?.attributes[0].items.map(
                   ({ displayValue, id }) => (
@@ -79,7 +79,7 @@ class DetailsPage extends React.Component {
             </div>
             <div className="available-colors"></div>
             <div className="price"></div>
-            <div class="action-button"></div>
+            <div className="action-button"></div>
             <div className="description"></div>
           </aside>
         </div>
