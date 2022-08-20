@@ -49,33 +49,64 @@ class DetailsPage extends React.Component {
             <div className="smaller-images">
               {this.state.product?.gallery.map((gal, idx) => (
                 <div key={`image-${idx}`} onClick={() => this.changeView(idx)}>
-                  <img src={gal} alt={`image-${idx}`} />
+                  <img src={gal} alt={`${idx}`} />
                 </div>
               ))}
             </div>
             <div className="bigger-image">
               <img
                 src={this.state.product?.gallery[this.state.currentView]}
-                alt="image"
+                alt="bigger"
               />
             </div>
           </div>
           <aside className="product-details">
             <div className="product-heading">
-              <p>{this.state.product?.brand}</p>
-              <p>{this.state.product?.name}</p>
+              <p className="brand">{this.state.product?.brand}</p>
+              <p className="name">{this.state.product?.name}</p>
             </div>
-            <div className="attribute-sizes">
-              <p>Size:</p>
-              <div>
-                {this.state.product?.attributes[0].items.map(
-                  ({ displayValue, id }) => (
-                    <div key={id} className="size-box">
-                      <span>{this.showSize(displayValue)}</span>
-                    </div>
-                  )
-                )}
-              </div>
+            <div className="attributes">
+              {this.state.product?.attributes &&
+              this.state.product?.attributes.length > 0
+                ? this.state.product.attributes.map((object) => {
+                    if (object.type === "text") {
+                      return (
+                        <>
+                          <p className="attributes-size">Size:</p>
+                          <div className="attributes-size-div">
+                            {object.items && object.items.length > 0
+                              ? object.items.map((item) => (
+                                  <div key={item.id} className="size-box">
+                                    <span>
+                                      {this.showSize(item.displayValue)}
+                                    </span>
+                                  </div>
+                                ))
+                              : null}
+                          </div>
+                        </>
+                      );
+                    }
+                    if (object.type === "swatch") {
+                      return (
+                        <>
+                          <p className="attributes-color">Color:</p>
+                          <div className="attributes-color-div">
+                            {object.items && object.items.length > 0
+                              ? object.items.map((item) => (
+                                  <div
+                                    key={item.id}
+                                    className="swatch-box"
+                                    style={{ backgroundColor: item.value }}
+                                  ></div>
+                                ))
+                              : null}
+                          </div>
+                        </>
+                      );
+                    }
+                  })
+                : null}
             </div>
             <div className="available-colors"></div>
             <div className="price"></div>
