@@ -105,6 +105,7 @@ class DetailsPage extends React.Component {
                         </>
                       );
                     }
+                    return null;
                   })
                 : null}
             </div>
