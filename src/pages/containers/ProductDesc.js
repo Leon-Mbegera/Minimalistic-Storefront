@@ -41,6 +41,13 @@ class DetailsPage extends React.Component {
     }
   };
 
+  displayedPrice = (product) => {
+    const priceObject = product?.prices.find(
+      (price) => price.currency.label === this.props.selectedCurrency?.label
+    );
+    return priceObject;
+  };
+
   render() {
     return (
       <>
@@ -109,8 +116,10 @@ class DetailsPage extends React.Component {
                   })
                 : null}
             </div>
-            <div className="available-colors"></div>
-            <div className="price"></div>
+            <div className="price">
+              <p className="price">Price:</p>
+              {/* <p>{this.state.product.}</p> */}
+            </div>
             <div className="action-button"></div>
             <div className="description"></div>
           </aside>
@@ -122,9 +131,19 @@ class DetailsPage extends React.Component {
 
 const WrappedDetailsPage = () => {
   const { Category, Id } = useParams();
-  const { data } = useSelector((state) => state.allData);
+  const { data, selectedCurrency } = useSelector((state) => ({
+    data: state.allData,
+    selectedCurrency: state.selectedCurrency,
+  }));
   console.log("Loud", Category, Id, data);
-  return <DetailsPage data={data} category={Category} productId={Id} />;
+  return (
+    <DetailsPage
+      data={data}
+      category={Category}
+      productId={Id}
+      currency={selectedCurrency}
+    />
+  );
 };
 
 export default WrappedDetailsPage;
