@@ -71,7 +71,7 @@ class DetailsPage extends React.Component {
                 ? this.state.product.attributes.reverse().map((object) => {
                     if (object.type === "text") {
                       return (
-                        <>
+                        <div key={object.id}>
                           <p className="attributes-size">Size:</p>
                           <div className="attributes-size-div">
                             {object.items && object.items.length > 0
@@ -84,12 +84,12 @@ class DetailsPage extends React.Component {
                                 ))
                               : null}
                           </div>
-                        </>
+                        </div>
                       );
                     }
                     if (object.type === "swatch") {
                       return (
-                        <>
+                        <div key={object.id}>
                           <p className="attributes-color">Color:</p>
                           <div className="attributes-color-div">
                             {object.items && object.items.length > 0
@@ -102,7 +102,7 @@ class DetailsPage extends React.Component {
                                 ))
                               : null}
                           </div>
-                        </>
+                        </div>
                       );
                     }
                     return null;
