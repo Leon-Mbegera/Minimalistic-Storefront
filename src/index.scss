@@ -351,13 +351,12 @@ $Source-Sans-Pro: "Source Sans Pro";
     font-weight: 700;
     margin-bottom: 8px;
   }
-  .attributes-size-div, .attributes-color-div {
-    display: flex;
-    flex-direction: row;
-  }
 
   .attributes-size-div {
+    display: flex;
+    flex-direction: row;
     .size-box {
+      display: flex;
       width: 63px;
       height: 45px;
       border: 1px solid #1D1F22;
@@ -367,8 +366,12 @@ $Source-Sans-Pro: "Source Sans Pro";
       box-sizing: border-box;
       margin-right: 12px;
     }
+
+
   }
   .attributes-color-div {
+    display: flex;
+    flex-direction: row;
     .swatch-box {
       width: 32px;
       height: 32px;

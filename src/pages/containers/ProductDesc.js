@@ -68,7 +68,7 @@ class DetailsPage extends React.Component {
             <div className="attributes">
               {this.state.product?.attributes &&
               this.state.product?.attributes.length > 0
-                ? this.state.product.attributes.map((object) => {
+                ? this.state.product.attributes.reverse().map((object) => {
                     if (object.type === "text") {
                       return (
                         <>
@@ -77,9 +77,9 @@ class DetailsPage extends React.Component {
                             {object.items && object.items.length > 0
                               ? object.items.map((item) => (
                                   <div key={item.id} className="size-box">
-                                    <span>
+                                    <div>
                                       {this.showSize(item.displayValue)}
-                                    </span>
+                                    </div>
                                   </div>
                                 ))
                               : null}
