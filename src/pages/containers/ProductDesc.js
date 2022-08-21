@@ -46,7 +46,7 @@ class DetailsPage extends React.Component {
       (price) => price.currency.label === this.props.currency?.label
     );
     console.log("shownPrice.amount", shownPrice?.amount);
-    return shownPrice?.amount;
+    return shownPrice;
   };
 
   render() {
@@ -117,10 +117,22 @@ class DetailsPage extends React.Component {
                   })
                 : null}
             </div>
-            <div className="price">
-              <p className="price">Price:</p>
-
-              <p>{this.displayedPrice(this.state.product?.prices)}</p>
+            <div className="text-box">
+              <p className="price-size">Price:</p>
+              <div
+                className="displayed-currency"
+                style={{ fontSize: "24px", fontWeight: "700" }}
+              >
+                <span className="price-symbol">
+                  {
+                    this.displayedPrice(this.state.product?.prices)?.currency
+                      .symbol
+                  }
+                </span>
+                <span className="product-price">
+                  {this.displayedPrice(this.state.product?.prices)?.amount}
+                </span>
+              </div>
             </div>
             <div className="action-button"></div>
             <div className="description"></div>

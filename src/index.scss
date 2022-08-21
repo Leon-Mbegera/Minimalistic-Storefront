@@ -319,30 +319,6 @@ $Source-Sans-Pro: "Source Sans Pro";
   }
 }
 
-// .attribute-sizes {
-//   p {
-//     text-transform: uppercase;
-//     font-family: $Roboto-Condensed, sans-serif;
-//     font-size: 18px;
-//     font-weight: 700;
-//     margin-bottom: 8px;
-//   }
-//   div {
-//     display: flex;
-//     flex-direction: row;
-//     div {
-//       width: 63px;
-//       height: 45px;
-//       border: 1px solid #1D1F22;
-//       justify-content: center;
-//       align-items: center;
-//       font-family: $Source-Sans-Pro;
-//       box-sizing: border-box;
-//       margin-right: 12px;
-//     }
-//   }
-// }
-
 .attributes {
   .attributes-size, .attributes-color {
     text-transform: uppercase;
@@ -380,6 +356,14 @@ $Source-Sans-Pro: "Source Sans Pro";
       margin-right: 8px;
     }
   }
+}
+
+.price-size {
+  text-transform: uppercase;
+  font-family: $Roboto-Condensed, sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 12px;
 }
 
 
