@@ -134,7 +134,9 @@ class DetailsPage extends React.Component {
                 </span>
               </div>
             </div>
-            <div className="action-button"></div>
+            <div className="action-button">
+              <button type="button">Add to Cart</button>
+            </div>
             <div className="description"></div>
           </aside>
         </div>
