@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+import { css } from "styled-components";
 
 class DetailsPage extends React.Component {
   constructor(props) {
@@ -27,17 +28,26 @@ class DetailsPage extends React.Component {
     });
   };
 
-  showSize = (displayValue) => {
-    if (displayValue === "40") {
-      return "XS";
-    } else if (displayValue === "41") {
-      return "S";
-    } else if (displayValue === "42") {
-      return "M";
-    } else if (displayValue === "43") {
-      return "L";
-    } else {
-      return;
+  showSize = (value, displayValue) => {
+    switch (value) {
+      case "40":
+        return "XS";
+      case "41":
+        return "S";
+      case "42":
+        return "M";
+      case "43":
+        return "L";
+      case "512G":
+        return displayValue;
+      case "1T":
+        return displayValue;
+      case "Yes":
+        return displayValue;
+      case "No":
+        return displayValue;
+      default:
+        return;
     }
   };
 
@@ -75,17 +85,20 @@ class DetailsPage extends React.Component {
             <div className="attributes">
               {this.state.product?.attributes &&
               this.state.product?.attributes.length > 0
-                ? this.state.product.attributes.reverse().map((object) => {
+                ? this.state.product.attributes.map((object) => {
                     if (object.type === "text") {
                       return (
                         <div key={object.id} style={{ marginBottom: "22px" }}>
-                          <p className="attributes-size">Size:</p>
+                          <p className="attributes-size">{object.name}:</p>
                           <div className="attributes-size-div">
                             {object.items && object.items.length > 0
                               ? object.items.map((item) => (
                                   <div key={item.id} className="size-box">
                                     <div>
-                                      {this.showSize(item.displayValue)}
+                                      {this.showSize(
+                                        item.value,
+                                        item.displayValue
+                                      )}
                                     </div>
                                   </div>
                                 ))
