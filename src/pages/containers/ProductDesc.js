@@ -12,7 +12,7 @@ class DetailsPage extends React.Component {
     const selectedCategory = this.props.data.find(
       (cat) => cat.name === this.props.category
     );
-    const selectedProduct = selectedCategory.products.find(
+    const selectedProduct = selectedCategory?.products.find(
       (prod) => prod.id === this.props.productId
     );
     console.log("found my product", selectedProduct);
@@ -45,7 +45,6 @@ class DetailsPage extends React.Component {
     const shownPrice = pricesArr?.find(
       (price) => price.currency.label === this.props.currency?.label
     );
-    console.log("shownPrice.amount", shownPrice?.amount);
     return shownPrice;
   };
 
@@ -121,7 +120,11 @@ class DetailsPage extends React.Component {
               <p className="price-size">Price:</p>
               <div
                 className="displayed-currency"
-                style={{ fontSize: "24px", fontWeight: "700" }}
+                style={{
+                  fontSize: "24px",
+                  fontWeight: "700",
+                  fontStyle: "normal",
+                }}
               >
                 <span className="price-symbol">
                   {
@@ -137,7 +140,13 @@ class DetailsPage extends React.Component {
             <div className="action-button">
               <button type="button">Add to Cart</button>
             </div>
-            <div className="description"></div>
+            <div className="description">
+              <p
+                dangerouslySetInnerHTML={{
+                  __html: this.state.product?.description,
+                }}
+              />
+            </div>
           </aside>
         </div>
       </>
