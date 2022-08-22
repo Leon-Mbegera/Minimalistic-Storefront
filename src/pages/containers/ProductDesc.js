@@ -147,7 +147,7 @@ class DetailsPage extends React.Component {
               <button type="button">Add to Cart</button>
             </div>
             <div className="description">
-              <p
+              <div
                 dangerouslySetInnerHTML={{
                   __html: this.state.product?.description,
                 }}
