@@ -78,7 +78,7 @@ class DetailsPage extends React.Component {
                 ? this.state.product.attributes.reverse().map((object) => {
                     if (object.type === "text") {
                       return (
-                        <div key={object.id}>
+                        <div key={object.id} style={{ marginBottom: "22px" }}>
                           <p className="attributes-size">Size:</p>
                           <div className="attributes-size-div">
                             {object.items && object.items.length > 0
@@ -118,14 +118,7 @@ class DetailsPage extends React.Component {
             </div>
             <div className="text-box">
               <p className="price-size">Price:</p>
-              <div
-                className="displayed-currency"
-                style={{
-                  fontSize: "24px",
-                  fontWeight: "700",
-                  fontStyle: "normal",
-                }}
-              >
+              <div className="pdp-displayed-currency">
                 <span className="price-symbol">
                   {
                     this.displayedPrice(this.state.product?.prices)?.currency

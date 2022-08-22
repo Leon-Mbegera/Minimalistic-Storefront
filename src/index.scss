@@ -304,13 +304,14 @@ $dark-text: #1D1F22;
 
 .product-heading {
   line-height: 27px;
+  margin-bottom: 40px;
   .brand {
     font-size: 30px;
     font-weight: 600;
     font-family: $Raleway;
     font-style: normal;
     color: $dark-text;
-    margin: 0 auto 15px 0;
+    margin: 0 auto 16px 0;
   }
   .name {
     font-size: 30px;
@@ -323,6 +324,7 @@ $dark-text: #1D1F22;
 }
 
 .attributes {
+  margin-bottom: 37px;
   .attributes-size, .attributes-color {
     text-transform: uppercase;
     font-family: $Roboto-Condensed;
@@ -361,6 +363,13 @@ $dark-text: #1D1F22;
   }
 }
 
+.pdp-displayed-currency {
+  font-size: 24px;
+  font-weight: 700;
+  font-style: normal;
+  font-family: $Raleway;
+}
+
 .price-size {
   text-transform: uppercase;
   font-family: $Roboto-Condensed;
@@ -372,6 +381,7 @@ $dark-text: #1D1F22;
 .action-button {
   width: 292px;
   height: 52px;
+  margin: -20px auto 37px 0;
   button {
     width: inherit;
     height: inherit;
