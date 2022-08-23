@@ -38,6 +38,15 @@ class DetailsPage extends React.Component {
     return bigObject;
   };
 
+  changeAttrOpt = (name, value) => {
+    this.setState((prevState) => {
+      return {
+        ...prevState,
+        attrOptions: { ...prevState.attrOptions, [name]: value },
+      };
+    });
+  };
+
   showSize = (value, displayValue) => {
     switch (value) {
       case "40":
@@ -112,6 +121,12 @@ class DetailsPage extends React.Component {
                                         ? "choice"
                                         : "size-box"
                                     }
+                                    onClick={() =>
+                                      this.changeAttrOpt(
+                                        object.name,
+                                        item.value
+                                      )
+                                    }
                                   >
                                     <div>
                                       {this.showSize(
@@ -129,7 +144,7 @@ class DetailsPage extends React.Component {
                     if (object.type === "swatch") {
                       return (
                         <div key={object.id}>
-                          <p className="attributes-color">Color:</p>
+                          <p className="attributes-color">{object.name}:</p>
                           <div className="attributes-color-div">
                             {object.items && object.items.length > 0
                               ? object.items.map((item) => (
@@ -141,6 +156,12 @@ class DetailsPage extends React.Component {
                                       this.state.attrOptions[object.name]
                                         ? { border: "1px solid #5ECE7B" }
                                         : null
+                                    }
+                                    onClick={() =>
+                                      this.changeAttrOpt(
+                                        object.name,
+                                        item.value
+                                      )
                                     }
                                   >
                                     <div
