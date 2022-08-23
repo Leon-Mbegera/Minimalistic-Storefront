@@ -349,6 +349,18 @@ $dark-text: #1D1F22;
       box-sizing: border-box;
       margin-right: 12px;
     }
+    .choice {
+      display: flex;
+      width: 63px;
+      height: 45px;
+      justify-content: center;
+      align-items: center;
+      font-family: $Source-Sans-Pro;
+      box-sizing: border-box;
+      margin-right: 12px;
+      color: $white;
+      background-color: $dark-text;
+    }
 
 
   }

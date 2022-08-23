@@ -74,7 +74,7 @@ class DetailsPage extends React.Component {
         <div className="product-wrapper">
           <div className="product-images">
             <div className="smaller-images">
-              {console.log("state", this.state)};
+              {console.log("state", this.state)}
               {this.state.product?.gallery.map((gal, idx) => (
                 <div key={`image-${idx}`} onClick={() => this.changeView(idx)}>
                   <img src={gal} alt={`${idx}`} />
@@ -104,7 +104,15 @@ class DetailsPage extends React.Component {
                           <div className="attributes-size-div">
                             {object.items && object.items.length > 0
                               ? object.items.map((item) => (
-                                  <div key={item.id} className="size-box">
+                                  <div
+                                    key={item.id}
+                                    className={
+                                      item.value ===
+                                      this.state.attrOptions[object.name]
+                                        ? "choice"
+                                        : "size-box"
+                                    }
+                                  >
                                     <div>
                                       {this.showSize(
                                         item.value,
