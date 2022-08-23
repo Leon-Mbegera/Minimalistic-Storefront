@@ -135,9 +135,19 @@ class DetailsPage extends React.Component {
                               ? object.items.map((item) => (
                                   <div
                                     key={item.id}
-                                    className="swatch-box"
-                                    style={{ backgroundColor: item.value }}
-                                  ></div>
+                                    className="parent-box"
+                                    style={
+                                      item.value ===
+                                      this.state.attrOptions[object.name]
+                                        ? { border: "1px solid #5ECE7B" }
+                                        : null
+                                    }
+                                  >
+                                    <div
+                                      className="swatch-box"
+                                      style={{ backgroundColor: item.value }}
+                                    ></div>
+                                  </div>
                                 ))
                               : null}
                           </div>
