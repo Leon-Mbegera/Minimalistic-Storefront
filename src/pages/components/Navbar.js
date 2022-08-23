@@ -11,6 +11,7 @@ import {
 import { connect } from "react-redux";
 import { currencyChange } from "../../redux";
 import { navlinkStyles } from "../../styled/NavbarElements";
+import CartOverlay from "../containers/CartOverlay";
 
 const currencyOptions = [
   {
@@ -36,6 +37,12 @@ const currencyOptions = [
 ];
 
 class Navbar extends React.Component {
+  state = { visible: false };
+
+  showCartOverlay = () => {
+    this.setState((prevState) => ({ ...prevState, visible: true }));
+  };
+
   handleDropdownClick = () => {
     const ele = document.getElementById("dropdown-content");
     const caron = document.getElementById("dropdown-caron");
@@ -102,9 +109,13 @@ class Navbar extends React.Component {
               <span className="background-svg">{belowLogo}</span>
             </span>
           </div>
-          <div className="dropdown" onClick={this.handleDropdownClick}>
+          <div className="dropdown">
             <div className="buttons">
-              <button type="button" className="dropdownBtn">
+              <button
+                type="button"
+                className="dropdownBtn"
+                onClick={this.handleDropdownClick}
+              >
                 {this.props.currency.symbol}
                 <div className="arrows">
                   <span className="caret" id="dropdown-caret">
@@ -115,7 +126,7 @@ class Navbar extends React.Component {
                   </span>
                 </div>
               </button>
-              <div className="cartOverlay-cart">
+              <div className="cartOverlay-cart" onClick={showCartOverlay}>
                 <span className="black-cart">{blackCart}</span>
                 <span className="left-black-wheel">{blackWheel}</span>
                 <span className="right-black-wheel">{blackWheel}</span>
@@ -133,6 +144,7 @@ class Navbar extends React.Component {
                 );
               })}
             </ul>
+            {visible && <CartOverlay />}
           </div>
         </nav>
       </>
