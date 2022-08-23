@@ -280,8 +280,13 @@ $dark-text: #1D1F22;
   height: inherit;
   // border: 1px solid yellow;
   div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin-bottom: 38px;
+    padding: 1px;
     cursor: pointer;
+    // box-sizing: border-box;
     // border: 1px solid yellow;
     img {
       width: 76px;

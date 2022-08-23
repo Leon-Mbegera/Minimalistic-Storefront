@@ -85,7 +85,15 @@ class DetailsPage extends React.Component {
             <div className="smaller-images">
               {console.log("state", this.state)}
               {this.state.product?.gallery.map((gal, idx) => (
-                <div key={`image-${idx}`} onClick={() => this.changeView(idx)}>
+                <div
+                  key={`image-${idx}`}
+                  onClick={() => this.changeView(idx)}
+                  style={
+                    this.state.currentView === idx
+                      ? { border: "1px solid #5ECE7B" }
+                      : null
+                  }
+                >
                   <img src={gal} alt={`${idx}`} />
                 </div>
               ))}
