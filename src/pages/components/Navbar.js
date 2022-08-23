@@ -40,7 +40,10 @@ class Navbar extends React.Component {
   state = { visible: false };
 
   showCartOverlay = () => {
-    this.setState((prevState) => ({ ...prevState, visible: true }));
+    this.setState((prevState) => ({
+      ...prevState,
+      visible: !prevState.visible,
+    }));
   };
 
   handleDropdownClick = () => {
@@ -56,6 +59,13 @@ class Navbar extends React.Component {
       caret.classList.remove("visible-arrow");
       caret.classList.add("caret");
     }
+  };
+
+  handleCartOverlay = () => {
+    console.log("do you even run");
+    const cartOverlay = document.getElementById("cartOverlay-content");
+    console.log("cartOverlay element", cartOverlay);
+    cartOverlay.classList.remove("show");
   };
 
   handleCurrencyChange = (option) => {
@@ -126,7 +136,7 @@ class Navbar extends React.Component {
                   </span>
                 </div>
               </button>
-              <div className="cartOverlay-cart" onClick={showCartOverlay}>
+              <div className="cartOverlay-cart" onClick={this.showCartOverlay}>
                 <span className="black-cart">{blackCart}</span>
                 <span className="left-black-wheel">{blackWheel}</span>
                 <span className="right-black-wheel">{blackWheel}</span>
@@ -144,7 +154,11 @@ class Navbar extends React.Component {
                 );
               })}
             </ul>
-            {visible && <CartOverlay />}
+            {this.state.visible && (
+              <div className="cartOverlay-wrapper">
+                <CartOverlay />
+              </div>
+            )}
           </div>
         </nav>
       </>
