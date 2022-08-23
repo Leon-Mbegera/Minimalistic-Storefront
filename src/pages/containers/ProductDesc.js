@@ -1,24 +1,29 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { css } from "styled-components";
 
 class DetailsPage extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { product: null, currentView: 0 };
+    this.state = { product: null, currentView: 0, attrOptions: {} };
   }
 
   componentDidMount() {
-    const selectedCategory = this.props.data.find(
-      (cat) => cat.name === this.props.category
-    );
-    const selectedProduct = selectedCategory?.products.find(
-      (prod) => prod.id === this.props.productId
-    );
+    const selectedProduct = this.props.data
+      .find((cat) => cat.name === this.props.category)
+      ?.products.find((prod) => prod.id === this.props.productId);
+
     console.log("found my product", selectedProduct);
-    this.setState((prevProduct) => {
-      return { ...prevProduct, product: selectedProduct };
+    this.setState((prevState) => {
+      return {
+        ...prevState,
+        product: selectedProduct,
+        attrOptions: this.makeIt(
+          selectedProduct.attributes.map((attr) => {
+            return { [attr.name]: attr.items[0].value };
+          })
+        ),
+      };
     });
   }
 
@@ -26,6 +31,11 @@ class DetailsPage extends React.Component {
     this.setState((prevView) => {
       return { ...prevView, currentView: idx };
     });
+  };
+
+  makeIt = (array) => {
+    const bigObject = Object.assign({}, ...array);
+    return bigObject;
   };
 
   showSize = (value, displayValue) => {
@@ -64,6 +74,7 @@ class DetailsPage extends React.Component {
         <div className="product-wrapper">
           <div className="product-images">
             <div className="smaller-images">
+              {console.log("state", this.state)};
               {this.state.product?.gallery.map((gal, idx) => (
                 <div key={`image-${idx}`} onClick={() => this.changeView(idx)}>
                   <img src={gal} alt={`${idx}`} />
