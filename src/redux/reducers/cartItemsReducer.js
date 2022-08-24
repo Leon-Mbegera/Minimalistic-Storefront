@@ -6,6 +6,7 @@ const initialCartItems = {
 };
 
 const cartReducer = (state = initialCartItems, action) => {
+  console.log("did you get here?", state);
   switch (action.type) {
     case "ADD_TO_CART":
       return {

@@ -1,6 +1,7 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
+import { addToCart } from "../../redux/index";
 
 class DetailsPage extends React.Component {
   constructor(props) {
@@ -26,6 +27,10 @@ class DetailsPage extends React.Component {
       };
     });
   }
+
+  pushProduct = () => {
+    this.props.dispatch(addToCart(this.state));
+  };
 
   changeView = (idx) => {
     this.setState((prevView) => {
@@ -202,7 +207,9 @@ class DetailsPage extends React.Component {
               </div>
             </div>
             <div className="action-button">
-              <button type="button">Add to Cart</button>
+              <button type="button" onClick={this.pushProduct}>
+                Add to Cart
+              </button>
             </div>
             <div className="description">
               <div
@@ -220,6 +227,7 @@ class DetailsPage extends React.Component {
 
 const WrappedDetailsPage = () => {
   const { Category, Id } = useParams();
+  const dispatch = useDispatch();
   const { allData, selectedCurrency } = useSelector((state) => ({
     allData: state.allData,
     selectedCurrency: state.selectedCurrency,
@@ -231,6 +239,7 @@ const WrappedDetailsPage = () => {
       category={Category}
       productId={Id}
       currency={selectedCurrency}
+      dispatch={dispatch}
     />
   );
 };
