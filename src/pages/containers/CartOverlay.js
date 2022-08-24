@@ -106,7 +106,17 @@ class CartOverlay extends React.Component {
                 : null}
             </div>
           </div>
-          <div className="mid"></div>
+          <div className="mid">
+            <div className="increment">
+              <span>+</span>
+            </div>
+            <div className="count">
+              <span>1</span>
+            </div>
+            <div className="decrement">
+              <span>-</span>
+            </div>
+          </div>
           <div className="right-side"></div>
         </div>
       ));
