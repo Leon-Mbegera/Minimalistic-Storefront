@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { renderPreferedPriceCurrency } from "../../Utils/utilities";
+import { renderPreferedPriceCurrency, showSize } from "../../Utils/utilities";
 
 class CartOverlay extends React.Component {
   render() {
@@ -30,7 +30,81 @@ class CartOverlay extends React.Component {
                 }
               </span>
             </div>
-            <div className="cartItem-attributes"></div>
+            <div className="cartItem-attributes">
+              {prodObj.product.attributes &&
+              prodObj.product.attributes.length > 0
+                ? prodObj.product.attributes.map((object) => {
+                    if (object.type === "text") {
+                      return (
+                        <div key={object.id} className="type-text">
+                          <p className="attributes-size">{object.name}:</p>
+                          <div className="attributes-size-div">
+                            {object.items && object.items.length > 0
+                              ? object.items.map((item) => (
+                                  <div
+                                    key={item.id}
+                                    className={
+                                      item.value ===
+                                        prodObj.attrOptions[object.name] &&
+                                      object.name === "Size"
+                                        ? "choice"
+                                        : item.value ===
+                                            prodObj.attrOptions[object.name] &&
+                                          object.name !== "Size"
+                                        ? "choice-reserviced"
+                                        : item.value !==
+                                            prodObj.attrOptions[object.name] &&
+                                          object.name === "Size"
+                                        ? "size-box"
+                                        : item.value !==
+                                            prodObj.attrOptions[object.name] &&
+                                          object.name !== "Size"
+                                        ? "size-box-reserviced"
+                                        : null
+                                    }
+                                  >
+                                    <div>
+                                      {showSize(item.value, item.displayValue)}
+                                    </div>
+                                  </div>
+                                ))
+                              : null}
+                          </div>
+                        </div>
+                      );
+                    }
+                    if (object.type === "swatch") {
+                      return (
+                        <div key={object.id} className="type-swatch">
+                          <p className="attributes-color">{object.name}:</p>
+                          <div className="attributes-color-div">
+                            {object.items && object.items.length > 0
+                              ? object.items.map((item) => (
+                                  <div
+                                    key={item.id}
+                                    className="parent-box"
+                                    style={
+                                      item.value ===
+                                      prodObj.attrOptions[object.name]
+                                        ? { border: "1px solid #5ECE7B" }
+                                        : null
+                                    }
+                                  >
+                                    <div
+                                      className="swatch-box"
+                                      style={{ backgroundColor: item.value }}
+                                    ></div>
+                                  </div>
+                                ))
+                              : null}
+                          </div>
+                        </div>
+                      );
+                    }
+                    return null;
+                  })
+                : null}
+            </div>
           </div>
           <div className="mid"></div>
           <div className="right-side"></div>

@@ -169,7 +169,7 @@ $dark-text: #1D1F22;
   z-index: 10;
   .cartItem {
     width: 100%;
-    height: 188px;
+    height: auto;
     display: flex;
     border: 1px solid rgba(57, 55, 72, 0.22);
     .left-side {
@@ -198,6 +198,96 @@ $dark-text: #1D1F22;
     font-size: 16px;
     font-family: $Raleway;
     font-weight: 300;
+  }
+}
+
+.cartItem-price {
+  font-size: 16px;
+  font-weight: 500;
+  margin-block: 0.8rem;
+}
+
+.cartItem-attributes {
+  .type-text {
+    .attributes-size{
+      font-family: $Raleway;
+      font-size: 14px;
+      font-weight: 400;
+      margin-block-end: 0.5em;
+    }
+    .attributes-size-div {
+      display: flex;
+      flex-direction: row;
+      .size-box {
+        display: flex;
+        width: 24px;
+        height: 24px;
+        justify-content: center;
+        align-items: center;
+        color: $dark-text;
+        font-family: $Source-Sans-Pro;
+        font-size: 14px;
+        font-weight: 400;
+        box-sizing: border-box;
+        margin-right: 8px;
+        border: 1px solid $dark-text;
+      }
+      .choice {
+        @extend .size-box;
+        color: $white;
+        border: none;
+        background-color: $dark-text;
+      }
+      .size-box-reserviced {
+        display: flex;
+        width: 38px;
+        height: 24px;
+        justify-content: center;
+        align-items: center;
+        color: $dark-text;
+        font-family: $Source-Sans-Pro;
+        font-size: 14px;
+        font-weight: 400;
+        box-sizing: border-box;
+        margin-right: 8px;
+        border: 1px solid $dark-text;
+      }
+      .choice-reserviced {
+        @extend .size-box-reserviced;
+        color: $white;
+        border: none;
+        background-color: $dark-text;
+      }
+    }
+  }
+
+  .type-swatch {
+    .attributes-color {
+      font-family: $Raleway;
+      font-size: 14px;
+      font-weight: 400;
+      margin-block-end: 0.5em;
+    }
+
+    .attributes-color-div {
+      display: flex;
+      flex-direction: row;
+      .parent-box {
+        width: 20px;
+        height: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-sizing: border-box;
+        margin-right: 4px;
+        .swatch-box {
+          width: 16px;
+          height: 16px;
+          background: rgba(255, 255, 255, 0.2);
+          box-sizing: border-box;
+        }
+      }
+    }
   }
 }
 
@@ -413,9 +503,8 @@ $dark-text: #1D1F22;
       color: $white;
       background-color: $dark-text;
     }
-
-
   }
+
   .attributes-color-div {
     display: flex;
     flex-direction: row;
