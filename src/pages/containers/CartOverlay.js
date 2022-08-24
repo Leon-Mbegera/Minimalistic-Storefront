@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { renderPreferedPriceCurrency, showSize } from "../../Utils/utilities";
+import { xAxis, yAxis } from "../../assets/axes";
 
 class CartOverlay extends React.Component {
   render() {
@@ -108,13 +109,14 @@ class CartOverlay extends React.Component {
           </div>
           <div className="mid">
             <div className="increment">
-              <span>+</span>
+              <span className="x">{xAxis}</span>
+              <span className="y">{yAxis}</span>
             </div>
             <div className="count">
               <span>1</span>
             </div>
             <div className="decrement">
-              <span>-</span>
+              <span>{xAxis}</span>
             </div>
           </div>
           <div className="right-side"></div>

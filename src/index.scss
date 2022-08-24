@@ -567,19 +567,35 @@ $dark-text: #1D1F22;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  text-align: center;
   .increment {
     width: 24px;
     height: 24px;
-    font-size: 22px;
     border: 1px solid $dark-text;
-    box-sizing: border-box; 
+    box-sizing: border-box;
+    position: relative;
+    .x {
+      position: absolute;
+      top: -20%;
+      left: 30%;
+    }
+    .y {
+      position: absolute;
+      top: -3%;
+      left: 48%;
+      z-index: -1;
+    }
   }
   .count {
     @extend .increment;
+    text-align: center;
   }
   .decrement {
-    @extend .count;
+    @extend .increment;
+    span {
+      position: absolute;
+      top: -20%;
+      left: 30%;
+    }
   }
 }
 
