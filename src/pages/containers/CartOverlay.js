@@ -119,7 +119,9 @@ class CartOverlay extends React.Component {
               <span>{xAxis}</span>
             </div>
           </div>
-          <div className="right-side"></div>
+          <div className="right-side">
+            <img src={prodObj.product.gallery[0]} />
+          </div>
         </div>
       ));
     } else {
