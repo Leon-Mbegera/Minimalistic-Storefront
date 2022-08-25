@@ -29,7 +29,12 @@ class DetailsPage extends React.Component {
   }
 
   pushProduct = () => {
-    this.props.dispatch(addToCart(this.state));
+    const wholeObj = {
+      ...this.state,
+      total: this.displayedPrice(this.state.product?.prices)?.amount,
+    };
+    console.log("wholeObj", wholeObj);
+    this.props.dispatch(addToCart(wholeObj));
   };
 
   changeView = (idx) => {

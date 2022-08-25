@@ -166,7 +166,7 @@ $dark-text: #1D1F22;
   background-color: $white;
   border: 1px solid brown;
   box-shadow: 0px 4px 35px rgba(168, 172, 176, 0.19);
-  z-index: 10;
+  z-index: 15;
   .cartItem {
     width: 100%;
     height: auto;
@@ -187,6 +187,9 @@ $dark-text: #1D1F22;
       padding: 0;
       border: 1px solid goldenrod;
     }
+  }
+  .total {
+    @extend .horizontal;
   }
 }
 

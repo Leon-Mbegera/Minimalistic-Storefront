@@ -2,7 +2,7 @@ import { ADD_TO_CART, REMOVE_FROM_CART } from "../index";
 
 const initialCartItems = {
   cart: [],
-  // total: 0,
+  total: 0,
 };
 
 const cartReducer = (state = initialCartItems, action) => {
@@ -11,7 +11,7 @@ const cartReducer = (state = initialCartItems, action) => {
     case "ADD_TO_CART":
       return {
         cart: [...state.cart, action.payload],
-        // total: state.total + action.payload.total,
+        total: state.total + action.payload.total,
       };
     case REMOVE_FROM_CART:
       const cart = [...state.cart];
