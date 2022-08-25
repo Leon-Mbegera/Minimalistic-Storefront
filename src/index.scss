@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500&family=Roboto&family=Roboto+Condensed:wght@300;400;700&family=Source+Sans+Pro&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500&family=Roboto+Condensed:wght@300;400;700&family=Roboto:wght@300;500;700&family=Source+Sans+Pro&display=swap');
 
 $active-link-color: #5ECE7B;
 $Raleway: "Raleway", sans-serif;
@@ -190,6 +190,11 @@ $dark-text: #1D1F22;
   }
   .total {
     @extend .horizontal;
+    p {
+      font-family: $Roboto;
+      font-size: 16px;
+      font-weight: 500;
+    }
     div {
       display: flex;
       align-items: center;
@@ -616,12 +621,20 @@ $dark-text: #1D1F22;
   }
 }
 
-// .total {
-//   width: 100%;
-//   height: auto;
-//   display: flex;
-//   border: 1px solid rgba(57, 55, 72, 0.22);
-// }
+.total {
+  p {
+    font-family: $Roboto;
+    font-size: 16px;
+    font-weight: 500;
+  }
+  div {
+    display: flex;
+    align-items: center;
+    font-family: $Raleway;
+    font-weight: 700;
+    font-size: 16px;
+  }
+}
 
 
 

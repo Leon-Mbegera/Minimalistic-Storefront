@@ -12,10 +12,10 @@ class CartOverlay extends React.Component {
   getTotal() {
     let calculatedTotal = 0;
     this.props.cartData.cart.map((prodObj) => {
-      calculatedTotal += renderPreferedPriceCurrency(
+      return (calculatedTotal += renderPreferedPriceCurrency(
         prodObj.product,
         this.props.selectedCurrency
-      )?.amount;
+      )?.amount);
     });
     return calculatedTotal.toLocaleString(undefined, this.currencyOptions);
   }
