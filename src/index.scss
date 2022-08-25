@@ -654,16 +654,11 @@ $dark-text: #1D1F22;
     background: $white;
   }
   .checkout {
+    @extend .view-bag;
     border: none;
-    font-family: $Raleway;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 14px;
-    text-transform: uppercase;
     color: $white;
     background-color: $active-link-color;
   }
-
 }
 
 
