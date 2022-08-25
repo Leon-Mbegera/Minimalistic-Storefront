@@ -9,6 +9,18 @@ class CartOverlay extends React.Component {
     this.state = { total: 0 };
   }
 
+  getTotal() {
+    let calculatedTotal = 0;
+    this.props.cartData.cart.map((prodObj) => {
+      calculatedTotal += renderPreferedPriceCurrency(
+        prodObj.product,
+        this.props.selectedCurrency
+      )?.amount;
+    });
+    console.log("calculated total", calculatedTotal);
+    return calculatedTotal;
+  }
+
   render() {
     return (
       <>
@@ -152,8 +164,7 @@ class CartOverlay extends React.Component {
         <div className="total">
           <p>Total</p>
           <div>
-            <span></span>
-            <span></span>
+            <span>{this.getTotal()}</span>
           </div>
         </div>
       </>

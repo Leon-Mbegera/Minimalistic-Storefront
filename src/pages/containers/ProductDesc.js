@@ -237,7 +237,6 @@ const WrappedDetailsPage = () => {
     allData: state.allData,
     selectedCurrency: state.selectedCurrency,
   }));
-  console.log("Loud", Category, Id, allData.data);
   return (
     <DetailsPage
       data={allData.data}
