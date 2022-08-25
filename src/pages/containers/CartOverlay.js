@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { renderPreferedPriceCurrency, showSize } from "../../Utils/utilities";
 import { xAxis, yAxis } from "../../assets/axes";
+import { Link } from "react-router-dom";
 
 class CartOverlay extends React.Component {
   currencyOptions = {
@@ -166,6 +167,14 @@ class CartOverlay extends React.Component {
             <span>{this.props.selectedCurrency.symbol}</span>
             <span>{this.getTotal()}</span>
           </div>
+        </div>
+        <div className="cart-buttons">
+          <button className="view-bag">
+            <Link to="#" style={{ textDecoration: "none", color: "#1D1F22" }}>
+              View Bag
+            </Link>
+          </button>
+          <button className="checkout">Check out</button>
         </div>
       </>
     );
