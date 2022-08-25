@@ -190,6 +190,10 @@ $dark-text: #1D1F22;
   }
   .total {
     @extend .horizontal;
+    div {
+      display: flex;
+      align-items: center;
+    }
   }
 }
 

@@ -4,10 +4,10 @@ import { renderPreferedPriceCurrency, showSize } from "../../Utils/utilities";
 import { xAxis, yAxis } from "../../assets/axes";
 
 class CartOverlay extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { total: 0 };
-  }
+  currencyOptions = {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  };
 
   getTotal() {
     let calculatedTotal = 0;
@@ -17,8 +17,7 @@ class CartOverlay extends React.Component {
         this.props.selectedCurrency
       )?.amount;
     });
-    console.log("calculated total", calculatedTotal);
-    return calculatedTotal;
+    return calculatedTotal.toLocaleString(undefined, this.currencyOptions);
   }
 
   render() {
@@ -164,6 +163,7 @@ class CartOverlay extends React.Component {
         <div className="total">
           <p>Total</p>
           <div>
+            <span>{this.props.selectedCurrency.symbol}</span>
             <span>{this.getTotal()}</span>
           </div>
         </div>
