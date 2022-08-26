@@ -6,7 +6,12 @@ import { addToCart } from "../../redux/index";
 class DetailsPage extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { product: null, currentView: 0, attrOptions: {} };
+    this.state = {
+      product: null,
+      currentView: 0,
+      attrOptions: {},
+      quantity: 1,
+    };
   }
 
   componentDidMount() {
@@ -29,12 +34,7 @@ class DetailsPage extends React.Component {
   }
 
   pushProduct = () => {
-    const wholeObj = {
-      ...this.state,
-      total: this.displayedPrice(this.state.product?.prices)?.amount,
-    };
-    console.log("wholeObj", wholeObj);
-    this.props.dispatch(addToCart(wholeObj));
+    this.props.dispatch(addToCart(this.state));
   };
 
   changeView = (idx) => {
@@ -233,12 +233,14 @@ class DetailsPage extends React.Component {
 const WrappedDetailsPage = () => {
   const { Category, Id } = useParams();
   const dispatch = useDispatch();
-  const { allData, selectedCurrency } = useSelector((state) => ({
+  const { allData, selectedCurrency, cartData } = useSelector((state) => ({
     allData: state.allData,
     selectedCurrency: state.selectedCurrency,
+    cartData: state.cartData,
   }));
   return (
     <DetailsPage
+      cart={cartData.cart}
       data={allData.data}
       category={Category}
       productId={Id}

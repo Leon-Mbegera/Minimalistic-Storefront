@@ -13,10 +13,11 @@ class CartOverlay extends React.Component {
   getTotal() {
     let calculatedTotal = 0;
     this.props.cartData.cart.map((prodObj) => {
-      return (calculatedTotal += renderPreferedPriceCurrency(
-        prodObj.product,
-        this.props.selectedCurrency
-      )?.amount);
+      return (calculatedTotal +=
+        renderPreferedPriceCurrency(
+          prodObj.product,
+          this.props.selectedCurrency
+        )?.amount * prodObj.quantity);
     });
     return calculatedTotal.toLocaleString(undefined, this.currencyOptions);
   }
@@ -146,7 +147,7 @@ class CartOverlay extends React.Component {
                     <span className="y">{yAxis}</span>
                   </div>
                   <div className="count">
-                    <span>2</span>
+                    <span>{prodObj.quantity}</span>
                   </div>
                   <div className="decrement">
                     <span>{xAxis}</span>
