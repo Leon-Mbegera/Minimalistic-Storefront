@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { renderPreferedPriceCurrency, showSize } from "../../Utils/utilities";
 import { xAxis, yAxis } from "../../assets/axes";
 import { Link } from "react-router-dom";
+import { addToCart, removeFromCart } from "../../redux/index";
 
 class CartOverlay extends React.Component {
   currencyOptions = {
@@ -21,6 +22,14 @@ class CartOverlay extends React.Component {
     });
     return calculatedTotal.toLocaleString(undefined, this.currencyOptions);
   }
+
+  incrementQuantity = (prodObj) => {
+    this.props.dispatch(addToCart(prodObj));
+  };
+
+  decrementQuantity = (prodObj) => {
+    this.props.dispatch(removeFromCart(prodObj));
+  };
 
   render() {
     return (
@@ -142,14 +151,20 @@ class CartOverlay extends React.Component {
                   </div>
                 </div>
                 <div className="mid">
-                  <div className="increment">
+                  <div
+                    className="increment"
+                    onClick={() => this.incrementQuantity(prodObj)}
+                  >
                     <span className="x">{xAxis}</span>
                     <span className="y">{yAxis}</span>
                   </div>
                   <div className="count">
                     <span>{prodObj.quantity}</span>
                   </div>
-                  <div className="decrement">
+                  <div
+                    className="decrement"
+                    onClick={() => this.decrementQuantity(prodObj)}
+                  >
                     <span>{xAxis}</span>
                   </div>
                 </div>
