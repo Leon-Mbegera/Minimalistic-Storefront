@@ -34,7 +34,7 @@ class DetailsPage extends React.Component {
   }
 
   pushProduct = () => {
-    this.props.dispatch(addToCart(this.state));
+    this.props.dispatch(addToCart({ ...this.state }));
   };
 
   changeView = (idx) => {

@@ -3,7 +3,6 @@ const initialCartItems = {
 };
 
 const cartReducer = (state = initialCartItems, action) => {
-  console.log("did you get here?", state);
   switch (action.type) {
     case "ADD_TO_CART":
       const cart1 = [...state.cart];
@@ -14,17 +13,12 @@ const cartReducer = (state = initialCartItems, action) => {
       if (check_idx === -1) {
         return { cart: [...cart1, action.payload] };
       } else {
-        const newObj = {
+        const newstate = cart1.splice(check_idx, 1, {
           ...cart1[check_idx],
           quantity: (cart1[check_idx].quantity += 1),
-        };
-        const newState = cart1.filter((theone, index) => {
-          if (index !== check_idx) return theone;
-          return null;
         });
-        console.log("huuh", newObj, "and this", newState);
         return {
-          cart: [...newState, newObj],
+          cart: [...newstate],
         };
       }
     case "REMOVE_FROM_CART":
@@ -33,21 +27,15 @@ const cartReducer = (state = initialCartItems, action) => {
         ({ product }) => product.id === action.payload.product.id
       );
       if (cart[prodObjIndex].quantity > 1) {
-        const newprodObj = {
+        const newprodObj = cart.splice(prodObjIndex, 1, {
           ...cart[prodObjIndex],
           quantity: (cart[prodObjIndex].quantity -= 1),
-        };
-        const newState = cart.filter((theone, index) => {
-          if (index !== prodObjIndex) return theone;
-          return null;
         });
-        console.log("huuh", newprodObj, "and this", newState);
         return {
-          cart: [...newState, newprodObj],
+          cart: [...newprodObj],
         };
       } else {
         cart.splice(prodObjIndex, 1);
-        console.log("cart here", cart);
         return {
           cart: [...cart],
         };
