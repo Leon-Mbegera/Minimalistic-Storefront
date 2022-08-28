@@ -31,21 +31,13 @@ class CartOverlay extends React.Component {
     this.props.dispatch(removeFromCart(prodObj));
   };
 
-  reverseCartArray = (arr) => {
-    let newCartArr = [];
-    for (let i = arr.length - 1; i >= 0; i--) {
-      newCartArr.push(arr[i]);
-    }
-    return newCartArr;
-  };
-
   render() {
     return (
       <>
-        <div>
+        <div className="items-wrapper">
           {this.props.cartData.cart && this.props.cartData.cart.length > 0 ? (
             (console.log("from", this.props.cartData.cart),
-            this.props.cartData.cart.map((prodObj) => (
+            [...this.props.cartData.cart].map((prodObj) => (
               <div key={prodObj.product.id} className="cartItem">
                 <div className="left-side">
                   <div className="cartItem-heading">
