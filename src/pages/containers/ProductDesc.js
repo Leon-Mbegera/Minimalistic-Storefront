@@ -18,8 +18,6 @@ class DetailsPage extends React.Component {
     const selectedProduct = this.props.data
       .find((cat) => cat.name === this.props.category)
       ?.products.find((prod) => prod.id === this.props.productId);
-
-    console.log("found my product", selectedProduct);
     this.setState((prevState) => {
       return {
         ...prevState,
@@ -93,7 +91,6 @@ class DetailsPage extends React.Component {
         <div className="product-wrapper">
           <div className="product-images">
             <div className="smaller-images">
-              {console.log("state", this.state)}
               {this.state.product?.gallery.map((gal, idx) => (
                 <div
                   key={`image-${idx}`}

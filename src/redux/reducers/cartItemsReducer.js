@@ -7,16 +7,22 @@ const cartReducer = (state = initialCartItems, action) => {
     case "ADD_TO_CART":
       const cart1 = [...state.cart];
       const check_prod = action.payload.product;
-      const check_idx = state.cart.findIndex(
-        ({ product }) => product.id === check_prod.id
+      const check_idx = cart1.findIndex(
+        ({ product, attrOptions }) =>
+          product.id === check_prod.id &&
+          JSON.stringify(attrOptions) ===
+            JSON.stringify(action.payload.attrOptions)
       );
       if (check_idx === -1) {
         return { cart: [...cart1, action.payload] };
       } else {
-        const newstate = cart1.splice(check_idx, 1, {
-          ...cart1[check_idx],
-          quantity: (cart1[check_idx].quantity += 1),
+        const newstate = Object.assign([...cart1], {
+          [check_idx]: {
+            ...cart1[check_idx],
+            quantity: (cart1[check_idx].quantity += 1),
+          },
         });
+        console.log("newstate", newstate);
         return {
           cart: [...newstate],
         };
