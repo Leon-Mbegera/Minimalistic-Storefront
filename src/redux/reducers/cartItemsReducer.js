@@ -19,7 +19,7 @@ const cartReducer = (state = initialCartItems, action) => {
         const newstate = Object.assign([...cart1], {
           [check_idx]: {
             ...cart1[check_idx],
-            quantity: (cart1[check_idx].quantity += 1),
+            quantity: ({ ...[...cart1][check_idx] }.quantity += 1),
           },
         });
         console.log("newstate", newstate);
@@ -39,7 +39,7 @@ const cartReducer = (state = initialCartItems, action) => {
         const newRemState = Object.assign([...cart], {
           [prodObjIndex]: {
             ...cart[prodObjIndex],
-            quantity: (cart[prodObjIndex].quantity -= 1),
+            quantity: ({ ...[...cart][prodObjIndex] }.quantity -= 1),
           },
         });
         return {
