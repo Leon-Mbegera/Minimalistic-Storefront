@@ -29,7 +29,9 @@ class ReusableComponent extends React.Component {
             <span className="right-white-wheel">{whiteWheel}</span>
           </div>
           <div className="text-box">
-            <p className="product-title">{this.props.product.name}</p>
+            <p className="product-title">
+              {this.props.product.brand} {this.props.product.name}
+            </p>
             <div className="displayed-currency">
               <span className="price-symbol">
                 {
