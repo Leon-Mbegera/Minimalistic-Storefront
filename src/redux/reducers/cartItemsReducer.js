@@ -30,15 +30,20 @@ const cartReducer = (state = initialCartItems, action) => {
     case "REMOVE_FROM_CART":
       const cart = [...state.cart];
       const prodObjIndex = cart.findIndex(
-        ({ product }) => product.id === action.payload.product.id
+        ({ product, attrOptions }) =>
+          product.id === action.payload.product.id &&
+          JSON.stringify(attrOptions) ===
+            JSON.stringify(action.payload.attrOptions)
       );
-      if (cart[prodObjIndex].quantity > 1) {
-        const newprodObj = cart.splice(prodObjIndex, 1, {
-          ...cart[prodObjIndex],
-          quantity: (cart[prodObjIndex].quantity -= 1),
+      if (prodObjIndex > -1 && cart[prodObjIndex].quantity > 1) {
+        const newRemState = Object.assign([...cart], {
+          [prodObjIndex]: {
+            ...cart[prodObjIndex],
+            quantity: (cart[prodObjIndex].quantity -= 1),
+          },
         });
         return {
-          cart: [...newprodObj],
+          cart: [...newRemState],
         };
       } else {
         cart.splice(prodObjIndex, 1);
