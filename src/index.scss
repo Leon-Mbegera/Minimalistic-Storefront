@@ -679,6 +679,121 @@ $dark-text: #1D1F22;
   }
 }
 
+.cartPage-items-wrapper {
 
+}
 
+.cartPageItem {
+  @extend .horizontal;
+  width: 100%;
+  height: auto;
+  padding: 26px 0;
+  margin-block-end: 32px;
+  box-sizing: border-box;
+  border: 1px solid blue;
+  color: $dark-text;
+  .left-side {
+    width: 78%;
+    box-sizing: border-box;
+    border: 1px solid rgba(57, 55, 72, 0.22);
+    .cartItem-heading {
+      .brand-heading {
+        font-family: $Raleway;
+        font-weight: 600;
+        font-size: 30px;
+      }
+      .name-heading {
+        @extend .brand-heading;
+        font-weight: 400;
+      }
+    }
+    .cartItem-price {
+      font-family: $Raleway;
+      font-weight: 700;
+      font-size: 24px;
+    }
+  }
+  .right-side {
+    width: 22%;
+    box-sizing: border-box;
+    border: 1px solid peru;
+  }
+}
+
+.cartPageItem-attributes {
+  .type-text {
+    .attributes-size {
+      font-family: $Roboto-Condensed;
+      font-size: 18px;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-block-end: 0.5em;
+    }
+    .attributes-size-div {
+      display: flex;
+      flex-direction: row;
+      .size-box {
+        display: flex;
+        width: 63px;
+        height: 45px;
+        justify-content: center;
+        align-items: center;
+        color: $dark-text;
+        font-family: $Source-Sans-Pro;
+        font-size: 14px;
+        font-weight: 400;
+        box-sizing: border-box;
+        margin-right: 8px;
+        border: 1px solid $dark-text;
+      }
+      .choice {
+        @extend .size-box;
+        color: $white;
+        border: none;
+        background-color: $dark-text;
+      }
+      .size-box-reserviced {
+        @extend .size-box;
+        width: 65px;
+        height: 45px;
+      }
+      .choice-reserviced {
+        @extend .size-box-reserviced;
+        color: $white;
+        border: none;
+        background-color: $dark-text;
+      }
+    }
+  }
+
+  .type-swatch {
+    .attributes-color {
+      font-family: $Roboto-Condensed;
+      font-size: 18px;
+      font-weight: 700;
+      text-transform:uppercase;
+      margin-block-end: 0.5em;
+    }
+
+    .attributes-color-div {
+      display: flex;
+      flex-direction: row;
+      .parent-box {
+        width: 36px;
+        height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-sizing: border-box;
+        margin-right: 4px;
+        .swatch-box {
+          width: 32px;
+          height: 32px;
+          background: rgba(255, 255, 255, 0.2);
+          box-sizing: border-box;
+        }
+      }
+    }
+  }
+}
 

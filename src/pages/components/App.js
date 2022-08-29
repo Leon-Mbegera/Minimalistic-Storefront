@@ -4,6 +4,7 @@ import AllProductsListing from "../containers/AllProductsListing";
 import ClothesListing from "../containers/ClothesListing";
 import TechListing from "../containers/TechListing";
 import WrappedDetailsPage from "../containers/ProductDesc";
+import CartPage from "../containers/CartPage";
 import Navbar from "./Navbar";
 import { Query } from "react-apollo";
 import { connect } from "react-redux";
@@ -34,6 +35,7 @@ class App extends React.Component {
             path="/Categories/:Category/:Id"
             element={<WrappedDetailsPage />}
           />
+          <Route exact path="/CartPage" element={<CartPage />} />
         </Routes>
       </BrowserRouter>
     );

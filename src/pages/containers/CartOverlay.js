@@ -197,7 +197,10 @@ class CartOverlay extends React.Component {
           </div>
           <div className="cart-buttons">
             <button className="view-bag">
-              <Link to="#" style={{ textDecoration: "none", color: "#1D1F22" }}>
+              <Link
+                to="/CartPage"
+                style={{ textDecoration: "none", color: "#1D1F22" }}
+              >
                 View Bag
               </Link>
             </button>
