@@ -656,8 +656,8 @@ $dark-text: #1D1F22;
 
 .cart-buttons {
   @extend .horizontal;
-  button {
-    min-width: 135px;
+  button, Link {
+    width: 140px;
     height: 43px;
     border-radius: 0%;
   }
@@ -668,8 +668,9 @@ $dark-text: #1D1F22;
     font-size: 14px;
     text-transform: uppercase;
     color: $dark-text;
-    border: 1px solid $dark-text;
+    border: 2px solid $dark-text;
     background: $white;
+    padding: 12px 28px;
   }
   .checkout {
     @extend .view-bag;
