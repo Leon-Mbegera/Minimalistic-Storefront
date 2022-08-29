@@ -680,45 +680,97 @@ $dark-text: #1D1F22;
 }
 
 .cartPage-items-wrapper {
-
-}
-
-.cartPageItem {
-  @extend .horizontal;
-  width: 100%;
-  height: auto;
-  padding: 26px 0;
-  margin-block-end: 32px;
-  box-sizing: border-box;
-  border: 1px solid blue;
-  color: $dark-text;
-  .left-side {
-    width: 78%;
+  display: flex;
+  flex-direction: column-reverse;
+  .cartPageItem {
+    @extend .horizontal;
+    width: 100%;
+    height: auto;
+    padding: 26px 0;
+    margin-block-end: 32px;
     box-sizing: border-box;
-    border: 1px solid rgba(57, 55, 72, 0.22);
-    .cartItem-heading {
-      .brand-heading {
+    border: 1px solid blue;
+    color: $dark-text;
+    .left-side {
+      width: 78%;
+      box-sizing: border-box;
+      border: 1px solid rgba(57, 55, 72, 0.22);
+      .cartItem-heading {
+        .brand-heading {
+          font-family: $Raleway;
+          font-weight: 600;
+          font-size: 30px;
+        }
+        .name-heading {
+          @extend .brand-heading;
+          font-weight: 400;
+        }
+      }
+      .cartItem-price {
         font-family: $Raleway;
-        font-weight: 600;
-        font-size: 30px;
-      }
-      .name-heading {
-        @extend .brand-heading;
-        font-weight: 400;
+        font-weight: 700;
+        font-size: 24px;
       }
     }
-    .cartItem-price {
-      font-family: $Raleway;
-      font-weight: 700;
-      font-size: 24px;
+    .right-side {
+      width: 22%;
+      box-sizing: border-box;
+      border: 1px solid peru;
+      display: flex;
+      .mid {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin-inline-end: 1.5em;
+        .increment {
+          width: 45px;
+          height: 45px;
+          border: 1px solid $dark-text;
+          box-sizing: border-box;
+          position: relative;
+          .x {
+            position: absolute;
+            top: 18%;        
+          }
+          .y {
+            position: absolute;
+            top: 30%;
+            left: 50%;
+            z-index: -1;
+          }
+        }
+        .count {
+          @extend .increment;
+          border: none;
+          span {
+            position: absolute;
+            top: 10%;
+            left: 37%;
+            font-family: $Raleway;
+            font-weight: 500;
+            font-size: 24px;
+          }
+        }
+        .decrement {
+          @extend .increment;
+          span {
+            position: absolute;
+            top: 20%;
+            left: 30%;
+          }
+        }
+      }
+      .image-side {
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+        }
+      }
     }
-  }
-  .right-side {
-    width: 22%;
-    box-sizing: border-box;
-    border: 1px solid peru;
   }
 }
+
 
 .cartPageItem-attributes {
   .type-text {
@@ -740,7 +792,7 @@ $dark-text: #1D1F22;
         align-items: center;
         color: $dark-text;
         font-family: $Source-Sans-Pro;
-        font-size: 14px;
+        font-size: 16px;
         font-weight: 400;
         box-sizing: border-box;
         margin-right: 8px;

@@ -27,3 +27,11 @@ export const showSize = (value, displayValue) => {
       return;
   }
 };
+
+export const incrementQuantity = (prodObj, dispatch, func) => {
+  dispatch(func(prodObj));
+};
+
+export const decrementQuantity = (prodObj, dispatch, func) => {
+  dispatch(func(prodObj));
+};

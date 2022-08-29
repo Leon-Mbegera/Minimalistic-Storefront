@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { renderPreferedPriceCurrency, showSize } from "../../Utils/utilities";
-import { xAxis, yAxis } from "../../assets/axes";
+import { longX, longY } from "../../assets/axes";
 import { addToCart, removeFromCart } from "../../redux/index";
 
 class CartPage extends React.Component {
@@ -125,8 +125,8 @@ class CartPage extends React.Component {
                     className="increment"
                     onClick={() => this.incrementQuantity(prodObj)}
                   >
-                    <span className="x">{xAxis}</span>
-                    <span className="y">{yAxis}</span>
+                    <span className="x">{longX}</span>
+                    <span className="y">{longY}</span>
                   </div>
                   <div className="count">
                     <span>{prodObj.quantity}</span>
@@ -135,10 +135,10 @@ class CartPage extends React.Component {
                     className="decrement"
                     onClick={() => this.decrementQuantity(prodObj)}
                   >
-                    <span>{xAxis}</span>
+                    <span>{longX}</span>
                   </div>
                 </div>
-                <div>
+                <div className="image-side">
                   <img src={prodObj.product.gallery[0]} alt="first of them" />
                 </div>
               </div>
