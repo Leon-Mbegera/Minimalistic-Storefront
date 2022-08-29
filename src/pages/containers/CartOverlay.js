@@ -13,14 +13,19 @@ class CartOverlay extends React.Component {
 
   getTotal() {
     let calculatedTotal = 0;
+    let quantityCount = 0;
     this.props.cartData.cart.map((prodObj) => {
+      quantityCount += prodObj.quantity;
       return (calculatedTotal +=
         renderPreferedPriceCurrency(
           prodObj.product,
           this.props.selectedCurrency
         )?.amount * prodObj.quantity);
     });
-    return calculatedTotal.toLocaleString(undefined, this.currencyOptions);
+    return [
+      calculatedTotal.toLocaleString(undefined, this.currencyOptions),
+      quantityCount,
+    ];
   }
 
   incrementQuantity = (prodObj) => {
@@ -34,6 +39,10 @@ class CartOverlay extends React.Component {
   render() {
     return (
       <>
+        <div className="cartOverlay-heading">
+          <span className="my-bag">My Bag,</span>{" "}
+          <span className="q-count">{this.getTotal()[1]} items</span>
+        </div>
         <div className="items-wrapper">
           {this.props.cartData.cart && this.props.cartData.cart.length > 0 ? (
             (console.log("from", this.props.cartData.cart),
@@ -182,7 +191,7 @@ class CartOverlay extends React.Component {
           <p>Total</p>
           <div>
             <span>{this.props.selectedCurrency.symbol}</span>
-            <span>{this.getTotal()}</span>
+            <span>{this.getTotal()[0]}</span>
           </div>
         </div>
         <div className="cart-buttons">

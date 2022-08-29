@@ -165,6 +165,18 @@ $dark-text: #1D1F22;
   border: 1px solid brown;
   box-shadow: 0px 4px 35px rgba(168, 172, 176, 0.19);
   z-index: 15;
+  .cartOverlay-heading {
+    margin-block-end: 32px;
+    .my-bag {
+      font-family: $Raleway;
+      font-weight: 700;
+      font-size: 16px;
+    }
+    .q-count {
+      @extend .my-bag;
+      font-weight: 500;
+    }
+  }
   .items-wrapper {
     display: flex;
     flex-direction: column-reverse;
