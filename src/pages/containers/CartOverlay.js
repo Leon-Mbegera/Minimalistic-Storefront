@@ -187,20 +187,22 @@ class CartOverlay extends React.Component {
             <div>There's no product in your cart</div>
           )}
         </div>
-        <div className="total">
-          <p>Total</p>
-          <div>
-            <span>{this.props.selectedCurrency.symbol}</span>
-            <span>{this.getTotal()[0]}</span>
+        <div>
+          <div className="total">
+            <p>Total</p>
+            <div>
+              <span>{this.props.selectedCurrency.symbol}</span>
+              <span>{this.getTotal()[0]}</span>
+            </div>
           </div>
-        </div>
-        <div className="cart-buttons">
-          <button className="view-bag">
-            <Link to="#" style={{ textDecoration: "none", color: "#1D1F22" }}>
-              View Bag
-            </Link>
-          </button>
-          <button className="checkout">Check out</button>
+          <div className="cart-buttons">
+            <button className="view-bag">
+              <Link to="#" style={{ textDecoration: "none", color: "#1D1F22" }}>
+                View Bag
+              </Link>
+            </button>
+            <button className="checkout">Check out</button>
+          </div>
         </div>
       </>
     );
