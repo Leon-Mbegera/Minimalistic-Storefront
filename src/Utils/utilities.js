@@ -35,3 +35,23 @@ export const incrementQuantity = (prodObj, dispatch, func) => {
 export const decrementQuantity = (prodObj, dispatch, func) => {
   dispatch(func(prodObj));
 };
+
+export const currencyOptions = {
+  minimumFractionDigits: 2,
+  maximumFractionDigits: 2,
+};
+
+export const getTotal = (cartArr, currency) => {
+  let calculatedTotal = 0;
+  let quantityCount = 0;
+  cartArr.map((prodObj) => {
+    quantityCount += prodObj.quantity;
+    return (calculatedTotal +=
+      renderPreferedPriceCurrency(prodObj.product, currency)?.amount *
+      prodObj.quantity);
+  });
+  return [
+    calculatedTotal.toLocaleString(undefined, currencyOptions),
+    quantityCount,
+  ];
+};

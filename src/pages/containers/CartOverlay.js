@@ -5,48 +5,22 @@ import {
   showSize,
   incrementQuantity,
   decrementQuantity,
+  getTotal,
 } from "../../Utils/utilities";
 import { xAxis, yAxis } from "../../assets/axes";
 import { Link } from "react-router-dom";
 import { addToCart, removeFromCart } from "../../redux/index";
 
 class CartOverlay extends React.Component {
-  currencyOptions = {
-    minimumFractionDigits: 2,
-    maximumFractionDigits: 2,
-  };
-
-  getTotal() {
-    let calculatedTotal = 0;
-    let quantityCount = 0;
-    this.props.cartData.cart.map((prodObj) => {
-      quantityCount += prodObj.quantity;
-      return (calculatedTotal +=
-        renderPreferedPriceCurrency(
-          prodObj.product,
-          this.props.selectedCurrency
-        )?.amount * prodObj.quantity);
-    });
-    return [
-      calculatedTotal.toLocaleString(undefined, this.currencyOptions),
-      quantityCount,
-    ];
-  }
-
-  incrementQuantity = (prodObj) => {
-    this.props.dispatch(addToCart(prodObj));
-  };
-
-  decrementQuantity = (prodObj) => {
-    this.props.dispatch(removeFromCart(prodObj));
-  };
-
   render() {
     return (
       <>
         <div className="cartOverlay-heading">
           <span className="my-bag">My Bag,</span>{" "}
-          <span className="q-count">{this.getTotal()[1]} items</span>
+          <span className="q-count">
+            {getTotal(this.props.cartData.cart, this.props.selectedCurrency)[1]}{" "}
+            items
+          </span>
         </div>
         <div className="items-wrapper">
           {this.props.cartData.cart && this.props.cartData.cart.length > 0 ? (
@@ -205,7 +179,14 @@ class CartOverlay extends React.Component {
             <p>Total</p>
             <div>
               <span>{this.props.selectedCurrency.symbol}</span>
-              <span>{this.getTotal()[0]}</span>
+              <span>
+                {
+                  getTotal(
+                    this.props.cartData.cart,
+                    this.props.selectedCurrency
+                  )[0]
+                }
+              </span>
             </div>
           </div>
           <div className="cart-buttons">

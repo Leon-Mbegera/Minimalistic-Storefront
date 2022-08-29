@@ -1,6 +1,12 @@
 import React from "react";
 import { connect } from "react-redux";
-import { renderPreferedPriceCurrency, showSize } from "../../Utils/utilities";
+import {
+  renderPreferedPriceCurrency,
+  showSize,
+  incrementQuantity,
+  decrementQuantity,
+  getTotal,
+} from "../../Utils/utilities";
 import { longX, longY } from "../../assets/axes";
 import { addToCart, removeFromCart } from "../../redux/index";
 
@@ -123,7 +129,9 @@ class CartPage extends React.Component {
                 <div className="mid">
                   <div
                     className="increment"
-                    onClick={() => this.incrementQuantity(prodObj)}
+                    onClick={() =>
+                      incrementQuantity(prodObj, this.props.dispatch, addToCart)
+                    }
                   >
                     <span className="x">{longX}</span>
                     <span className="y">{longY}</span>
@@ -133,7 +141,13 @@ class CartPage extends React.Component {
                   </div>
                   <div
                     className="decrement"
-                    onClick={() => this.decrementQuantity(prodObj)}
+                    onClick={() =>
+                      decrementQuantity(
+                        prodObj,
+                        this.props.dispatch,
+                        removeFromCart
+                      )
+                    }
                   >
                     <span>{longX}</span>
                   </div>
