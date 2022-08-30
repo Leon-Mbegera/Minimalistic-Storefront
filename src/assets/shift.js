@@ -9,14 +9,14 @@ export const caretleft = (
     <path
       d="M7.25 1.06857L1.625 6.6876L7.25 12.3066"
       stroke="white"
-      stroke-width="1.5"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
   </svg>
 );
 
-export const caretRight = (
+export const caretright = (
   <svg
     width="8"
     height="14"
@@ -27,9 +27,9 @@ export const caretRight = (
     <path
       d="M0.75 1.06857L6.375 6.6876L0.75 12.3066"
       stroke="white"
-      stroke-width="1.5"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
   </svg>
 );

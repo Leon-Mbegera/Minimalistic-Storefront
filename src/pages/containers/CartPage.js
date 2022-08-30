@@ -8,16 +8,50 @@ import {
   getTotal,
 } from "../../Utils/utilities";
 import { longX, longY } from "../../assets/axes";
+import { caretleft, caretright } from "../../assets/shift";
 import { addToCart, removeFromCart } from "../../redux/index";
 
 class CartPage extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+
+  componentDidMount() {
+    [...this.props.cartData.cart].map((prodObj, id) => {
+      this.setState((prevState) => {
+        return {
+          ...prevState,
+          [id]: 0,
+        };
+      });
+      return null;
+    });
+  }
+
+  shiftleft = (id) => {
+    if (this.state[id] === 0) return;
+    this.setState((prevState) => ({
+      ...prevState,
+      [id]: ({ ...prevState }[id] -= 1),
+    }));
+  };
+
+  shiftright = (gallery, id) => {
+    if (this.state[id] === gallery.length - 1) return;
+    this.setState((prevState) => ({
+      ...prevState,
+      [id]: ({ ...prevState }[id] += 1),
+    }));
+  };
+
   render() {
     return (
       <div className="cartPage-items-wrapper">
         {this.props.cartData.cart && this.props.cartData.cart.length > 0 ? (
           (console.log("from", this.props.cartData.cart),
-          [...this.props.cartData.cart].map((prodObj) => (
-            <div key={prodObj.product.id} className="cartPageItem">
+          [...this.props.cartData.cart].map((prodObj, id) => (
+            <div key={`item-${id}`} className="cartPageItem">
               <div className="left-side">
                 <div className="cartItem-heading">
                   <p className="brand-heading">{prodObj.product.brand}</p>
@@ -153,7 +187,22 @@ class CartPage extends React.Component {
                   </div>
                 </div>
                 <div className="image-side">
-                  <img src={prodObj.product.gallery[0]} alt="first of them" />
+                  <img
+                    src={prodObj.product.gallery[this.state[id]]}
+                    alt="first of them"
+                  />
+                  <div
+                    className="caret-left"
+                    onClick={() => this.shiftleft(id)}
+                  >
+                    {caretleft}
+                  </div>
+                  <div
+                    className="caret-right"
+                    onClick={() => this.shiftright(prodObj.product.gallery, id)}
+                  >
+                    {caretright}
+                  </div>
                 </div>
               </div>
             </div>
