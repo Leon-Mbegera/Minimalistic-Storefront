@@ -16,6 +16,7 @@ class TechListing extends React.Component {
                 {this.props.allProducts.data[2].products.map((product) => (
                   <ReusableComponent
                     key={product.name}
+                    category={this.props.allProducts.data[2].name}
                     product={product}
                     selectedCurrency={this.props.selectedCurrency}
                   />

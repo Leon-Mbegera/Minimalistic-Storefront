@@ -228,7 +228,7 @@ class CartPage extends React.Component {
             <div>There's no product in your cart</div>
           )}
         </div>
-        <div>
+        <div className="summation">
           <table>
             <tbody>
               <tr className="tax">
