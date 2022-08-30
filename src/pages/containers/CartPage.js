@@ -266,7 +266,9 @@ class CartPage extends React.Component {
               </tr>
             </tbody>
           </table>
-          <button></button>
+          <button type="button" className="order">
+            Order
+          </button>
         </div>
       </>
     );
