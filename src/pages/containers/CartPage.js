@@ -191,18 +191,24 @@ class CartPage extends React.Component {
                     src={prodObj.product.gallery[this.state[id]]}
                     alt="first of them"
                   />
-                  <div
-                    className="caret-left"
-                    onClick={() => this.shiftleft(id)}
-                  >
-                    {caretleft}
-                  </div>
-                  <div
-                    className="caret-right"
-                    onClick={() => this.shiftright(prodObj.product.gallery, id)}
-                  >
-                    {caretright}
-                  </div>
+                  {prodObj.product.gallery.length > 1 ? (
+                    <>
+                      <div
+                        className="caret-left"
+                        onClick={() => this.shiftleft(id)}
+                      >
+                        {caretleft}
+                      </div>
+                      <div
+                        className="caret-right"
+                        onClick={() =>
+                          this.shiftright(prodObj.product.gallery, id)
+                        }
+                      >
+                        {caretright}
+                      </div>
+                    </>
+                  ) : null}
                 </div>
               </div>
             </div>
