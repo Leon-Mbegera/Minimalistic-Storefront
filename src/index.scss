@@ -868,3 +868,36 @@ $dark-text: #1D1F22;
   }
 }
 
+table {
+  width: 184px;
+  height: auto;
+  .tax, .quantify {
+    .title {
+      font-family: $Raleway;
+      font-weight: 400;
+      font-size: 24px;
+      line-height: 28px;
+    }
+    td {
+      font-family: $Raleway;
+      font-weight: 700;
+      font-size: 24px;
+      line-height: 28px;
+    }
+  }
+  .cost-summation {
+    .title {
+      font-family: $Raleway;
+      font-weight: 500;
+      font-size: 24px;
+      line-height: 28px;
+    }
+    td {
+      font-family: $Raleway;
+      font-weight: 700;
+      font-size: 24px;
+      line-height: 28px;
+    }
+  }
+}
+

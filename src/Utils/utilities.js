@@ -55,3 +55,9 @@ export const getTotal = (cartArr, currency) => {
     quantityCount,
   ];
 };
+
+export const calcTax = (cartArr, currency) => {
+  const pc = 21 / 100;
+  const total = getTotal(cartArr, currency)[0].replace(",", "");
+  return (pc * total).toLocaleString(undefined, currencyOptions);
+};
