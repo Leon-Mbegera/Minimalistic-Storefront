@@ -56,6 +56,15 @@ export const getTotal = (cartArr, currency) => {
   ];
 };
 
+export const sneakQuantity = (cartArr) => {
+  let sneak = 0;
+  cartArr.map((prodObj) => {
+    sneak += prodObj.quantity;
+  });
+  console.log("sneak", sneak);
+  return sneak;
+};
+
 export const calcTax = (cartArr, currency) => {
   const pc = 21 / 100;
   const total = getTotal(cartArr, currency)[0].replace(",", "");

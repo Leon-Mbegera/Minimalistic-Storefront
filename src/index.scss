@@ -12,7 +12,7 @@ $grey-line: #E5E5E5;
 #root {
   margin: 0 auto;
   padding: 0;
-  width: 92%;
+  width: 93%;
 }
 
 .horizontal {
@@ -54,10 +54,12 @@ $grey-line: #E5E5E5;
 }
 
 .dropdown {
-  float: left;
-  overflow: hidden;
-  font-size: 18px;
-  font-weight: 500;
+  // float: left;
+  // overflow: hidden;
+  // font-size: 18px;
+  // font-weight: 500;
+  // margin-right: 100px;
+  display: flex;
 }
 
 .dropdownBtn {
@@ -76,7 +78,7 @@ $grey-line: #E5E5E5;
   margin-left: -10px;
   padding-top: 10px;
   padding-bottom: 10px;
-  margin-block-start: 0.5em;
+  margin-block-start: 19rem;
   padding-inline-start: 0;
   background-color: $white;
   box-shadow: 0px 4px 35px rgba(168, 172, 176, 0.19);
@@ -132,36 +134,62 @@ $grey-line: #E5E5E5;
   }
 }
 
-.cartOverlay-cart {
-  display: inline-block;
-  position: relative;
-  width: 28px;
-  height: 28px;
-  padding: 0;
-  .black-cart {
-    position: absolute;
-    top: 19%;
-  }
-  .left-black-wheel {
-    position: absolute;
-    top: 37%;
-    left: 22%
-  }
-  .right-black-wheel {
-    position: absolute;
-    top: 37%;
-    right: 35%;
+.cartOverlay-div {
+  display: flex;
+  align-items: flex-end;
+  .cartOverlay-cart {
+    display: inline-block;
+    position: relative;
+    width: 34px;
+    height: 28px;
+    padding: 0;
+    .black-cart {
+      position: absolute;
+      top: 19%;
+    }
+    .left-black-wheel {
+      position: absolute;
+      top: 37%;
+      left: 21%
+    }
+    .right-black-wheel {
+      position: absolute;
+      top: 37%;
+      right: 47%;
+    }
+    .sneak-count {
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      top: 5%;
+      right: 9%;
+      box-sizing: border-box;
+      background: $dark-text;
+      color: $white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 700;
+      font-family: $Source-Sans-Pro;
+    }
+    .hide-count {
+      display: none;
+    }
   }
 }
 
+
+
  .cartOverlay-wrapper {
   position: absolute;
+  top: 21%;
   width: 325px;
   max-height: 677px;
   overflow-y: auto;
-  margin-left: -232px;
+  margin-left: -290px;
   padding: 32px 16px;
-  margin-block-start: 1rem;
   box-sizing: border-box;
   background-color: $white;
   border: 1px solid brown;

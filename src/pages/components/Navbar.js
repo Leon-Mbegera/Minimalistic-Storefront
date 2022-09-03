@@ -12,6 +12,7 @@ import { connect } from "react-redux";
 import { currencyChange } from "../../redux";
 import { navlinkStyles } from "../../styled/NavbarElements";
 import CartOverlay from "../containers/CartOverlay";
+import { sneakQuantity } from "../../Utils/utilities";
 
 const currencyOptions = [
   {
@@ -37,12 +38,16 @@ const currencyOptions = [
 ];
 
 class Navbar extends React.Component {
-  state = { visible: false };
+  constructor(props) {
+    super(props);
+    this.state = { visibleOverlay: false, isDropdownOpen: false };
+    this.myRef = React.createRef();
+  }
 
   showCartOverlay = () => {
     this.setState((prevState) => ({
       ...prevState,
-      visible: !prevState.visible,
+      visibleOverlay: !prevState.visibleOverlay,
     }));
   };
 
@@ -62,9 +67,7 @@ class Navbar extends React.Component {
   };
 
   handleCartOverlay = () => {
-    console.log("do you even run");
     const cartOverlay = document.getElementById("cartOverlay-content");
-    console.log("cartOverlay element", cartOverlay);
     cartOverlay.classList.remove("show");
   };
 
@@ -136,29 +139,40 @@ class Navbar extends React.Component {
                   </span>
                 </div>
               </button>
+              <ul className="dropdown-menu" id="dropdown-content">
+                {currencyOptions.map((opt) => {
+                  return (
+                    <li
+                      key={opt.label}
+                      onClick={() => this.handleCurrencyChange(opt)}
+                    >
+                      {opt.symbol} {opt.label}
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+            <div className="cartOverlay-div">
               <div className="cartOverlay-cart" onClick={this.showCartOverlay}>
                 <span className="black-cart">{blackCart}</span>
                 <span className="left-black-wheel">{blackWheel}</span>
                 <span className="right-black-wheel">{blackWheel}</span>
+                <div
+                  className={
+                    sneakQuantity(this.props.cartData.cart)
+                      ? "sneak-count"
+                      : "hide-count"
+                  }
+                >
+                  {sneakQuantity(this.props.cartData.cart)}
+                </div>
               </div>
+              {this.state.visibleOverlay ? (
+                <div className="cartOverlay-wrapper">
+                  <CartOverlay />
+                </div>
+              ) : null}
             </div>
-            <ul className="dropdown-menu" id="dropdown-content">
-              {currencyOptions.map((opt) => {
-                return (
-                  <li
-                    key={opt.label}
-                    onClick={() => this.handleCurrencyChange(opt)}
-                  >
-                    {opt.symbol} {opt.label}
-                  </li>
-                );
-              })}
-            </ul>
-            {this.state.visible && (
-              <div className="cartOverlay-wrapper">
-                <CartOverlay />
-              </div>
-            )}
           </div>
         </nav>
       </>
@@ -187,6 +201,7 @@ window.onclick = function (event) {
 
 const mapStateToProps = (state) => ({
   currency: state.selectedCurrency,
+  cartData: state.cartData,
 });
 
 export default connect(mapStateToProps)(Navbar);
