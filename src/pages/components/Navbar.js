@@ -40,14 +40,58 @@ const currencyOptions = [
 class Navbar extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { visibleOverlay: false, isDropdownOpen: false };
-    this.myRef = React.createRef();
+    this.state = { isOverlayOpen: false, isDropdownOpen: false };
+    this.currencyRef = React.createRef();
+    this.overlayRef = React.createRef();
+    this.checkIfClickedOutside = this.checkIfClickedOutside.bind(this);
+  }
+
+  checkIfClickedOutside = (e) => {
+    console.log(
+      "and you ?",
+      this.state.isOverlayOpen,
+      this.overlayRef.current,
+      !this.overlayRef.current.contains(e.target),
+      e
+    );
+    if (
+      this.state.isOverlayOpen &&
+      this.overlayRef.current &&
+      !this.overlayRef.current.contains(e.target)
+    ) {
+      this.setState((prevState) => {
+        return {
+          ...prevState,
+          isOverlayOpen: !prevState.isOverlayOpen,
+        };
+      });
+    }
+  };
+
+  componentDidMount() {
+    document.addEventListener("click", this.checkIfClickedOutside);
+  }
+
+  // componentDidUpdate(prevProps, prevState, event) {
+  //   console.log(
+  //     "these two",
+  //     prevState.isOverlayOpen,
+  //     this.state.isOverlayOpen,
+  //     event
+  //   );
+  //   if (prevState.isOverlayOpen !== this.state.isOverlayOpen) {
+  //     this.checkIfClickedOutside(event);
+  //   }
+  // }
+
+  componentWillUnmount() {
+    document.body.removeEventListener("click", this.checkIfClickedOutside);
   }
 
   showCartOverlay = () => {
     this.setState((prevState) => ({
       ...prevState,
-      visibleOverlay: !prevState.visibleOverlay,
+      isOverlayOpen: !prevState.isOverlayOpen,
     }));
   };
 
@@ -66,10 +110,10 @@ class Navbar extends React.Component {
     }
   };
 
-  handleCartOverlay = () => {
-    const cartOverlay = document.getElementById("cartOverlay-content");
-    cartOverlay.classList.remove("show");
-  };
+  // handleCartOverlay = () => {
+  //   const cartOverlay = document.getElementById("cartOverlay-content");
+  //   cartOverlay.classList.remove("show");
+  // };
 
   handleCurrencyChange = (option) => {
     this.props.dispatch(currencyChange(option));
@@ -152,8 +196,11 @@ class Navbar extends React.Component {
                 })}
               </ul>
             </div>
-            <div className="cartOverlay-div">
-              <div className="cartOverlay-cart" onClick={this.showCartOverlay}>
+            <div className="cartOverlay-div" ref={this.overlayRef}>
+              <div
+                className="cartOverlay-cart"
+                onClick={() => this.showCartOverlay()}
+              >
                 <span className="black-cart">{blackCart}</span>
                 <span className="left-black-wheel">{blackWheel}</span>
                 <span className="right-black-wheel">{blackWheel}</span>
@@ -167,7 +214,7 @@ class Navbar extends React.Component {
                   {sneakQuantity(this.props.cartData.cart)}
                 </div>
               </div>
-              {this.state.visibleOverlay ? (
+              {this.state.isOverlayOpen ? (
                 <div className="cartOverlay-wrapper">
                   <CartOverlay />
                 </div>

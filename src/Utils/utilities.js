@@ -59,9 +59,8 @@ export const getTotal = (cartArr, currency) => {
 export const sneakQuantity = (cartArr) => {
   let sneak = 0;
   cartArr.map((prodObj) => {
-    sneak += prodObj.quantity;
+    return (sneak += prodObj.quantity);
   });
-  console.log("sneak", sneak);
   return sneak;
 };
 
