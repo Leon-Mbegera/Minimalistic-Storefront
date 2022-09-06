@@ -48,16 +48,15 @@ class Navbar extends React.Component {
 
   checkIfClickedOutside = (e) => {
     console.log(
-      "and you ?",
+      "first see",
       this.state.isOverlayOpen,
-      this.overlayRef.current,
-      !this.overlayRef.current.contains(e.target),
-      e
+      this.state.isDropdownOpen
     );
+
     if (
       this.state.isOverlayOpen &&
       this.overlayRef.current &&
-      !this.overlayRef.current.contains(e.target)
+      !this.overlayRef.current?.contains(e.target)
     ) {
       this.setState((prevState) => {
         return {
@@ -66,23 +65,44 @@ class Navbar extends React.Component {
         };
       });
     }
+
+    if (
+      this.state.isDropdownOpen &&
+      this.currencyRef.current &&
+      !this.currencyRef.current?.contains(e.target)
+    ) {
+      this.setState((prevState) => {
+        console.log("th", {
+          ...prevState,
+          isDropdownOpen: !prevState.isDropdownOpen,
+        });
+        return {
+          ...prevState,
+          isDropdownOpen: !prevState.isDropdownOpen,
+        };
+      });
+    }
+
+    // if (!this.state.isDropdownOpen) {
+    //   return;
+    // } else if (
+    //   this.state.isDropdownOpen &&
+    //   this.currencyRef.current &&
+    //   !this.currencyRef.current?.contains(e.target)
+    // ) {
+    //   this.setState((prevState) => {
+    //     // console.log("hereby 1", !prevState.isDropdownOpen);
+    //     return {
+    //       ...prevState,
+    //       isDropdownOpen: !prevState.isDropdownOpen,
+    //     };
+    //   });
+    // }
   };
 
   componentDidMount() {
     document.addEventListener("click", this.checkIfClickedOutside);
   }
-
-  // componentDidUpdate(prevProps, prevState, event) {
-  //   console.log(
-  //     "these two",
-  //     prevState.isOverlayOpen,
-  //     this.state.isOverlayOpen,
-  //     event
-  //   );
-  //   if (prevState.isOverlayOpen !== this.state.isOverlayOpen) {
-  //     this.checkIfClickedOutside(event);
-  //   }
-  // }
 
   componentWillUnmount() {
     document.body.removeEventListener("click", this.checkIfClickedOutside);
@@ -95,20 +115,29 @@ class Navbar extends React.Component {
     }));
   };
 
-  handleDropdownClick = () => {
-    const ele = document.getElementById("dropdown-content");
-    const caron = document.getElementById("dropdown-caron");
-    const caret = document.getElementById("dropdown-caret");
-    ele.classList.toggle("show");
-    caron.classList.toggle("hidden-arrow");
-    if (caret.classList.contains("caret")) {
-      caret.classList.remove("caret");
-      caret.classList.add("visible-arrow");
-    } else {
-      caret.classList.remove("visible-arrow");
-      caret.classList.add("caret");
-    }
+  showDropdownList = () => {
+    this.setState((prevState) => {
+      return {
+        ...prevState,
+        isDropdownOpen: !prevState.isDropdownOpen,
+      };
+    });
   };
+
+  // handleDropdownClick = () => {
+  //   const ele = document.getElementById("dropdown-content");
+  //   const caron = document.getElementById("dropdown-caron");
+  //   const caret = document.getElementById("dropdown-caret");
+  //   ele.classList.toggle("show");
+  //   caron.classList.toggle("hidden-arrow");
+  //   if (caret.classList.contains("caret")) {
+  //     caret.classList.remove("caret");
+  //     caret.classList.add("visible-arrow");
+  //   } else {
+  //     caret.classList.remove("visible-arrow");
+  //     caret.classList.add("caret");
+  //   }
+  // };
 
   // handleCartOverlay = () => {
   //   const cartOverlay = document.getElementById("cartOverlay-content");
@@ -169,32 +198,48 @@ class Navbar extends React.Component {
           <div className="dropdown">
             <div className="buttons">
               <button
+                ref={this.currencyRef}
                 type="button"
                 className="dropdownBtn"
-                onClick={this.handleDropdownClick}
+                onClick={() => this.showDropdownList()}
               >
                 {this.props.currency.symbol}
                 <div className="arrows">
-                  <span className="caret" id="dropdown-caret">
+                  {/* {console.log("at caret", this.state.isDropdownOpen)} */}
+                  <span
+                    className={
+                      this.state.isDropdownOpen ? "visible-arrow" : "caret"
+                    }
+                    id="dropdown-caret"
+                  >
                     {up}
                   </span>
-                  <span className="caron" id="dropdown-caron">
+                  {/* {console.log("at caron", this.state.isDropdownOpen)} */}
+                  <span
+                    className={
+                      this.state.isDropdownOpen ? "caron hidden-arrow" : "caron"
+                    }
+                    id="dropdown-caron"
+                  >
                     {down}
                   </span>
                 </div>
               </button>
-              <ul className="dropdown-menu" id="dropdown-content">
-                {currencyOptions.map((opt) => {
-                  return (
-                    <li
-                      key={opt.label}
-                      onClick={() => this.handleCurrencyChange(opt)}
-                    >
-                      {opt.symbol} {opt.label}
-                    </li>
-                  );
-                })}
-              </ul>
+              {/* {console.log("hereby", this.state.isDropdownOpen)} */}
+              {this.state.isDropdownOpen ? (
+                <ul className="dropdown-menu" id="dropdown-content">
+                  {currencyOptions.map((opt) => {
+                    return (
+                      <li
+                        key={opt.label}
+                        onClick={() => this.handleCurrencyChange(opt)}
+                      >
+                        {opt.symbol} {opt.label}
+                      </li>
+                    );
+                  })}
+                </ul>
+              ) : null}
             </div>
             <div className="cartOverlay-div" ref={this.overlayRef}>
               <div
@@ -226,25 +271,6 @@ class Navbar extends React.Component {
     );
   }
 }
-
-window.onclick = function (event) {
-  if (!event.target.matches(".dropdownBtn")) {
-    let ele = document.getElementById("dropdown-content");
-    let caron = document.getElementById("dropdown-caron");
-    const caret = document.getElementById("dropdown-caret");
-    if (
-      ele.classList.contains("show") &&
-      caron.classList.contains("hidden-arrow")
-    ) {
-      ele.classList.remove("show");
-      caron.classList.remove("hidden-arrow");
-    }
-    if (caret.classList.contains("visible-arrow")) {
-      caret.classList.remove("visible-arrow");
-      caret.classList.add("caret");
-    }
-  }
-};
 
 const mapStateToProps = (state) => ({
   currency: state.selectedCurrency,
