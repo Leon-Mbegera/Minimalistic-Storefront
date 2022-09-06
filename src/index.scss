@@ -33,7 +33,6 @@ $grey-line: #E5E5E5;
   height: 75px;
   align-items: center;
   margin: 0 auto;
-  border: 1px solid green;
 }
 
 .navbar-links {
@@ -50,15 +49,10 @@ $grey-line: #E5E5E5;
 .active-navlink {
   @extend .navlink-font-family-and-weight;
   color: $active-link-color;
-  border-bottom: 3px solid $active-link-color;
+  border-bottom: 2px solid $active-link-color;
 }
 
 .dropdown {
-  // float: left;
-  // overflow: hidden;
-  // font-size: 18px;
-  // font-weight: 500;
-  // margin-right: 100px;
   display: flex;
 }
 
@@ -943,6 +937,18 @@ $grey-line: #E5E5E5;
     line-height: 120%;
     margin-block-start: 1em;
   }
+}
+
+.category-heading {
+  font-family: $Raleway;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 42px;
+  line-height: 160%;
+  text-transform: capitalize;
+  margin-block-start: 1.8em;
+  margin-block-end: 2.8em;
+  color: $dark-text;
 }
 
 

@@ -9,8 +9,8 @@ class ClothesListing extends React.Component {
         <section>
           {this.props.allProducts && this.props.allProducts.data.length > 0 ? (
             <>
-              <div>
-                <h1>{this.props.allProducts.data[1].name}</h1>
+              <div className="category-heading">
+                {this.props.allProducts.data[1].name}
               </div>
               <section className="grid-container">
                 {this.props.allProducts.data[1].products.map((product) => (
