@@ -33,6 +33,7 @@ $grey-line: #E5E5E5;
   height: 75px;
   align-items: center;
   margin: 0 auto;
+  border: 1px solid green;
 }
 
 .navbar-links {
@@ -174,11 +175,9 @@ $grey-line: #E5E5E5;
   }
 }
 
-
-
  .cartOverlay-wrapper {
   position: absolute;
-  top: 21%;
+  top: 12.5%;
   width: 325px;
   max-height: 677px;
   overflow-y: auto;
