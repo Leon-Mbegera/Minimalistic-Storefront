@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import { addToCart } from "../../redux/index";
+import { showSize, makeIt } from "../../Utils/utilities";
 
 class DetailsPage extends React.Component {
   constructor(props) {
@@ -22,7 +23,7 @@ class DetailsPage extends React.Component {
       return {
         ...prevState,
         product: selectedProduct,
-        attrOptions: this.makeIt(
+        attrOptions: makeIt(
           selectedProduct.attributes.map((attr) => {
             return { [attr.name]: attr.items[0].value };
           })
@@ -41,11 +42,6 @@ class DetailsPage extends React.Component {
     });
   };
 
-  makeIt = (array) => {
-    const bigObject = Object.assign({}, ...array);
-    return bigObject;
-  };
-
   changeAttrOpt = (name, value) => {
     this.setState((prevState) => {
       return {
@@ -53,29 +49,6 @@ class DetailsPage extends React.Component {
         attrOptions: { ...prevState.attrOptions, [name]: value },
       };
     });
-  };
-
-  showSize = (value, displayValue) => {
-    switch (value) {
-      case "40":
-        return "XS";
-      case "41":
-        return "S";
-      case "42":
-        return "M";
-      case "43":
-        return "L";
-      case "512G":
-        return displayValue;
-      case "1T":
-        return displayValue;
-      case "Yes":
-        return displayValue;
-      case "No":
-        return displayValue;
-      default:
-        return;
-    }
   };
 
   displayedPrice = (pricesArr) => {
@@ -144,10 +117,7 @@ class DetailsPage extends React.Component {
                                     }
                                   >
                                     <div>
-                                      {this.showSize(
-                                        item.value,
-                                        item.displayValue
-                                      )}
+                                      {showSize(item.value, item.displayValue)}
                                     </div>
                                   </div>
                                 ))

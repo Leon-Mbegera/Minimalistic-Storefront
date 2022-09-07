@@ -11,13 +11,6 @@ class ReusableComponent extends React.Component {
     quantity: 1,
   };
 
-  // renderPreferedPriceCurrency = (product) => {
-  //   const priceObject = product?.prices.find(
-  //     (price) => price.currency.label === this.props.selectedCurrency?.label
-  //   );
-  //   return priceObject;
-  // };
-
   render() {
     return (
       <Link

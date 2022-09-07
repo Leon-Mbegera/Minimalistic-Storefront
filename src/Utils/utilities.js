@@ -69,3 +69,8 @@ export const calcTax = (cartArr, currency) => {
   const total = getTotal(cartArr, currency)[0].replace(",", "");
   return (pc * total).toLocaleString(undefined, currencyOptions);
 };
+
+export const makeIt = (array) => {
+  const bigObject = Object.assign({}, ...array);
+  return bigObject;
+};
