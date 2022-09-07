@@ -24,9 +24,8 @@ class CartOverlay extends React.Component {
         </div>
         <div className="items-wrapper">
           {this.props.cartData.cart && this.props.cartData.cart.length > 0 ? (
-            (console.log("from", this.props.cartData.cart),
-            [...this.props.cartData.cart].map((prodObj) => (
-              <div key={prodObj.product.id} className="cartItem">
+            [...this.props.cartData.cart].map((prodObj, idx) => (
+              <div key={`product-${idx}`} className="cartItem">
                 <div className="left-side">
                   <div className="cartItem-heading">
                     <p>{prodObj.product.brand}</p>
@@ -169,7 +168,7 @@ class CartOverlay extends React.Component {
                   <img src={prodObj.product.gallery[0]} alt="first of them" />
                 </div>
               </div>
-            )))
+            ))
           ) : (
             <div>There's no product in your cart</div>
           )}

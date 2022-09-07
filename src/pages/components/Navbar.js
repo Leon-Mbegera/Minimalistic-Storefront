@@ -163,7 +163,6 @@ class Navbar extends React.Component {
                     className={
                       this.state.isDropdownOpen ? "visible-arrow" : "caret"
                     }
-                    id="dropdown-caret"
                   >
                     {up}
                   </span>
@@ -171,14 +170,13 @@ class Navbar extends React.Component {
                     className={
                       this.state.isDropdownOpen ? "caron hidden-arrow" : "caron"
                     }
-                    id="dropdown-caron"
                   >
                     {down}
                   </span>
                 </div>
               </button>
               {this.state.isDropdownOpen ? (
-                <ul className="dropdown-menu" id="dropdown-content">
+                <ul className="dropdown-menu">
                   {currencyOptions.map((opt) => {
                     return (
                       <li
