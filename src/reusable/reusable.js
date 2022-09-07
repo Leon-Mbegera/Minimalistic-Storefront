@@ -3,6 +3,13 @@ import { Link } from "react-router-dom";
 import { whiteCart, whiteWheel } from "../assets/whiteShoppingCart";
 
 class ReusableComponent extends React.Component {
+  state = {
+    ruleSet: { display: "none" },
+    product: null,
+    attrOptions: {},
+    quantity: 1,
+  };
+
   renderPreferedPriceCurrency = (product) => {
     const priceObject = product?.prices.find(
       (price) => price.currency.label === this.props.selectedCurrency?.label
@@ -16,14 +23,29 @@ class ReusableComponent extends React.Component {
         to={`/Categories/${this.props.category}/${this.props.product.id}`}
         style={{ textDecoration: "none", color: "#000000" }}
       >
-        <div key={this.props.product.name} className="grid-item">
+        <div
+          key={this.props.product.name}
+          className="grid-item"
+          onMouseEnter={(e) => {
+            this.setState((prevState) => ({
+              ...prevState,
+              ruleSet: { display: "block" },
+            }));
+          }}
+          onMouseLeave={(e) => {
+            this.setState((prevState) => ({
+              ...prevState,
+              ruleSet: { display: "none" },
+            }));
+          }}
+        >
           <div className="image-box">
             <img
               src={this.props.product.gallery[0]}
               alt={this.props.product.gallery[0]}
             />
           </div>
-          <div className="add-to-cart">
+          <div className="add-to-cart" style={this.state.ruleSet}>
             <span className="white-cart">{whiteCart}</span>
             <span className="left-white-wheel">{whiteWheel}</span>
             <span className="right-white-wheel">{whiteWheel}</span>
