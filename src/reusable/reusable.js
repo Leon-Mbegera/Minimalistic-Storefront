@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { whiteCart, whiteWheel } from "../assets/whiteShoppingCart";
+import { renderPreferedPriceCurrency } from "../Utils/utilities";
 
 class ReusableComponent extends React.Component {
   state = {
@@ -10,12 +11,12 @@ class ReusableComponent extends React.Component {
     quantity: 1,
   };
 
-  renderPreferedPriceCurrency = (product) => {
-    const priceObject = product?.prices.find(
-      (price) => price.currency.label === this.props.selectedCurrency?.label
-    );
-    return priceObject;
-  };
+  // renderPreferedPriceCurrency = (product) => {
+  //   const priceObject = product?.prices.find(
+  //     (price) => price.currency.label === this.props.selectedCurrency?.label
+  //   );
+  //   return priceObject;
+  // };
 
   render() {
     return (
@@ -57,12 +58,19 @@ class ReusableComponent extends React.Component {
             <div className="displayed-currency">
               <span className="price-symbol">
                 {
-                  this.renderPreferedPriceCurrency(this.props.product).currency
-                    .symbol
+                  renderPreferedPriceCurrency(
+                    this.props.product,
+                    this.props.selectedCurrency
+                  ).currency.symbol
                 }
               </span>
               <span className="product-price">
-                {this.renderPreferedPriceCurrency(this.props.product).amount}
+                {
+                  renderPreferedPriceCurrency(
+                    this.props.product,
+                    this.props.selectedCurrency
+                  ).amount
+                }
               </span>
             </div>
           </div>
