@@ -49,6 +49,7 @@ class CartPage extends React.Component {
   render() {
     return (
       <>
+        <div className="cart-page-heading">Cart</div>
         <div className="cartPage-items-wrapper">
           {this.props.cartData.cart && this.props.cartData.cart.length > 0 ? (
             (console.log("from", this.props.cartData.cart),

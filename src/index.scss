@@ -433,7 +433,7 @@ $grey-line: #E5E5E5;
   display: flex;
   width: 100%;
   height: 100vh;
-  margin-top: 20px;
+  margin-block-start: 4.5em;
   .product-images {
     @extend .horizontal;
     flex-direction: row;
@@ -588,7 +588,7 @@ $grey-line: #E5E5E5;
 
 .description {
   width: 292px;
-  height: 105px;
+  height: 125px;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -745,7 +745,7 @@ $grey-line: #E5E5E5;
           .y {
             position: absolute;
             top: 30%;
-            left: 50%;
+            left: 48%;
             z-index: -1;
           }
         }
@@ -880,6 +880,7 @@ $grey-line: #E5E5E5;
 .summation {
   padding-block-start: 1.5em;
   border-top: 1px solid $grey-line;
+  margin-block-end: 15em;
   table {
     width: 184px;
     height: auto;
@@ -947,6 +948,18 @@ $grey-line: #E5E5E5;
   margin-block-start: 1.8em;
   margin-block-end: 2.8em;
   color: $dark-text;
+}
+
+.cart-page-heading {
+  font-family: $Raleway;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 40px;
+  text-transform: uppercase;
+  color: $dark-text;
+  margin-block-start: 2em;
+  margin-block-end: 1.6em;
 }
 
 
