@@ -17,26 +17,31 @@ class App extends React.Component {
     return (
       <BrowserRouter>
         <Navbar />
-        <Routes>
-          <Route exact path="/" element={<TestComponent />} />
-          <Route
-            exact
-            path="/Categories/All"
-            element={<AllProductsListing />}
-          />
-          <Route
-            exact
-            path="/Categories/Clothes"
-            element={<ClothesListing />}
-          />
-          <Route exact path="/Categories/Tech" element={<TechListing />} />
-          <Route
-            exact
-            path="/Categories/:Category/:Id"
-            element={<WrappedDetailsPage />}
-          />
-          <Route exact path="/CartPage" element={<CartPage />} />
-        </Routes>
+        <div className="main-section">
+          <div className="main-section-content">
+            <Routes>
+              <Route exact path="/" element={<TestComponent />} />
+              <Route
+                exact
+                path="/Categories/All"
+                element={<AllProductsListing />}
+              />
+              <Route
+                exact
+                path="/Categories/Clothes"
+                element={<ClothesListing />}
+              />
+              <Route exact path="/Categories/Tech" element={<TechListing />} />
+              <Route
+                exact
+                path="/Categories/:Category/:Id"
+                element={<WrappedDetailsPage />}
+              />
+              <Route exact path="/CartPage" element={<CartPage />} />
+            </Routes>
+          </div>
+          <div className="main-section-overlay"></div>
+        </div>
       </BrowserRouter>
     );
   }

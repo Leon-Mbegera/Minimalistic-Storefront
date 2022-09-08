@@ -106,113 +106,117 @@ class Navbar extends React.Component {
     return (
       <>
         <nav className="navbar">
-          <div className="navbar-links">
-            <div>
-              <NavLink
-                to="/Categories/All"
-                style={navlinkStyles}
-                className={({ isActive }) =>
-                  isActive ? "active-navlink" : "navbar-link"
-                }
-              >
-                All
-              </NavLink>
-            </div>
-            <div>
-              <NavLink
-                to="/Categories/Clothes"
-                style={navlinkStyles}
-                className={({ isActive }) =>
-                  isActive ? "active-navlink" : "navbar-link"
-                }
-              >
-                Clothes
-              </NavLink>
-            </div>
-            <div>
-              <NavLink
-                to="/Categories/Tech"
-                style={navlinkStyles}
-                className={({ isActive }) =>
-                  isActive ? "active-navlink" : "navbar-link"
-                }
-              >
-                Tech
-              </NavLink>
-            </div>
-          </div>
-          <div className="logo">
-            <span className="main-logo">
-              {logoSvg}
-              <span className="logo-mark">{logoMark}</span>
-              <span className="logo-mark-arrow">{logoMarkArrow}</span>
-              <span className="background-svg">{belowLogo}</span>
-            </span>
-          </div>
-          <div className="dropdown">
-            <div className="buttons">
-              <button
-                ref={this.currencyRef}
-                type="button"
-                className="dropdownBtn"
-                onClick={() => this.showDropdownList()}
-              >
-                {this.props.currency.symbol}
-                <div className="arrows">
-                  <span
-                    className={
-                      this.state.isDropdownOpen ? "visible-arrow" : "caret"
-                    }
-                  >
-                    {up}
-                  </span>
-                  <span
-                    className={
-                      this.state.isDropdownOpen ? "caron hidden-arrow" : "caron"
-                    }
-                  >
-                    {down}
-                  </span>
-                </div>
-              </button>
-              {this.state.isDropdownOpen ? (
-                <ul className="dropdown-menu">
-                  {currencyOptions.map((opt) => {
-                    return (
-                      <li
-                        key={opt.label}
-                        onClick={() => this.handleCurrencyChange(opt)}
-                      >
-                        {opt.symbol} {opt.label}
-                      </li>
-                    );
-                  })}
-                </ul>
-              ) : null}
-            </div>
-            <div className="cartOverlay-div" ref={this.overlayRef}>
-              <div
-                className="cartOverlay-cart"
-                onClick={() => this.showCartOverlay()}
-              >
-                <span className="black-cart">{blackCart}</span>
-                <span className="left-black-wheel">{blackWheel}</span>
-                <span className="right-black-wheel">{blackWheel}</span>
-                <div
-                  className={
-                    sneakQuantity(this.props.cartData.cart)
-                      ? "sneak-count"
-                      : "hide-count"
+          <div className="navbar-div">
+            <div className="navbar-links">
+              <div>
+                <NavLink
+                  to="/Categories/All"
+                  style={navlinkStyles}
+                  className={({ isActive }) =>
+                    isActive ? "active-navlink" : "navbar-link"
                   }
                 >
-                  {sneakQuantity(this.props.cartData.cart)}
-                </div>
+                  All
+                </NavLink>
               </div>
-              {this.state.isOverlayOpen ? (
-                <div className="cartOverlay-wrapper">
-                  <CartOverlay />
+              <div>
+                <NavLink
+                  to="/Categories/Clothes"
+                  style={navlinkStyles}
+                  className={({ isActive }) =>
+                    isActive ? "active-navlink" : "navbar-link"
+                  }
+                >
+                  Clothes
+                </NavLink>
+              </div>
+              <div>
+                <NavLink
+                  to="/Categories/Tech"
+                  style={navlinkStyles}
+                  className={({ isActive }) =>
+                    isActive ? "active-navlink" : "navbar-link"
+                  }
+                >
+                  Tech
+                </NavLink>
+              </div>
+            </div>
+            <div className="logo">
+              <span className="main-logo">
+                {logoSvg}
+                <span className="logo-mark">{logoMark}</span>
+                <span className="logo-mark-arrow">{logoMarkArrow}</span>
+                <span className="background-svg">{belowLogo}</span>
+              </span>
+            </div>
+            <div className="dropdown">
+              <div className="buttons">
+                <button
+                  ref={this.currencyRef}
+                  type="button"
+                  className="dropdownBtn"
+                  onClick={() => this.showDropdownList()}
+                >
+                  {this.props.currency.symbol}
+                  <div className="arrows">
+                    <span
+                      className={
+                        this.state.isDropdownOpen ? "visible-arrow" : "caret"
+                      }
+                    >
+                      {up}
+                    </span>
+                    <span
+                      className={
+                        this.state.isDropdownOpen
+                          ? "caron hidden-arrow"
+                          : "caron"
+                      }
+                    >
+                      {down}
+                    </span>
+                  </div>
+                </button>
+                {this.state.isDropdownOpen ? (
+                  <ul className="dropdown-menu">
+                    {currencyOptions.map((opt) => {
+                      return (
+                        <li
+                          key={opt.label}
+                          onClick={() => this.handleCurrencyChange(opt)}
+                        >
+                          {opt.symbol} {opt.label}
+                        </li>
+                      );
+                    })}
+                  </ul>
+                ) : null}
+              </div>
+              <div className="cartOverlay-div" ref={this.overlayRef}>
+                <div
+                  className="cartOverlay-cart"
+                  onClick={() => this.showCartOverlay()}
+                >
+                  <span className="black-cart">{blackCart}</span>
+                  <span className="left-black-wheel">{blackWheel}</span>
+                  <span className="right-black-wheel">{blackWheel}</span>
+                  <div
+                    className={
+                      sneakQuantity(this.props.cartData.cart)
+                        ? "sneak-count"
+                        : "hide-count"
+                    }
+                  >
+                    {sneakQuantity(this.props.cartData.cart)}
+                  </div>
                 </div>
-              ) : null}
+                {this.state.isOverlayOpen ? (
+                  <div className="cartOverlay-wrapper">
+                    <CartOverlay />
+                  </div>
+                ) : null}
+              </div>
             </div>
           </div>
         </nav>
