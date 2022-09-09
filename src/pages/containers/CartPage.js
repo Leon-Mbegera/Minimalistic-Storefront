@@ -182,7 +182,7 @@ class CartPage extends React.Component {
                       <span className="x">{longX}</span>
                       <span className="y">{longY}</span>
                     </div>
-                    <div className="count">
+                    <div className="count" style={{ cursor: "default" }}>
                       <span>{prodObj.quantity}</span>
                     </div>
                     <div

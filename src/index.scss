@@ -97,6 +97,9 @@ body {
   background-color: $white;
   min-width: 54px;
   justify-content: end;
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .dropdown-menu {
@@ -172,6 +175,9 @@ body {
     width: 34px;
     height: 28px;
     padding: 0;
+    &:hover {
+      cursor: pointer;
+    }
     .black-cart {
       position: absolute;
       top: 19%;
@@ -679,6 +685,9 @@ body {
     border: 1px solid $dark-text;
     box-sizing: border-box;
     position: relative;
+    &:hover {
+      cursor: pointer;
+    }
     .x {
       position: absolute;
       top: -18%;
@@ -693,6 +702,9 @@ body {
   }
   .count {
     @extend .increment;
+    &:hover {
+      cursor:default;
+    }
     border: none;
     text-align: center;
   }
@@ -850,6 +862,9 @@ body {
           align-items: center;
           justify-content: center;
           background-color: rgba(0, 0, 0, 0.73);
+          &:hover {
+            cursor: pointer;
+          }
         }
         .caret-right {
           @extend .caret-left;
