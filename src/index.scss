@@ -8,6 +8,7 @@ $Source-Sans-Pro: "Source Sans Pro", sans-serif;
 $white: #FFFFFF;
 $dark-text: #1D1F22;
 $grey-line: #E5E5E5;
+$grey-text: #8D8F9A;
 
 body {
   box-sizing: border-box;
@@ -36,6 +37,7 @@ body {
   height: 75px;
   display: flex;
   justify-content: flex-end;
+  background: $white;
 }
 
 .navbar-div {
@@ -440,6 +442,32 @@ body {
     top: 45%;
     right: 32%;
   }
+}
+
+.out-of-stock {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0%;
+  left: 0%;
+  background: $white;
+  opacity: 0.5;
+  z-index: 15;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  p {
+   font-family: $Raleway;
+   font-weight: 400;
+   font-size: 24px;
+   line-height: 38.4%;
+   color: $grey-text;
+   text-transform: uppercase;
+  }
+}
+
+.inStock {
+  display: none;
 }
 
 .text-box {

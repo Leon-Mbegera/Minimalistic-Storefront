@@ -19,15 +19,6 @@ class ReusableComponent extends React.Component {
 
   componentDidMount() {
     this.setState((prevState) => {
-      console.log("at reusable", {
-        ...prevState,
-        product: this.props.product,
-        attrOptions: makeIt(
-          this.props.product.attributes.map((attr) => {
-            return { [attr.name]: attr.items[0].value };
-          })
-        ),
-      });
       return {
         ...prevState,
         product: this.props.product,
@@ -94,12 +85,21 @@ class ReusableComponent extends React.Component {
         </Link>
         <div
           className="add-to-cart"
-          style={this.state.ruleSet}
+          style={
+            this.props.product.inStock
+              ? this.state.ruleSet
+              : { display: "none" }
+          }
           onClick={this.sendtocart}
         >
           <span className="white-cart">{whiteCart}</span>
           <span className="left-white-wheel">{whiteWheel}</span>
           <span className="right-white-wheel">{whiteWheel}</span>
+        </div>
+        <div
+          className={!this.props.product.inStock ? "out-of-stock" : "inStock"}
+        >
+          <p>out of stock</p>
         </div>
       </div>
     );
