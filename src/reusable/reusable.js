@@ -42,40 +42,31 @@ class ReusableComponent extends React.Component {
 
   render() {
     return (
-      <Link
-        to={`/Categories/${this.props.category}/${this.props.product.id}`}
-        style={{ textDecoration: "none", color: "#000000" }}
+      <div
+        key={this.props.product.name}
+        className="grid-item"
+        onMouseEnter={(e) => {
+          this.setState((prevState) => ({
+            ...prevState,
+            ruleSet: { display: "block" },
+          }));
+        }}
+        onMouseLeave={(e) => {
+          this.setState((prevState) => ({
+            ...prevState,
+            ruleSet: { display: "none" },
+          }));
+        }}
       >
-        <div
-          key={this.props.product.name}
-          className="grid-item"
-          onMouseEnter={(e) => {
-            this.setState((prevState) => ({
-              ...prevState,
-              ruleSet: { display: "block" },
-            }));
-          }}
-          onMouseLeave={(e) => {
-            this.setState((prevState) => ({
-              ...prevState,
-              ruleSet: { display: "none" },
-            }));
-          }}
+        <Link
+          to={`/Categories/${this.props.category}/${this.props.product.id}`}
+          style={{ textDecoration: "none", color: "#000000" }}
         >
           <div className="image-box">
             <img
               src={this.props.product.gallery[0]}
               alt={this.props.product.gallery[0]}
             />
-          </div>
-          <div
-            className="add-to-cart"
-            style={this.state.ruleSet}
-            onClick={this.sendtocart}
-          >
-            <span className="white-cart">{whiteCart}</span>
-            <span className="left-white-wheel">{whiteWheel}</span>
-            <span className="right-white-wheel">{whiteWheel}</span>
           </div>
           <div className="text-box">
             <p className="product-title">
@@ -100,8 +91,17 @@ class ReusableComponent extends React.Component {
               </span>
             </div>
           </div>
+        </Link>
+        <div
+          className="add-to-cart"
+          style={this.state.ruleSet}
+          onClick={this.sendtocart}
+        >
+          <span className="white-cart">{whiteCart}</span>
+          <span className="left-white-wheel">{whiteWheel}</span>
+          <span className="right-white-wheel">{whiteWheel}</span>
         </div>
-      </Link>
+      </div>
     );
   }
 }

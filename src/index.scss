@@ -67,6 +67,7 @@ body {
 .main-section {
   position: relative;
   width: 100%;
+  border: 1px solid gold;
   .main-section-content {
     position: absolute;
     width: 93%;
@@ -75,11 +76,12 @@ body {
   .main-section-overlay {
     position: absolute;
     width: 100%;
-    height: 2100px;
+    height: 1905px;
     top: 0%;
     left: 0%;
     z-index: 15;
     background: rgba(57, 55, 72, 0.22);
+    cursor: pointer;
   }
 }
 
