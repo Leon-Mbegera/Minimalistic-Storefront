@@ -7,7 +7,6 @@ class AllProductsListing extends React.Component {
     return (
       <>
         <section>
-          {console.log("this.props", this.props)}
           {this.props.allProducts && this.props.allProducts.data.length > 0 ? (
             <>
               <div className="category-heading">

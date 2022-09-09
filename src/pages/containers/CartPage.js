@@ -226,7 +226,9 @@ class CartPage extends React.Component {
               </div>
             )))
           ) : (
-            <div>There's no product in your cart</div>
+            <div className="cartpage-no-products">
+              There's no products in your cart.
+            </div>
           )}
         </div>
         <div className="summation">

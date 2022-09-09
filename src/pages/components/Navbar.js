@@ -228,7 +228,7 @@ class Navbar extends React.Component {
                     {sneakQuantity(this.props.cartData.cart)}
                   </div>
                 </div>
-                {this.state.isOverlayOpen ? (
+                {this.state.isOverlayOpen && this.props.freezeState.freeze ? (
                   <div className="cartOverlay-wrapper">
                     <CartOverlay />
                   </div>
@@ -245,6 +245,7 @@ class Navbar extends React.Component {
 const mapStateToProps = (state) => ({
   currency: state.selectedCurrency,
   cartData: state.cartData,
+  freezeState: state.freezeState,
 });
 
 export default connect(mapStateToProps)(Navbar);

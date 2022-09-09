@@ -224,7 +224,6 @@ body {
   padding: 32px 16px;
   box-sizing: border-box;
   background-color: $white;
-  // border: 1px solid brown;
   box-shadow: 0px 4px 35px rgba(168, 172, 176, 0.19);
   z-index: 20;
   .cartOverlay-heading {
@@ -1043,6 +1042,15 @@ body {
   color: $dark-text;
   margin-block-start: 2em;
   margin-block-end: 1.6em;
+}
+
+.cartpage-no-products {
+  font-size: 30px;
+  font-weight: 400;
+  font-family: $Raleway;
+  font-style: normal;
+  color: $dark-text;
+  margin-block-end: 35px;
 }
 
 

@@ -9,7 +9,7 @@ import {
 } from "../../Utils/utilities";
 import { xAxis, yAxis } from "../../assets/axes";
 import { Link } from "react-router-dom";
-import { addToCart, removeFromCart } from "../../redux/index";
+import { addToCart, removeFromCart, unfreezeContent } from "../../redux/index";
 
 class CartOverlay extends React.Component {
   render() {
@@ -195,6 +195,7 @@ class CartOverlay extends React.Component {
               className="view-bag"
               to="/CartPage"
               style={{ textDecoration: "none", width: "140px" }}
+              onClick={() => this.props.dispatch(unfreezeContent())}
             >
               View Bag
             </Link>
