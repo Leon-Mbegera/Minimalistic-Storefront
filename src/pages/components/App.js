@@ -40,11 +40,17 @@ class App extends React.Component {
               <Route exact path="/CartPage" element={<CartPage />} />
             </Routes>
           </div>
-          <div className="main-section-overlay"></div>
+          <div
+            className={
+              this.props.freezeState.freeze ? "main-section-overlay" : ""
+            }
+          ></div>
         </div>
       </BrowserRouter>
     );
   }
 }
 
-export default connect()(App);
+const mapStateToProps = (state) => ({ freezeState: state.freezeState });
+
+export default connect(mapStateToProps)(App);

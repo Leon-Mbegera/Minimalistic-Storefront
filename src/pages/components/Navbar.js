@@ -13,6 +13,7 @@ import { currencyChange } from "../../redux";
 import { navlinkStyles } from "../../styled/NavbarElements";
 import CartOverlay from "../containers/CartOverlay";
 import { sneakQuantity } from "../../Utils/utilities";
+import { freezeContent, unfreezeContent } from "../../redux";
 
 const currencyOptions = [
   {
@@ -58,6 +59,7 @@ class Navbar extends React.Component {
           isOverlayOpen: !prevState.isOverlayOpen,
         };
       });
+      this.props.dispatch(unfreezeContent());
     }
 
     if (
@@ -82,11 +84,26 @@ class Navbar extends React.Component {
     document.removeEventListener("click", this.checkIfClickedOutside);
   }
 
-  showCartOverlay = () => {
-    this.setState((prevState) => ({
-      ...prevState,
-      isOverlayOpen: !prevState.isOverlayOpen,
-    }));
+  showCartOverlay = (e) => {
+    if (
+      this.state.isOverlayOpen &&
+      this.overlayRef.current &&
+      this.overlayRef.current.contains(e.target)
+    ) {
+      this.props.dispatch(unfreezeContent());
+      this.setState((prevState) => {
+        return {
+          ...prevState,
+          isOverlayOpen: !prevState.isOverlayOpen,
+        };
+      });
+    } else {
+      this.setState((prevState) => ({
+        ...prevState,
+        isOverlayOpen: !prevState.isOverlayOpen,
+      }));
+      this.props.dispatch(freezeContent());
+    }
   };
 
   showDropdownList = () => {
@@ -196,7 +213,7 @@ class Navbar extends React.Component {
               <div className="cartOverlay-div" ref={this.overlayRef}>
                 <div
                   className="cartOverlay-cart"
-                  onClick={() => this.showCartOverlay()}
+                  onClick={(e) => this.showCartOverlay(e)}
                 >
                   <span className="black-cart">{blackCart}</span>
                   <span className="left-black-wheel">{blackWheel}</span>
