@@ -78,7 +78,7 @@ body {
     height: 2100px;
     top: 0%;
     left: 0%;
-    z-index: 30;
+    z-index: 15;
     background: rgba(57, 55, 72, 0.22);
   }
 }
@@ -207,7 +207,7 @@ body {
 
  .cartOverlay-wrapper {
   position: absolute;
-  top: 12.5%;
+  top: 11%;
   width: 325px;
   max-height: 677px;
   overflow-y: auto;
@@ -215,9 +215,9 @@ body {
   padding: 32px 16px;
   box-sizing: border-box;
   background-color: $white;
-  border: 1px solid brown;
+  // border: 1px solid brown;
   box-shadow: 0px 4px 35px rgba(168, 172, 176, 0.19);
-  z-index: 15;
+  z-index: 20;
   .cartOverlay-heading {
     margin-block-end: 32px;
     .my-bag {
