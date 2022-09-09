@@ -109,6 +109,7 @@ class DetailsPage extends React.Component {
                                         ? "choice"
                                         : "size-box"
                                     }
+                                    style={{ cursor: "pointer" }}
                                     onClick={() =>
                                       this.changeAttrOpt(
                                         object.name,
@@ -139,8 +140,11 @@ class DetailsPage extends React.Component {
                                     style={
                                       item.value ===
                                       this.state.attrOptions[object.name]
-                                        ? { border: "1px solid #5ECE7B" }
-                                        : null
+                                        ? {
+                                            border: "1px solid #5ECE7B",
+                                            cursor: "pointer",
+                                          }
+                                        : { cursor: "pointer" }
                                     }
                                     onClick={() =>
                                       this.changeAttrOpt(

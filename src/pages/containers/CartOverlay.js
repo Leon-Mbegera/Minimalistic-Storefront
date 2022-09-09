@@ -170,7 +170,9 @@ class CartOverlay extends React.Component {
               </div>
             ))
           ) : (
-            <div>There's no product in your cart</div>
+            <div style={{ marginBlock: "20px" }}>
+              There's no product in your cart
+            </div>
           )}
         </div>
         <div>
@@ -192,7 +194,7 @@ class CartOverlay extends React.Component {
             <Link
               className="view-bag"
               to="/CartPage"
-              style={{ textDecoration: "none", color: "#1D1F22" }}
+              style={{ textDecoration: "none", width: "140px" }}
             >
               View Bag
             </Link>

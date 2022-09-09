@@ -37,7 +37,6 @@ body {
   height: 75px;
   display: flex;
   justify-content: flex-end;
-  background: $white;
 }
 
 .navbar-div {
@@ -46,7 +45,7 @@ body {
   height: inherit;
   font-family: $Raleway;
   align-items: center;
-  border: 1px solid green;
+  border-bottom: 1px solid green;
 }
 
 .navbar-links {
@@ -755,9 +754,15 @@ body {
     font-size: 14px;
     text-transform: uppercase;
     color: $dark-text;
-    border: 2px solid $dark-text;
+    border-left: 2px solid $dark-text;
+    border-right: 2px solid $dark-text;
+    border-top: 1px solid $dark-text;
+    border-bottom: 1px solid $dark-text;
     background: $white;
-    padding: 12px 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box
   }
   .checkout {
     @extend .view-bag;
