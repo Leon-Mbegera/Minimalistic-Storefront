@@ -1,5 +1,6 @@
 import React from "react";
-import { Query } from "react-apollo";
+// import { Query } from "react-apollo";
+import { Query } from "@apollo/client/react/components";
 import { queryCommand } from "../../gql/Query";
 import { connect } from "react-redux";
 import { allDataSuccess } from "../../redux/index";
@@ -7,7 +8,7 @@ import { allDataSuccess } from "../../redux/index";
 class TestComponent extends React.Component {
   render() {
     return (
-      <Query query={queryCommand} pollInterval={500}>
+      <Query query={queryCommand} pollInterval={1000}>
         {({ loading, error, data }) => {
           console.log("loading", loading);
           console.log("error", error);

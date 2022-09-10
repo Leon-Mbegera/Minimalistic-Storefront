@@ -1,8 +1,9 @@
 import React from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { useParams } from "react-router-dom";
 import { addToCart } from "../../redux/index";
 import { showSize, makeIt } from "../../Utils/utilities";
+import { connect } from "react-redux";
+import withPageParamsHOC from "../components/HOC/PageParamsHOC";
+import { useParams } from "react-router-dom";
 
 class DetailsPage extends React.Component {
   constructor(props) {
@@ -16,9 +17,9 @@ class DetailsPage extends React.Component {
   }
 
   componentDidMount() {
-    const selectedProduct = this.props.data
-      .find((cat) => cat.name === this.props.category)
-      ?.products.find((prod) => prod.id === this.props.productId);
+    const selectedProduct = this.props.allData.data
+      .find((cat) => cat.name === this.props.pageParams.category)
+      ?.products.find((prod) => prod.id === this.props.pageParams.id);
     this.setState((prevState) => {
       return {
         ...prevState,
@@ -52,9 +53,11 @@ class DetailsPage extends React.Component {
   };
 
   displayedPrice = (pricesArr) => {
+    console.log("cc", this.props, pricesArr);
     const shownPrice = pricesArr?.find(
-      (price) => price.currency.label === this.props.currency?.label
+      (price) => price.currency.label === this.props.selectedCurrency.label
     );
+    console.log("showPrice", shownPrice);
     return shownPrice;
   };
 
@@ -201,24 +204,10 @@ class DetailsPage extends React.Component {
   }
 }
 
-const WrappedDetailsPage = () => {
-  const { Category, Id } = useParams();
-  const dispatch = useDispatch();
-  const { allData, selectedCurrency, cartData } = useSelector((state) => ({
-    allData: state.allData,
-    selectedCurrency: state.selectedCurrency,
-    cartData: state.cartData,
-  }));
-  return (
-    <DetailsPage
-      cart={cartData.cart}
-      data={allData.data}
-      category={Category}
-      productId={Id}
-      currency={selectedCurrency}
-      dispatch={dispatch}
-    />
-  );
-};
+const mapStateToProps = (state) => ({
+  allData: state.allData,
+  selectedCurrency: state.selectedCurrency,
+  cartData: state.cartData,
+});
 
-export default WrappedDetailsPage;
+export default connect(mapStateToProps)(withPageParamsHOC(DetailsPage));

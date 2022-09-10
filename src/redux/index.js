@@ -1,5 +1,5 @@
-import { Query } from "react-apollo";
-import { queryCommand } from "../gql/Query";
+// import { Query } from "react-apollo";
+// import { queryCommand } from "../gql/Query";
 
 const ALL_DATA_REQUEST = "ALL_DATA_REQUEST";
 const ALL_DATA_SUCCESS = "ALL_DATA_SUCCESS";
