@@ -966,6 +966,7 @@ body {
     width: 184px;
     height: auto;
     .tax, .quantify {
+      height: 35px;
       .title {
         font-family: $Raleway;
         font-weight: 400;
@@ -980,6 +981,7 @@ body {
       }
     }
     .cost-summation {
+      height: 28px;
       .title {
         font-family: $Raleway;
         font-weight: 500;

@@ -21,11 +21,6 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    console.log(
-      "what's this",
-      this.pageRef.current?.scrollHeight,
-      this.state.shadedHeight
-    );
     if (this.pageRef.current?.scrollHeight !== this.state.shadedHeight) {
       this.setState((prevState) => {
         return {
@@ -36,14 +31,16 @@ class App extends React.Component {
     }
   }
 
-  // componentDidUpdate(prevState) {
-  //   console.log(
-  //     "height",
-  //     prevState.shadedHeight,
-  //     this.pageRef.current.scrollHeight
-  //   );
-  //   if (prevState.shadedHeight == this.pageRef.current?.scrollHeight) return;
-  // }
+  componentDidUpdate() {
+    if (this.state.shadedHeight !== this.pageRef.current?.scrollHeight) {
+      this.setState((prevState) => {
+        return {
+          ...prevState,
+          shadedHeight: this.pageRef.current?.scrollHeight,
+        };
+      });
+    }
+  }
 
   render() {
     return (

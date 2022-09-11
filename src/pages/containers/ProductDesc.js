@@ -3,7 +3,6 @@ import { addToCart } from "../../redux/index";
 import { showSize, makeIt } from "../../Utils/utilities";
 import { connect } from "react-redux";
 import withPageParamsHOC from "../components/HOC/PageParamsHOC";
-import { useParams } from "react-router-dom";
 
 class DetailsPage extends React.Component {
   constructor(props) {
@@ -53,11 +52,9 @@ class DetailsPage extends React.Component {
   };
 
   displayedPrice = (pricesArr) => {
-    console.log("cc", this.props, pricesArr);
     const shownPrice = pricesArr?.find(
       (price) => price.currency.label === this.props.selectedCurrency.label
     );
-    console.log("showPrice", shownPrice);
     return shownPrice;
   };
 
