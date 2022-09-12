@@ -1,12 +1,12 @@
 import { ALL_DATA_REQUEST, ALL_DATA_SUCCESS, ALL_DATA_ERROR } from "../index";
 
-const initialClothesData = {
+const initialTechData = {
   name: "",
   products: [],
   error: "",
 };
 
-const clothesReducer = (state = initialClothesData, action) => {
+const techReducer = (state = initialTechData, action) => {
   switch (action.type) {
     case ALL_DATA_REQUEST:
       return {
@@ -29,4 +29,4 @@ const clothesReducer = (state = initialClothesData, action) => {
   }
 };
 
-export default clothesReducer;
+export default techReducer;
