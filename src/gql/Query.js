@@ -137,9 +137,9 @@ export const queryTech = gql`
 `;
 
 export const queryProduct = gql`
-{
-  product(id: ${id}){
-    id
+  {
+    product(id: "huarache-x-stussy-le") {
+      id
       name
       inStock
       gallery
@@ -149,20 +149,20 @@ export const queryProduct = gql`
         id
         name
         type
-        items{
+        items {
           displayValue
           value
           id
-				}
+        }
       }
-      prices{
-        currency{
+      prices {
+        currency {
           label
           symbol
         }
         amount
-			}
+      }
       brand
-		}  
-	}
+    }
+  }
 `;

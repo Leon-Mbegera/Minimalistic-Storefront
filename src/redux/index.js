@@ -21,10 +21,10 @@ const allDataRequest = () => {
   };
 };
 
-const allDataSuccess = (allFetchedData) => {
+const allDataSuccess = (allProductsData) => {
   return {
     type: ALL_DATA_SUCCESS,
-    payload: allFetchedData,
+    payload: allProductsData,
   };
 };
 

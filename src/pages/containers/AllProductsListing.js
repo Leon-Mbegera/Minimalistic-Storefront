@@ -1,22 +1,29 @@
 import React from "react";
 import { connect } from "react-redux";
+import { allDataSuccess } from "../../redux";
 import ReusableComponent from "../../reusable/reusable";
 
 class AllProductsListing extends React.Component {
+  componentDidMount() {
+    this.props.dispatch(allDataSuccess(this.props.fetched));
+  }
+
   render() {
     return (
       <>
         <section>
-          {this.props.allProducts && this.props.allProducts.data.length > 0 ? (
+          {console.log("all props here", this.props)}
+          {this.props.allProducts &&
+          this.props.allProducts.products.length > 0 ? (
             <>
               <div className="category-heading">
-                {this.props.allProducts.data[0].name}
+                {this.props.allProducts.name}
               </div>
               <section className="grid-container">
-                {this.props.allProducts.data[0].products.map((product) => (
+                {this.props.allProducts.products.map((product) => (
                   <ReusableComponent
-                    key={product.name}
-                    category={this.props.allProducts.data[0].name}
+                    key={product.id}
+                    category={this.props.allProducts.name}
                     product={product}
                     selectedCurrency={this.props.selectedCurrency}
                   />
@@ -24,7 +31,7 @@ class AllProductsListing extends React.Component {
               </section>
             </>
           ) : (
-            <h5>There are no products</h5>
+            <h5>loading...</h5>
           )}
         </section>
       </>
