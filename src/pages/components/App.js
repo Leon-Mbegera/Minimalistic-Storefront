@@ -1,13 +1,12 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import ClothesListing from "../containers/ClothesListing";
-import TechListing from "../containers/TechListing";
 import DetailsPage from "../containers/ProductDesc";
 import CartPage from "../containers/CartPage";
 import Navbar from "./Navbar";
 import { connect } from "react-redux";
 import AllProducts from "./AllProducts";
-import TestComponent from "./Test";
+import Clothes from "./Clothes";
+import Tech from "./Tech";
 
 class App extends React.Component {
   constructor(props) {
@@ -46,12 +45,8 @@ class App extends React.Component {
           <div className="main-section-content" ref={this.pageRef}>
             <Routes>
               <Route exact path="/" element={<AllProducts />} />
-              <Route
-                exact
-                path="/Categories/Clothes"
-                element={<ClothesListing />}
-              />
-              <Route exact path="/Categories/Tech" element={<TechListing />} />
+              <Route exact path="/Categories/Clothes" element={<Clothes />} />
+              <Route exact path="/Categories/Tech" element={<Tech />} />
               <Route
                 exact
                 path="/Categories/:category/:id"

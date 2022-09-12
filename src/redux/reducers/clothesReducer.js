@@ -1,10 +1,12 @@
+import { ALL_DATA_REQUEST, ALL_DATA_SUCCESS, ALL_DATA_ERROR } from "../index";
+
 const initialClothesData = {
   name: "",
   products: [],
   error: "",
 };
 
-const allDataReducer = (state = initialAllData, action) => {
+const allClothesReducer = (state = initialClothesData, action) => {
   switch (action.type) {
     case ALL_DATA_REQUEST:
       return {
@@ -14,16 +16,17 @@ const allDataReducer = (state = initialAllData, action) => {
     case ALL_DATA_SUCCESS:
       return {
         ...state,
-        data: action.payload,
+        name: action.payload.name,
+        products: action.payload.products,
       };
     case ALL_DATA_ERROR:
       return {
         ...state,
-        error: action.payload,
+        error: "An error occurred while fetching !",
       };
     default:
       return state;
   }
 };
 
-export default allDataReducer;
+export default allClothesReducer;
