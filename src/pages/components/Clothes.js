@@ -8,11 +8,8 @@ class Clothes extends React.Component {
     return (
       <Query query={queryClothes} pollInterval={1000}>
         {({ loading, error, data }) => {
-          console.log("loading", loading);
-          console.log("error", error);
-          console.log("fetched data", data);
           if (data) {
-            return <ClothesListing fetched={data.category} />;
+            return <ClothesListing clothProducts={data.category} />;
           }
         }}
       </Query>

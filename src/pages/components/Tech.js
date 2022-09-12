@@ -8,11 +8,8 @@ class Tech extends React.Component {
     return (
       <Query query={queryTech} pollInterval={1000}>
         {({ loading, error, data }) => {
-          console.log("loading", loading);
-          console.log("error", error);
-          console.log("fetched data", data);
           if (data) {
-            return <TechListing fetched={data.category} />;
+            return <TechListing techProducts={data.category} />;
           }
         }}
       </Query>

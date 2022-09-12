@@ -204,7 +204,6 @@ class DetailsPage extends React.Component {
 const mapStateToProps = (state) => ({
   allData: state.allData,
   selectedCurrency: state.selectedCurrency,
-  cartData: state.cartData,
 });
 
-export default connect(mapStateToProps)(withPageParamsHOC(DetailsPage));
+export default connect(mapStateToProps)(DetailsPage);

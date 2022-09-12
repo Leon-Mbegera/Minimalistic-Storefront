@@ -1,39 +1,5 @@
 import { gql } from "@apollo/client";
 
-export const queryCommand = gql`
-  {
-    categories {
-      name
-      products {
-        id
-        name
-        inStock
-        gallery
-        description
-        category
-        attributes {
-          id
-          name
-          type
-          items {
-            displayValue
-            value
-            id
-          }
-        }
-        prices {
-          currency {
-            label
-            symbol
-          }
-          amount
-        }
-        brand
-      }
-    }
-  }
-`;
-
 export const queryAll = gql`
   {
     category(input: { title: "all" }) {
@@ -136,33 +102,35 @@ export const queryTech = gql`
   }
 `;
 
-export const queryProduct = gql`
-  {
-    product(id: "huarache-x-stussy-le") {
-      id
-      name
-      inStock
-      gallery
-      description
-      category
-      attributes {
+export const generateCommand = (productId) => {
+  return gql`
+    {
+      product(id: "${productId}") {
         id
         name
-        type
-        items {
-          displayValue
-          value
+        inStock
+        gallery
+        description
+        category
+        attributes {
           id
+          name
+          type
+          items {
+            displayValue
+            value
+            id
+          }
         }
-      }
-      prices {
-        currency {
-          label
-          symbol
+        prices {
+          currency {
+            label
+            symbol
+          }
+          amount
         }
-        amount
+        brand
       }
-      brand
     }
-  }
-`;
+  `;
+};

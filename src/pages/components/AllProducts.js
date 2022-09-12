@@ -8,7 +8,7 @@ class AllProducts extends React.Component {
     return (
       <Query query={queryAll} pollInterval={1000} delay={true}>
         {({ data }) => {
-          if (data) return <AllProductsListing fetched={data.category} />;
+          if (data) return <AllProductsListing allProducts={data.category} />;
         }}
       </Query>
     );

@@ -50,7 +50,7 @@ class ReusableComponent extends React.Component {
         }}
       >
         <Link
-          to={`/Categories/${this.props.category}/${this.props.product.id}`}
+          to={`/${this.props.category}/${this.props.product.id}`}
           style={{ textDecoration: "none", color: "#000000" }}
         >
           <div className="image-box">

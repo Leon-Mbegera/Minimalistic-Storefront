@@ -1,12 +1,12 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import DetailsPage from "../containers/ProductDesc";
+import { connect } from "react-redux";
 import CartPage from "../containers/CartPage";
 import Navbar from "./Navbar";
-import { connect } from "react-redux";
 import AllProducts from "./AllProducts";
 import Clothes from "./Clothes";
 import Tech from "./Tech";
+import Product from "./Product";
 
 class App extends React.Component {
   constructor(props) {
@@ -47,11 +47,7 @@ class App extends React.Component {
               <Route exact path="/" element={<AllProducts />} />
               <Route exact path="/Categories/Clothes" element={<Clothes />} />
               <Route exact path="/Categories/Tech" element={<Tech />} />
-              <Route
-                exact
-                path="/Categories/:category/:id"
-                element={<DetailsPage />}
-              />
+              <Route exact path="/:category/:id" element={<Product />} />
               <Route exact path="/CartPage" element={<CartPage />} />
             </Routes>
           </div>
