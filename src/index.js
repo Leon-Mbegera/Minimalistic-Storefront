@@ -3,8 +3,6 @@ import ReactDOM from "react-dom/client";
 import "./index.scss";
 import App from "./pages/components/App";
 import { ApolloProvider, ApolloClient, InMemoryCache } from "@apollo/client";
-// import ApolloClient from "apollo-boost";
-// import { ApolloProvider } from "react-apollo";
 import { Provider } from "react-redux";
 import store from "./redux/store";
 

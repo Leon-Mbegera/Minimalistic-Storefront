@@ -1,5 +1,3 @@
-// import { gql } from "apollo-boost";
-// import { gql } from "graphql-tag";
 import { gql } from "@apollo/client";
 
 export const queryCommand = gql`
@@ -34,4 +32,137 @@ export const queryCommand = gql`
       }
     }
   }
+`;
+
+export const queryAll = gql`
+  {
+    category(input: { title: "all" }) {
+      name
+      products {
+        id
+        name
+        inStock
+        gallery
+        description
+        category
+        attributes {
+          id
+          name
+          type
+          items {
+            displayValue
+            value
+            id
+          }
+        }
+        prices {
+          currency {
+            label
+            symbol
+          }
+          amount
+        }
+        brand
+      }
+    }
+  }
+`;
+
+export const queryClothes = gql`
+  {
+    category(input: { title: "clothes" }) {
+      name
+      products {
+        id
+        name
+        inStock
+        gallery
+        description
+        category
+        attributes {
+          id
+          name
+          type
+          items {
+            displayValue
+            value
+            id
+          }
+        }
+        prices {
+          currency {
+            label
+            symbol
+          }
+          amount
+        }
+        brand
+      }
+    }
+  }
+`;
+
+export const queryTech = gql`
+  {
+    category(input: { title: "tech" }) {
+      name
+      products {
+        id
+        name
+        inStock
+        gallery
+        description
+        category
+        attributes {
+          id
+          name
+          type
+          items {
+            displayValue
+            value
+            id
+          }
+        }
+        prices {
+          currency {
+            label
+            symbol
+          }
+          amount
+        }
+        brand
+      }
+    }
+  }
+`;
+
+export const queryProduct = gql`
+{
+  product(id: ${id}){
+    id
+      name
+      inStock
+      gallery
+      description
+      category
+      attributes {
+        id
+        name
+        type
+        items{
+          displayValue
+          value
+          id
+				}
+      }
+      prices{
+        currency{
+          label
+          symbol
+        }
+        amount
+			}
+      brand
+		}  
+	}
 `;

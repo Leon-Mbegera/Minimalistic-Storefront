@@ -13,10 +13,13 @@ import { connect } from "react-redux";
 import { queryCommand } from "../../gql/Query";
 import TestComponent from "./Test";
 
+import { Query } from "@apollo/client/react/components";
+import { allDataSuccess } from "../../redux/index";
+
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { shadedHeight: 0 };
+    this.state = { shadedHeight: 0, isLoading: true };
     this.pageRef = React.createRef();
   }
 
@@ -43,41 +46,62 @@ class App extends React.Component {
   }
 
   render() {
-    return (
-      <BrowserRouter>
-        <Navbar />
-        <div className="main-section">
-          <div className="main-section-content" ref={this.pageRef}>
-            <Routes>
-              <Route exact path="/" element={<TestComponent />} />
-              <Route
-                exact
-                path="/Categories/All"
-                element={<AllProductsListing />}
-              />
-              <Route
-                exact
-                path="/Categories/Clothes"
-                element={<ClothesListing />}
-              />
-              <Route exact path="/Categories/Tech" element={<TechListing />} />
-              <Route
-                exact
-                path="/Categories/:category/:id"
-                element={<DetailsPage />}
-              />
-              <Route exact path="/CartPage" element={<CartPage />} />
-            </Routes>
-          </div>
-          <div
-            className={
-              this.props.freezeState.freeze ? "main-section-overlay" : ""
+    if (this.state.isLoading) {
+      return (
+        <Query query={queryCommand} pollInterval={500}>
+          {({ loading, error, data }) => {
+            if (loading) return <p>loading...</p>;
+            if (data) {
+              this.props.dispatch(allDataSuccess(data.categories));
+              this.setState((prevState) => {
+                return {
+                  ...prevState,
+                  isLoading: false,
+                };
+              });
             }
-            style={{ height: `${this.state.shadedHeight}px` }}
-          ></div>
-        </div>
-      </BrowserRouter>
-    );
+            return;
+          }}
+        </Query>
+      );
+    }
+
+    if (!this.state.isLoading) {
+      return (
+        <BrowserRouter>
+          <Navbar />
+          <div className="main-section">
+            <div className="main-section-content" ref={this.pageRef}>
+              <Routes>
+                <Route exact path="/" element={<AllProductsListing />} />
+                <Route
+                  exact
+                  path="/Categories/Clothes"
+                  element={<ClothesListing />}
+                />
+                <Route
+                  exact
+                  path="/Categories/Tech"
+                  element={<TechListing />}
+                />
+                <Route
+                  exact
+                  path="/Categories/:category/:id"
+                  element={<DetailsPage />}
+                />
+                <Route exact path="/CartPage" element={<CartPage />} />
+              </Routes>
+            </div>
+            <div
+              className={
+                this.props.freezeState.freeze ? "main-section-overlay" : ""
+              }
+              style={{ height: `${this.state.shadedHeight}px` }}
+            ></div>
+          </div>
+        </BrowserRouter>
+      );
+    }
   }
 }
 

@@ -56,59 +56,6 @@ const currencyChange = (currencyOpt) => {
   };
 };
 
-// const queryAllData = () => (dispatch) => {
-//   console.log("queryAllData has run");
-//   return (
-//     <Query query={queryCommand}>
-//       {console.log("Query has been rendered")}
-//       {({ loading, error, data }) => {
-//         console.log("loading", loading);
-//         console.log("error", error);
-//         console.log("fetched data", data);
-//         if (loading) return <p>Loading...</p>;
-//         if (error) return <p>Error :( </p>;
-//         if (data) {
-//           dispatch(allDataSuccess(data.categories));
-//         }
-//       }}
-//     </Query>
-//   );
-// };
-
-// const queryAllData = () => {
-//   let response = "sosos";
-//   <Query query={queryCommand} pollInterval={500}>
-//     {({ loading, error, data }) => {
-//       console.log("loading", loading);
-//       console.log("error", error);
-//       console.log("fetched data", data);
-//       if (loading) return <p>loading...</p>;
-//       if (data) response = data;
-//     }}
-//   </Query>;
-//   return response;
-// };
-
-// let response = "one";
-// const outside = () => {
-//   return (
-//     <Query query={queryCommand} pollInterval={500}>
-//       {({ loading, error, data }) => {
-//         console.log("loading", loading);
-//         console.log("error", error);
-//         console.log("fetched data", data);
-//         if (loading) return <p>loading...</p>;
-//         if (data) response = data;
-//       }}
-//     </Query>
-//   );
-// };
-
-// const queryAllData = () => {
-//   outside();
-//   return response;
-// };
-
 export {
   ALL_DATA_REQUEST,
   ALL_DATA_SUCCESS,
@@ -126,5 +73,4 @@ export {
   currencyChange,
   freezeContent,
   unfreezeContent,
-  // queryAllData,
 };
