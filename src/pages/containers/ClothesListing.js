@@ -1,22 +1,25 @@
 import React from "react";
 import { connect } from "react-redux";
+import { allDataSuccess } from "../../redux";
 import ReusableComponent from "../../reusable/reusable";
 
 class ClothesListing extends React.Component {
+  componentDidMount() {
+    this.props.dispatch(allDataSuccess(this.props.fetched));
+  }
+
   render() {
     return (
       <>
         <section>
-          {this.props.allProducts && this.props.allProducts.data.length > 0 ? (
+          {this.props.clothes && this.props.clothes.products.length > 0 ? (
             <>
-              <div className="category-heading">
-                {this.props.allProducts.data[1].name}
-              </div>
+              <div className="category-heading">{this.props.clothes.name}</div>
               <section className="grid-container">
-                {this.props.allProducts.data[1].products.map((product) => (
+                {this.props.clothes.products.map((product) => (
                   <ReusableComponent
-                    key={product.name}
-                    category={this.props.allProducts.data[1].name}
+                    key={product.id}
+                    category={this.props.clothes.name}
                     product={product}
                     selectedCurrency={this.props.selectedCurrency}
                   />
@@ -24,7 +27,7 @@ class ClothesListing extends React.Component {
               </section>
             </>
           ) : (
-            <h5>There are no products</h5>
+            <h5>Loading...</h5>
           )}
         </section>
       </>
@@ -33,7 +36,7 @@ class ClothesListing extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-  allProducts: state.allData,
+  clothes: state.clothes,
   selectedCurrency: state.selectedCurrency,
 });
 
