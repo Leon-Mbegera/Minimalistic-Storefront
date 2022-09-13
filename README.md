@@ -1,70 +1,60 @@
-# Getting Started with Create React App
+# Minimalistic-Storefront
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- This is an online shopping mini-store. It is a multiple page application comprising of the Product Listing page, the Product Description page, the Mini-cart overlay, and the official Cart Page. Users can optionally add a product to their shopping cart from either the PLP, or the PDP. Default attributes are provided incase a user chooses to add a product to the cart directly without a preffered selection of it's available options.
+- A currency switcher is also provided to allow a user to view an item's price at their preferred currency. Amazingly, users can also view the total cost of all cart items at the same preffered currency.
+- Additionally, users can filter the displayed products by category using the different links on the navbar.
 
-## Available Scripts
+![](src/assets/tarvern.PNG)
 
-In the project directory, you can run:
+## BUILT WITH
 
-### `npm start`
+- JavaScript
+- React
+- React-Create-App
+- Redux
+- Apollo
+- ES6
+- Saas
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Getting Started
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+To run this project locally, you must have node and npm installed on your machine.
 
-### `npm test`
+# Setup
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+To set up this project on your local machine:
 
-### `npm run build`
+Navigate to the folder where you want the repository to be copied and run
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+`git clone git@github.com:Leon-Mbegera/Minimalistic-Storefront.git`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Navigate to the directory :
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+`cd Minimalistic-Storefront`
 
-### `npm run eject`
+Install project dependencies:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+`npm install`
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Then load and start the application with:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+`npm start`
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Go to http://localhost:3000/ in your browser to see the application running
 
-## Learn More
+## Author
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+👤 **Leon**
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- GitHub: [github](https://github.com/Leon-Mbegera)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/leon-mbegera)
 
-### Code Splitting
+## 🤝 Contributing
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Contributions, issues and feature requests are welcome!
 
-### Analyzing the Bundle Size
+Feel free to check the [issues page](https://github.com/Leon-Mbegera/Minimalistic-Storefront/issues/).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Show your support
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Give a ⭐️ if you like this project!
