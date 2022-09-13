@@ -10,7 +10,6 @@ import {
 } from "../../assets/logoIcon";
 import { connect } from "react-redux";
 import { currencyChange } from "../../redux";
-import { navlinkStyles } from "../../styled/NavbarElements";
 import CartOverlay from "../containers/CartOverlay";
 import { sneakQuantity } from "../../Utils/utilities";
 import { freezeContent, unfreezeContent } from "../../redux";
@@ -119,6 +118,11 @@ class Navbar extends React.Component {
     this.props.dispatch(currencyChange(option));
   };
 
+  navlinkStyles = {
+    textDecoration: "none",
+    textTransform: "uppercase",
+  };
+
   render() {
     return (
       <>
@@ -128,7 +132,7 @@ class Navbar extends React.Component {
               <div>
                 <NavLink
                   to="/"
-                  style={navlinkStyles}
+                  style={this.navlinkStyles}
                   className={({ isActive }) =>
                     isActive ? "active-navlink" : "navbar-link"
                   }
@@ -139,7 +143,7 @@ class Navbar extends React.Component {
               <div>
                 <NavLink
                   to="/Categories/Clothes"
-                  style={navlinkStyles}
+                  style={this.navlinkStyles}
                   className={({ isActive }) =>
                     isActive ? "active-navlink" : "navbar-link"
                   }
@@ -150,7 +154,7 @@ class Navbar extends React.Component {
               <div>
                 <NavLink
                   to="/Categories/Tech"
-                  style={navlinkStyles}
+                  style={this.navlinkStyles}
                   className={({ isActive }) =>
                     isActive ? "active-navlink" : "navbar-link"
                   }

@@ -121,11 +121,6 @@ class DetailsPage extends React.Component {
                                     }
                                   >
                                     <div>
-                                      {console.log(
-                                        "why",
-                                        item.value,
-                                        item.displayValue
-                                      )}
                                       {showSize(item.value, item.displayValue)}
                                     </div>
                                   </div>
