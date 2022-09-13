@@ -1,6 +1,5 @@
 import React from "react";
 import { connect } from "react-redux";
-import { allDataSuccess } from "../../redux";
 import ReusableComponent from "../../reusable/reusable";
 
 class TechListing extends React.Component {
