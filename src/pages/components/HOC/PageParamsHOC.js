@@ -1,8 +1,9 @@
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 const withPageParamsHOC = (Component) => (props) => {
   const params = useParams();
-  return <Component {...props} pageParams={params} />;
+  const navigate = useNavigate();
+  return <Component {...props} pageParams={params} navigate={navigate} />;
 };
 
 export default withPageParamsHOC;

@@ -2,7 +2,6 @@ import React from "react";
 import { addToCart } from "../../redux/index";
 import { showSize, makeIt } from "../../Utils/utilities";
 import { connect } from "react-redux";
-import withPageParamsHOC from "../components/HOC/PageParamsHOC";
 
 class DetailsPage extends React.Component {
   constructor(props) {
@@ -16,15 +15,15 @@ class DetailsPage extends React.Component {
   }
 
   componentDidMount() {
-    const selectedProduct = this.props.allData.data
-      .find((cat) => cat.name === this.props.pageParams.category)
-      ?.products.find((prod) => prod.id === this.props.pageParams.id);
     this.setState((prevState) => {
+      {
+        console.log("in proddesc", this.props);
+      }
       return {
         ...prevState,
-        product: selectedProduct,
+        product: this.props.productDetails,
         attrOptions: makeIt(
-          selectedProduct.attributes.map((attr) => {
+          this.props.productDetails.attributes.map((attr) => {
             return { [attr.name]: attr.items[0].value };
           })
         ),
@@ -57,6 +56,10 @@ class DetailsPage extends React.Component {
     );
     return shownPrice;
   };
+
+  // showSize = (value, displayValue) => {
+  //   if (value === "")
+  // }
 
   render() {
     return (
@@ -93,7 +96,7 @@ class DetailsPage extends React.Component {
             <div className="attributes">
               {this.state.product?.attributes &&
               this.state.product?.attributes.length > 0
-                ? this.state.product.attributes.map((object) => {
+                ? this.state.product?.attributes.map((object) => {
                     if (object.type === "text") {
                       return (
                         <div key={object.id} style={{ marginBottom: "22px" }}>
@@ -118,6 +121,11 @@ class DetailsPage extends React.Component {
                                     }
                                   >
                                     <div>
+                                      {console.log(
+                                        "why",
+                                        item.value,
+                                        item.displayValue
+                                      )}
                                       {showSize(item.value, item.displayValue)}
                                     </div>
                                   </div>
@@ -202,7 +210,6 @@ class DetailsPage extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-  allData: state.allData,
   selectedCurrency: state.selectedCurrency,
 });
 

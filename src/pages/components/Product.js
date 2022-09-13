@@ -7,20 +7,16 @@ import DetailsPage from "../containers/ProductDesc";
 class Product extends React.Component {
   render() {
     return (
-      console.log("all props here", this.props),
-      (
-        <Query
-          query={generateCommand(this.props.pageParams.id)}
-          pollInterval={1000}
-        >
-          {({ loading, error, data }) => {
-            console.log("fetched", data);
-            // if (data) {
-            //   return <DetailsPage productDetails={data.category} />;
-            // }
-          }}
-        </Query>
-      )
+      <Query
+        query={generateCommand(this.props.pageParams.id)}
+        pollInterval={1000}
+      >
+        {({ loading, error, data }) => {
+          if (data && data.product.inStock) {
+            return <DetailsPage productDetails={data.product} />;
+          }
+        }}
+      </Query>
     );
   }
 }

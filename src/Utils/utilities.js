@@ -15,18 +15,42 @@ export const showSize = (value, displayValue) => {
       return "M";
     case "43":
       return "L";
+    case "256G":
+      return displayValue;
     case "512G":
       return displayValue;
     case "1T":
+      return displayValue;
+    case "256GB":
+      return displayValue;
+    case "512GB":
+      return displayValue;
+    case "1TB":
       return displayValue;
     case "Yes":
       return displayValue;
     case "No":
       return displayValue;
+    case "XS":
+      return value;
+    case "S":
+      return value;
+    case "M":
+      return value;
+    case "L":
+      return value;
+    case "XL":
+      return value;
     default:
       return;
   }
 };
+
+// export const showSize = (value, displayValue) => {
+//   if (value === "40") {
+//     return "XS";
+//   }
+// };
 
 export const incrementQuantity = (prodObj, dispatch, func) => {
   dispatch(func(prodObj));
