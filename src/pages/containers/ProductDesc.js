@@ -16,9 +16,6 @@ class DetailsPage extends React.Component {
 
   componentDidMount() {
     this.setState((prevState) => {
-      {
-        console.log("in proddesc", this.props);
-      }
       return {
         ...prevState,
         product: this.props.productDetails,

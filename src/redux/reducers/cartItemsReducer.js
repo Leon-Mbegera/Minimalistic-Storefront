@@ -14,7 +14,6 @@ const cartReducer = (state = initialCartItems, action) => {
             JSON.stringify(action.payload.attrOptions)
       );
       if (check_idx === -1) {
-        console.log("check", check_idx, ...cart1, action.payload);
         return { cart: [...cart1, action.payload] };
       } else {
         const newstate = Object.assign([...cart1], {
@@ -23,7 +22,6 @@ const cartReducer = (state = initialCartItems, action) => {
             quantity: ({ ...[...cart1][check_idx] }.quantity += 1),
           },
         });
-        console.log("newstate", newstate);
         return {
           cart: [...newstate],
         };

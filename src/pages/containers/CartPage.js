@@ -52,7 +52,6 @@ class CartPage extends React.Component {
         <div className="cart-page-heading">Cart</div>
         <div className="cartPage-items-wrapper">
           {this.props.cartData.cart && this.props.cartData.cart.length > 0 ? (
-            (console.log("from", this.props.cartData.cart),
             [...this.props.cartData.cart].map((prodObj, id) => (
               <div key={`item-${id}`} className="cartPageItem">
                 <div className="left-side">
@@ -224,7 +223,7 @@ class CartPage extends React.Component {
                   </div>
                 </div>
               </div>
-            )))
+            ))
           ) : (
             <div className="cartpage-no-products">
               There's no products in your cart.
