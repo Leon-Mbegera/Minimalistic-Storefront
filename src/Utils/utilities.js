@@ -46,11 +46,9 @@ export const showSize = (value, displayValue) => {
   }
 };
 
-// export const showSize = (value, displayValue) => {
-//   if (value === "40") {
-//     return "XS";
-//   }
-// };
+export const pluralize = (count) => {
+  return count !== 1 ? "items" : "item";
+} 
 
 export const incrementQuantity = (prodObj, dispatch, func) => {
   dispatch(func(prodObj));

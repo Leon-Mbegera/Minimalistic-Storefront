@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import {
   renderPreferedPriceCurrency,
   showSize,
+  pluralize,
   incrementQuantity,
   decrementQuantity,
   getTotal,
@@ -19,7 +20,7 @@ class CartOverlay extends React.Component {
           <span className="my-bag">My Bag,</span>{" "}
           <span className="q-count">
             {getTotal(this.props.cartData.cart, this.props.selectedCurrency)[1]}{" "}
-            items
+            {pluralize(getTotal(this.props.cartData.cart, this.props.selectedCurrency)[1])}
           </span>
         </div>
         <div className="items-wrapper">
