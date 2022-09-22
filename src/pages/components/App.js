@@ -3,7 +3,6 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { connect } from "react-redux";
 import CartPage from "../containers/CartPage";
 import Navbar from "./Navbar";
-import AllProducts from "./AllProducts";
 import Clothes from "./Clothes";
 import Tech from "./Tech";
 import Product from "./Product";
@@ -44,8 +43,7 @@ class App extends React.Component {
         <div className="main-section">
           <div className="main-section-content" ref={this.pageRef}>
             <Routes>
-              <Route path="/" element={<Navigate to="/Categories/All"/>}/>
-              <Route exact path="/Categories/All" element={<AllProducts />} />
+              <Route path="/" element={<Navigate to="/Categories/Clothes"/>}/>
               <Route exact path="/Categories/Clothes" element={<Clothes />} />
               <Route exact path="/Categories/Tech" element={<Tech />} />
               <Route exact path="/:category/:id" element={<Product />} />
