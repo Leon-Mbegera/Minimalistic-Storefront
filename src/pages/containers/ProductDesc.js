@@ -2,6 +2,7 @@ import React from "react";
 import { addToCart } from "../../redux/index";
 import { showSize, makeIt } from "../../Utils/utilities";
 import { connect } from "react-redux";
+import parse from "html-react-parser";
 
 class DetailsPage extends React.Component {
   constructor(props) {
@@ -13,7 +14,7 @@ class DetailsPage extends React.Component {
       quantity: 1,
     };
   }
-
+ 
   componentDidMount() {
     this.setState((prevState) => {
       return {
@@ -184,11 +185,10 @@ class DetailsPage extends React.Component {
               </button>
             </div>
             <div className="description">
-              <div
-                dangerouslySetInnerHTML={{
-                  __html: this.state.product?.description,
-                }}
-              />
+              {console.log("not string?", this.state.product?.description)}
+              <div>
+                {parse(`${this.state.product?.description}`)}
+              </div>
             </div>
           </aside>
         </div>
