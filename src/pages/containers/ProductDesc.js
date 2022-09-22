@@ -54,10 +54,6 @@ class DetailsPage extends React.Component {
     return shownPrice;
   };
 
-  // showSize = (value, displayValue) => {
-  //   if (value === "")
-  // }
-
   render() {
     return (
       <>
@@ -178,7 +174,7 @@ class DetailsPage extends React.Component {
                   }
                 </span>
                 <span className="product-price">
-                  {this.displayedPrice(this.state.product?.prices)?.amount}
+                  {this.displayedPrice(this.state.product?.prices)?.amount.toFixed(2)}
                 </span>
               </div>
             </div>

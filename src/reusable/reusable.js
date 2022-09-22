@@ -77,7 +77,7 @@ class ReusableComponent extends React.Component {
                   renderPreferedPriceCurrency(
                     this.props.product,
                     this.props.selectedCurrency
-                  ).amount
+                  ).amount.toFixed(2)
                 }
               </span>
             </div>

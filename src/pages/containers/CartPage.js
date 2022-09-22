@@ -73,7 +73,7 @@ class CartPage extends React.Component {
                         renderPreferedPriceCurrency(
                           prodObj.product,
                           this.props.selectedCurrency
-                        )?.amount
+                        )?.amount.toFixed(2)
                       }
                     </span>
                   </div>
