@@ -1,5 +1,3 @@
-import { CURRENCY_CHANGE } from "..";
-
 const initialState = {
   symbol: "$",
   label: "USD",
