@@ -65,9 +65,9 @@ class DetailsPage extends React.Component {
                 <div
                   key={`image-${idx}`}
                   onClick={() => this.changeView(idx)}
-                  style={
+                  className={
                     this.state.currentView === idx
-                      ? { border: "1px solid #5ECE7B" }
+                      ? "selected-img"
                       : null
                   }
                 >
@@ -93,7 +93,7 @@ class DetailsPage extends React.Component {
                 ? this.state.product?.attributes.map((object) => {
                     if (object.type === "text") {
                       return (
-                        <div key={object.id} style={{ marginBottom: "22px" }}>
+                        <div key={object.id}>
                           <p className="attributes-size">{object.name}:</p>
                           <div className="attributes-size-div">
                             {object.items && object.items.length > 0
@@ -106,7 +106,6 @@ class DetailsPage extends React.Component {
                                         ? "choice"
                                         : "size-box"
                                     }
-                                    style={{ cursor: "pointer" }}
                                     onClick={() =>
                                       this.changeAttrOpt(
                                         object.name,
@@ -133,15 +132,11 @@ class DetailsPage extends React.Component {
                               ? object.items.map((item) => (
                                   <div
                                     key={item.id}
-                                    className="parent-box"
-                                    style={
+                                    className={
                                       item.value ===
                                       this.state.attrOptions[object.name]
-                                        ? {
-                                            border: "1px solid #5ECE7B",
-                                            cursor: "pointer",
-                                          }
-                                        : { cursor: "pointer" }
+                                        ? "selected-parent-box"
+                                        : "parent-box"
                                     }
                                     onClick={() =>
                                       this.changeAttrOpt(

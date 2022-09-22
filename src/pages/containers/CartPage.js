@@ -140,12 +140,11 @@ class CartPage extends React.Component {
                                     ? object.items.map((item) => (
                                         <div
                                           key={item.id}
-                                          className="parent-box"
-                                          style={
+                                          className={
                                             item.value ===
                                             prodObj.attrOptions[object.name]
-                                              ? { border: "1px solid #5ECE7B" }
-                                              : null
+                                              ? "selected-parent-box"
+                                              : "parent-box"
                                           }
                                         >
                                           <div
@@ -181,7 +180,7 @@ class CartPage extends React.Component {
                       <span className="x">{longX}</span>
                       <span className="y">{longY}</span>
                     </div>
-                    <div className="count" style={{ cursor: "default" }}>
+                    <div className="count">
                       <span>{prodObj.quantity}</span>
                     </div>
                     <div

@@ -113,12 +113,11 @@ class CartOverlay extends React.Component {
                                     ? object.items.map((item) => (
                                         <div
                                           key={item.id}
-                                          className="parent-box"
-                                          style={
+                                          className={
                                             item.value ===
                                             prodObj.attrOptions[object.name]
-                                              ? { border: "1px solid #5ECE7B" }
-                                              : null
+                                              ? "selected-parent-box"
+                                              : "parent-box"
                                           }
                                         >
                                           <div
@@ -171,7 +170,7 @@ class CartOverlay extends React.Component {
               </div>
             ))
           ) : (
-            <div style={{ marginBlock: "20px" }}>
+            <div className="no-items">
               There's no product in your cart
             </div>
           )}
@@ -195,7 +194,6 @@ class CartOverlay extends React.Component {
             <Link
               className="view-bag"
               to="/CartPage"
-              style={{ textDecoration: "none", width: "140px" }}
               onClick={() => this.props.dispatch(unfreezeContent())}
             >
               View Bag

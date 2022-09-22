@@ -118,11 +118,6 @@ class Navbar extends React.Component {
     this.props.dispatch(currencyChange(option));
   };
 
-  navlinkStyles = {
-    textDecoration: "none",
-    textTransform: "uppercase",
-  };
-
   render() {
     return (
       <>
@@ -132,7 +127,6 @@ class Navbar extends React.Component {
               <div>
                 <NavLink
                   to="/"
-                  style={this.navlinkStyles}
                   className={({ isActive }) =>
                     isActive ? "active-navlink" : "navbar-link"
                   }
@@ -143,7 +137,6 @@ class Navbar extends React.Component {
               <div>
                 <NavLink
                   to="/Categories/Clothes"
-                  style={this.navlinkStyles}
                   className={({ isActive }) =>
                     isActive ? "active-navlink" : "navbar-link"
                   }
@@ -154,7 +147,6 @@ class Navbar extends React.Component {
               <div>
                 <NavLink
                   to="/Categories/Tech"
-                  style={this.navlinkStyles}
                   className={({ isActive }) =>
                     isActive ? "active-navlink" : "navbar-link"
                   }

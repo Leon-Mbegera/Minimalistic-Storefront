@@ -57,6 +57,8 @@ body {
 .navbar-link {
   @extend .navlink-font-family-and-weight;
   color: $dark-text;
+  text-decoration: none;
+  text-transform: uppercase;
 }
 
 .active-navlink {
@@ -64,6 +66,8 @@ body {
   color: $active-link-color;
   padding: 12px 15px 34px 15px;
   border-bottom: 2px solid $active-link-color;
+  text-decoration: none;
+  text-transform: uppercase;
 }
 
 .main-section {
@@ -365,6 +369,10 @@ body {
           box-sizing: border-box;
         }
       }
+      .selected-parent-box {
+        @extend .parent-box;
+        border: 1px solid $active-link-color;
+      }
     }
   }
 }
@@ -407,6 +415,10 @@ body {
   height: 418px;
   margin-bottom: 100px;
   padding: 15px;
+  .grid-item-Link {
+    text-decoration: none;
+    color: $dark-text;
+  }
   &:hover {
     box-shadow: 0px 4px 35px rgba(168, 172, 176, 0.19);
     cursor: pointer;
@@ -530,6 +542,9 @@ body {
       object-fit: fill;
     }
   }
+  .selected-img {
+    border: 1px solid $active-link-color;
+  }
 }
 
 .bigger-image {
@@ -587,12 +602,18 @@ body {
       box-sizing: border-box;
       margin-right: 12px;
       border: 1px solid $dark-text;
+      &:hover {
+        cursor: pointer;
+      }
     }
     .choice {
       @extend .size-box;
       border: none;
       color: $white;
       background-color: $dark-text;
+      &:hover {
+        cursor: pointer;
+      }
     }
   }
 
@@ -607,12 +628,18 @@ body {
       justify-content: center;
       box-sizing: border-box;
       margin-right: 5px;
+      &:hover {
+        cursor: pointer;
+      }
       .swatch-box {
         width: 32px;
         height: 32px;
         box-sizing: border-box;
       }
-
+    }
+    .selected-parent-box {
+      @extend .parent-box;
+      border: 1px solid $active-link-color
     }
   }
 }
@@ -746,11 +773,14 @@ body {
     height: 43px;
     border-radius: 0%;
   }
+
   .view-bag {
+    width: 140px;
     font-family: $Raleway;
     font-style: normal;
     font-weight: 600;
     font-size: 14px;
+    text-decoration: none;
     text-transform: uppercase;
     color: $dark-text;
     border-left: 2px solid $dark-text;
@@ -831,6 +861,9 @@ body {
         .count {
           @extend .increment;
           border: none;
+          &:hover {
+            cursor: default;
+          }
           span {
             position: absolute;
             top: 10%;
@@ -955,6 +988,10 @@ body {
           box-sizing: border-box;
         }
       }
+      .selected-parent-box {
+        @extend .parent-box;
+        border: 1px solid $active-link-color;
+      }
     }
   }
 }
@@ -1053,6 +1090,10 @@ body {
   font-style: normal;
   color: $dark-text;
   margin-block-end: 35px;
+}
+
+.no-items {
+  margin-block: 20px;
 }
 
 
