@@ -124,6 +124,16 @@ class Navbar extends React.Component {
         <nav className="navbar">
           <div className="navbar-div">
             <div className="navbar-links">
+            <div>
+                <NavLink
+                  to="/All"
+                  className={({ isActive }) =>
+                    isActive ? "active-navlink" : "navbar-link"
+                  }
+                >
+                  All
+                </NavLink>
+              </div>
               <div>
                 <NavLink
                   to="/Clothes"
