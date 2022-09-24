@@ -2,10 +2,14 @@ const initialCartItems = {
   cart: [],
 };
 
-const cartReducer = (state = initialCartItems, action) => {
+const extract = localStorage.getItem("savedItems");
+const storage = JSON.parse(extract);
+
+const cartReducer = (state = storage ? storage : initialCartItems, action) => {
   switch (action.type) {
     case "ADD_TO_CART":
       const cart1 = [...state.cart];
+      console.log("cart1", cart1);
       const check_prod = action.payload.product;
       const check_idx = cart1.findIndex(
         ({ product, attrOptions }) =>
@@ -14,6 +18,7 @@ const cartReducer = (state = initialCartItems, action) => {
             JSON.stringify(action.payload.attrOptions)
       );
       if (check_idx === -1) {
+        localStorage.setItem("savedItems", JSON.stringify({ cart: [...cart1, action.payload] }));
         return { cart: [...cart1, action.payload] };
       } else {
         const newstate = Object.assign([...cart1], {
@@ -22,6 +27,9 @@ const cartReducer = (state = initialCartItems, action) => {
             quantity: ({ ...[...cart1][check_idx] }.quantity += 1),
           },
         });
+        localStorage.setItem("savedItems", JSON.stringify({
+          cart: [...newstate],
+        }));
         return {
           cart: [...newstate],
         };
@@ -41,11 +49,17 @@ const cartReducer = (state = initialCartItems, action) => {
             quantity: ({ ...[...cart][prodObjIndex] }.quantity -= 1),
           },
         });
+        localStorage.setItem("savedItems", JSON.stringify({
+          cart: [...newRemState],
+        }));
         return {
           cart: [...newRemState],
         };
       } else {
         cart.splice(prodObjIndex, 1);
+        localStorage.setItem("savedItems", JSON.stringify({
+          cart: [...cart],
+        }));
         return {
           cart: [...cart],
         };
