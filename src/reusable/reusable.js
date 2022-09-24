@@ -82,6 +82,11 @@ class ReusableComponent extends React.Component {
               </span>
             </div>
           </div>
+          <div
+          className={!this.props.product.inStock ? "out-of-stock" : "inStock"}
+        >
+          <p>out of stock</p>
+        </div>
         </Link>
         <div
           className="add-to-cart"
@@ -95,11 +100,6 @@ class ReusableComponent extends React.Component {
           <span className="white-cart">{whiteCart}</span>
           <span className="left-white-wheel">{whiteWheel}</span>
           <span className="right-white-wheel">{whiteWheel}</span>
-        </div>
-        <div
-          className={!this.props.product.inStock ? "out-of-stock" : "inStock"}
-        >
-          <p>out of stock</p>
         </div>
       </div>
     );

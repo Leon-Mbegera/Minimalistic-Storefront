@@ -12,7 +12,7 @@ class Product extends React.Component {
         pollInterval={1000}
       >
         {({ loading, error, data }) => {
-          if (data && data.product.inStock) {
+          if (data) {
             return <DetailsPage productDetails={data.product} />;
           }
         }}
