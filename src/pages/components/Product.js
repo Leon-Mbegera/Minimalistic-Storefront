@@ -11,7 +11,7 @@ class Product extends React.Component {
         query={generateCommand(this.props.pageParams.id)}
         pollInterval={1000}
       >
-        {({ loading, error, data }) => {
+        {({ data }) => {
           if (data) {
             return <DetailsPage productDetails={data.product} />;
           }

@@ -175,12 +175,15 @@ class DetailsPage extends React.Component {
               </div>
             </div>
             <div className="action-button">
-              <button type="button" onClick={this.pushProduct}>
+              {this.state.product?.inStock ? (
+                <button type="button" onClick={this.pushProduct} className="available">
                 Add to Cart
               </button>
+              ) : (
+                <button type="button" className="sold-out">sold out</button>
+              )} 
             </div>
             <div className="description">
-              {console.log("not string?", this.state.product?.description)}
               <div>
                 {parse(`${this.state.product?.description}`)}
               </div>

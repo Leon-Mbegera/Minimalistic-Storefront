@@ -678,6 +678,13 @@ body {
       cursor: pointer;
     }
   }
+  .sold-out {
+    @extend button;
+    background-color: $grey-text;
+    &:hover {
+      cursor: default;
+    }
+  }
 }
 
 .description {
