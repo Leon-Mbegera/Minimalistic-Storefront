@@ -1,5 +1,22 @@
 import { gql } from "@apollo/client";
 
+export const categories = gql`
+{
+  categories {
+    name
+	}
+}
+`;
+
+export const currencies = gql`
+{
+  currencies{
+    label
+    symbol
+	}
+}
+`;
+
 export const queryAll = gql`
   {
     category(input: { title: "all" }) {
