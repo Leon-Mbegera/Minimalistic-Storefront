@@ -8,9 +8,7 @@ class Navigation extends React.Component {
     return (
       <Query query={fetchNavs} pollInterval={1000}>
         {({ data }) => {
-            console.log("navs", data);
           if (data) {
-            console.log("navs", data)
             return <Navbar navlinks={data.categories}/>;
           }
         }}
