@@ -124,36 +124,18 @@ class Navbar extends React.Component {
         <nav className="navbar">
           <div className="navbar-div">
             <div className="navbar-links">
-            <div>
-                <NavLink
-                  to="/All"
-                  className={({ isActive }) =>
-                    isActive ? "active-navlink" : "navbar-link"
-                  }
-                >
-                  All
-                </NavLink>
-              </div>
-              <div>
-                <NavLink
-                  to="/Clothes"
-                  className={({ isActive }) =>
-                    isActive ? "active-navlink" : "navbar-link"
-                  }
-                >
-                  Clothes
-                </NavLink>
-              </div>
-              <div>
-                <NavLink
-                  to="/Tech"
-                  className={({ isActive }) =>
-                    isActive ? "active-navlink" : "navbar-link"
-                  }
-                >
-                  Tech
-                </NavLink>
-              </div>
+              {this.props.navlinks.map((link) => (
+                <div>
+                  <NavLink
+                    to={`/${link.name}`}
+                    className={({ isActive }) =>
+                      isActive ? "active-navlink" : "navbar-link"
+                    }
+                  >
+                    {link.name}
+                  </NavLink>
+                </div>
+              ))}
             </div>
             <div className="logo">
               <span className="main-logo">

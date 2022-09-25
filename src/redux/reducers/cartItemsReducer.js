@@ -9,7 +9,6 @@ const cartReducer = (state = storage ? storage : initialCartItems, action) => {
   switch (action.type) {
     case "ADD_TO_CART":
       const cart1 = [...state.cart];
-      console.log("cart1", cart1);
       const check_prod = action.payload.product;
       const check_idx = cart1.findIndex(
         ({ product, attrOptions }) =>

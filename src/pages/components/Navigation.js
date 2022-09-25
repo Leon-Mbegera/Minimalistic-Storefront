@@ -10,7 +10,8 @@ class Navigation extends React.Component {
         {({ data }) => {
             console.log("navs", data);
           if (data) {
-            return <Navbar/>;
+            console.log("navs", data)
+            return <Navbar navlinks={data.categories}/>;
           }
         }}
       </Query>
