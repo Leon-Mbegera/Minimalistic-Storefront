@@ -125,7 +125,7 @@ class Navbar extends React.Component {
           <div className="navbar-div">
             <div className="navbar-links">
               {this.props.navlinks.map((link) => (
-                <div>
+                <div key={link.name}>
                   <NavLink
                     to={`/${link.name}`}
                     className={({ isActive }) =>

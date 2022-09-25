@@ -46,7 +46,7 @@ class App extends React.Component {
         <div className="main-section">
           <div className="main-section-content" ref={this.pageRef}>
             <Routes>
-              {/* <Route path="/" element={<Navigate to="/All"/>}/> */}
+              <Route path="/" element={<Navigate to="/all"/>}/>
               <Route exact path="/:categoryName" element={<Categories />}/>
               <Route exact path="/:category/:id" element={<Product />} />
               <Route exact path="/CartPage" element={<CartPage />} />

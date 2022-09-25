@@ -1,6 +1,6 @@
 import React from "react";
 import { Query } from "@apollo/client/react/components";
-import { generateCommand } from "../../gql/Query";
+import { fetchProduct } from "../../gql/Query";
 import withPageParamsHOC from "./HOC/PageParamsHOC";
 import DetailsPage from "../containers/ProductDesc";
 
@@ -8,7 +8,7 @@ class Product extends React.Component {
   render() {
     return (
       <Query
-        query={generateCommand(this.props.pageParams.id)}
+        query={fetchProduct(this.props.pageParams.id)}
         pollInterval={1000}
       >
         {({ data }) => {
