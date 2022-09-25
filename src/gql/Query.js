@@ -1,6 +1,6 @@
 import { gql } from "@apollo/client";
 
-export const categories = gql`
+export const fetchNavs = gql`
 {
   categories {
     name
@@ -118,6 +118,42 @@ export const queryTech = gql`
     }
   }
 `;
+
+export const fetchCategory  = (categoryName) => {
+  return gql`
+  {
+    category(input: { title: "${categoryName}" }) {
+      name
+      products {
+        id
+        name
+        inStock
+        gallery
+        description
+        category
+        attributes {
+          id
+          name
+          type
+          items {
+            displayValue
+            value
+            id
+          }
+        }
+        prices {
+          currency {
+            label
+            symbol
+          }
+          amount
+        }
+        brand
+      }
+    }
+  }
+  `;
+}
 
 export const generateCommand = (productId) => {
   return gql`
