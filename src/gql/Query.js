@@ -1,15 +1,10 @@
 import { gql } from "@apollo/client";
 
-export const fetchNavs = gql`
+export const fetchNavsAndCurrencies = gql`
 {
   categories {
     name
 	}
-}
-`;
-
-export const fetchCurrencies = gql`
-{
   currencies{
     label
     symbol

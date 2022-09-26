@@ -14,29 +14,6 @@ import CartOverlay from "../containers/CartOverlay";
 import { sneakQuantity } from "../../Utils/utilities";
 import { freezeContent, unfreezeContent } from "../../redux";
 
-const currencyOptions = [
-  {
-    symbol: "$",
-    label: "USD",
-  },
-  {
-    symbol: "£",
-    label: "GBP",
-  },
-  {
-    symbol: "A$",
-    label: "AUD",
-  },
-  {
-    symbol: "¥",
-    label: "JPY",
-  },
-  {
-    symbol: "₽",
-    label: "RUB",
-  },
-];
-
 class Navbar extends React.Component {
   constructor(props) {
     super(props);
@@ -175,7 +152,7 @@ class Navbar extends React.Component {
                 </button>
                 {this.state.isDropdownOpen ? (
                   <ul className="dropdown-menu">
-                    {currencyOptions.map((opt) => {
+                    {this.props.currencies.map((opt) => {
                       return (
                         <li
                           key={opt.label}
