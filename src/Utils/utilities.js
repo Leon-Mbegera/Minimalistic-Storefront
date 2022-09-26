@@ -6,7 +6,7 @@ export const renderPreferedPriceCurrency = (product, selectedCurrency) => {
 };
 
 export const showSize = (value, displayValue) => {
-  // console.log("value and displayValue", value, displayValue)
+  console.log("value and displayValue", value, displayValue)
   switch (value) {
     case "40":
       return "XS";

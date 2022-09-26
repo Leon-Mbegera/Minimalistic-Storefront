@@ -8,26 +8,30 @@ class DetailsPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      product: null,
+      product: this.props.productDetails,
       currentView: 0,
-      attrOptions: {},
       quantity: 1,
+      attrOptions: this.props.productDetails.attributes.reduce((attributes, attr) => {
+        attributes[attr.name] = attr.items[0].value
+        return attributes;
+      }, {}),
     };
   }
  
-  componentDidMount() {
-    this.setState((prevState) => {
-      return {
-        ...prevState,
-        product: this.props.productDetails,
-        attrOptions: makeIt(
-          this.props.productDetails.attributes.map((attr) => {
-            return { [attr.name]: attr.items[0].value };
-          })
-        ),
-      };
-    });
-  }
+  // componentDidMount() {
+  //   this.setState((prevState) => {
+  //     return {
+  //       ...prevState,
+  //       // product: this.props.productDetails,
+  //       // attrOptions: makeIt(
+  //       //   this.props.productDetails.attributes.map((attr) => {
+  //       //     return { [attr.name]: attr.items[0].value };
+  //       //   })
+  //       // ),
+       
+  //     };
+  //   });
+  // }
 
   pushProduct = () => {
     this.props.dispatch(addToCart({ ...this.state }));
@@ -98,6 +102,8 @@ class DetailsPage extends React.Component {
                           <div className="attributes-size-div">
                             {object.items && object.items.length > 0
                               ? object.items.map((item) => (
+                                <>
+                                  {console.log("object", object)}
                                   <div
                                     key={item.id}
                                     className={
@@ -117,6 +123,7 @@ class DetailsPage extends React.Component {
                                       {showSize(item.value, item.displayValue)}
                                     </div>
                                   </div>
+                                </>
                                 ))
                               : null}
                           </div>

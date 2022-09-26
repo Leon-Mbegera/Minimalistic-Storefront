@@ -6,7 +6,7 @@ import Navbar from "./Navbar";
 class Navigation extends React.Component {
   render() {
     return (
-      <Query query={fetchNavs} pollInterval={1000}>
+      <Query query={fetchNavs}>
         {({ data }) => {
           if (data) {
             return <Navbar navlinks={data.categories}/>;

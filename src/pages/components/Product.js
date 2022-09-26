@@ -9,10 +9,10 @@ class Product extends React.Component {
     return (
       <Query
         query={fetchProduct(this.props.pageParams.id)}
-        pollInterval={1000}
-      >
+        >
         {({ data }) => {
           if (data) {
+            console.log("at Q", data.product)
             return <DetailsPage productDetails={data.product} />;
           }
         }}
