@@ -1,6 +1,6 @@
 import React from "react";
 import { addToCart } from "../../redux/index";
-import { showSize, makeIt } from "../../Utils/utilities";
+import { showSize, } from "../../Utils/utilities";
 import { connect } from "react-redux";
 import parse from "html-react-parser";
 
@@ -17,21 +17,6 @@ class DetailsPage extends React.Component {
       }, {}),
     };
   }
- 
-  // componentDidMount() {
-  //   this.setState((prevState) => {
-  //     return {
-  //       ...prevState,
-  //       // product: this.props.productDetails,
-  //       // attrOptions: makeIt(
-  //       //   this.props.productDetails.attributes.map((attr) => {
-  //       //     return { [attr.name]: attr.items[0].value };
-  //       //   })
-  //       // ),
-       
-  //     };
-  //   });
-  // }
 
   pushProduct = () => {
     this.props.dispatch(addToCart({ ...this.state }));
@@ -103,7 +88,6 @@ class DetailsPage extends React.Component {
                             {object.items && object.items.length > 0
                               ? object.items.map((item) => (
                                 <>
-                                  {console.log("object", object)}
                                   <div
                                     key={item.id}
                                     className={

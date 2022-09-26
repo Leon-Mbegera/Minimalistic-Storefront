@@ -12,7 +12,6 @@ class Product extends React.Component {
         >
         {({ data }) => {
           if (data) {
-            console.log("at Q", data.product)
             return <DetailsPage productDetails={data.product} />;
           }
         }}
