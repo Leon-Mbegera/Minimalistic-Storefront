@@ -87,7 +87,6 @@ class DetailsPage extends React.Component {
                           <div className="attributes-size-div">
                             {object.items && object.items.length > 0
                               ? object.items.map((item) => (
-                                <>
                                   <div
                                     key={item.id}
                                     className={
@@ -107,7 +106,6 @@ class DetailsPage extends React.Component {
                                       {showSize(item.value, item.displayValue)}
                                     </div>
                                   </div>
-                                </>
                                 ))
                               : null}
                           </div>
