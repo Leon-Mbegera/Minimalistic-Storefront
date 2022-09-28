@@ -1,6 +1,4 @@
-import { gql } from "@apollo/client";
-
-export const fetchNavsAndCurrencies = gql`
+export const fetchNavsAndCurrencies = `
 {
   categories {
     name
@@ -12,44 +10,45 @@ export const fetchNavsAndCurrencies = gql`
 }
 `;
 
-export const fetchCategory  = (categoryName) => {
-  return gql`
-  {
-    category(input: { title: "${categoryName}" }) {
-      name
-      products {
-        id
+export const fetchCategory = (categoryName) => {
+  return (`
+    {
+      category(input: { title: "${categoryName}" }) {
         name
-        inStock
-        gallery
-        description
-        category
-        attributes {
+        products {
           id
           name
-          type
-          items {
-            displayValue
-            value
+          inStock
+          gallery
+          description
+          category
+          attributes {
             id
+            name
+            type
+            items {
+              displayValue
+              value
+              id
+            }
           }
-        }
-        prices {
-          currency {
-            label
-            symbol
+          prices {
+            currency {
+              label
+              symbol
+            }
+            amount
           }
-          amount
+          brand
         }
-        brand
       }
     }
-  }
-  `;
+    `
+  )
 }
 
 export const fetchProduct = (productId) => {
-  return gql`
+  return (`
     {
       product(id: "${productId}") {
         id
@@ -78,5 +77,6 @@ export const fetchProduct = (productId) => {
         brand
       }
     }
-  `;
+  `
+  )
 };

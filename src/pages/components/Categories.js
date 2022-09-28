@@ -1,5 +1,5 @@
 import React from "react";
-import { Query } from "@apollo/client/react/components";
+import { Query } from "urql";
 import { fetchCategory } from "../../gql/Query";
 import withPageParamsHOC from "./HOC/PageParamsHOC";
 import Category from "../containers/Category";

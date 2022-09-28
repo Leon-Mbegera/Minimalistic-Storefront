@@ -1,5 +1,5 @@
 import React from "react";
-import { Query } from "@apollo/client/react/components";
+import { Query } from "urql";
 import { fetchNavsAndCurrencies } from "../../gql/Query";
 import Navbar from "./Navbar";
 

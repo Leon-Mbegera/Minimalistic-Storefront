@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@apollo/client": "^3.6.9",
     "@reduxjs/toolkit": "^1.8.3",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
@@ -16,6 +15,7 @@
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
     "sass": "^1.54.4",
+    "urql": "^3.0.3",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
