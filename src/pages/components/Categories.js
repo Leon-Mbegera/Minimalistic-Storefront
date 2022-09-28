@@ -9,7 +9,7 @@ class Categories extends React.Component {
   render() {
     if (this.props.pageParams.categoryName) {
       return (
-        <Query query={fetchCategory(this.props.pageParams.categoryName)}>
+        <Query query={fetchCategory(this.props.pageParams.categoryName.toLowerCase())}>
           {({ data }) => {
             if (data) {
               return <Category catProducts={data.category} />;
